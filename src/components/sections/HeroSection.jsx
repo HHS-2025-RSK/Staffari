@@ -10,18 +10,19 @@ export default function HeroSection() {
     <section
       className="
   relative overflow-hidden
-  py-16 md:py-20
+  pb-16 md:pb-20
   bg-white
   border-l border-r border-b border-mutedOlive/25
   rounded-bl-[4rem] rounded-br-[4rem]
   mx-10
+  -mt-16
 "
     >
       <Container>
         <div className="grid items-center gap-10 md:grid-cols-2">
           <div>
             <Pill>Hiring shouldn’t slow hospitality down.</Pill>
-            <h1 className="mt-5 font-display text-4xl font-bold tracking-tight text-deepJungleGreen md:text-5xl">
+            <h1 className="mt-5 font-display text-3xl font-bold tracking-tight text-deepJungleGreen md:text-4xl">
               Hospitality doesn’t wait. Hiring shouldn’t either.
             </h1>
             <p className="mt-4 max-w-xl font-body text-[16px] leading-7 text-charcoalBlack/75">

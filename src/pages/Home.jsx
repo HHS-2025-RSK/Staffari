@@ -11,6 +11,8 @@ import FAQSection from "../components/sections/FAQSection";
 import DownloadSection from "../components/sections/DownloadSection";
 import FooterSection from "../components/sections/FooterSection";
 import ArcSteps, { ArcStep } from "../components/ArcSteps";
+import { Helmet } from "react-helmet-async";
+import MetaHeroBlock from "../components/MetaHeroBlock";
 
 export default function Home() {
   // const [faqOpen, setFaqOpen] = useState(0);
@@ -83,10 +85,7 @@ export default function Home() {
       <Navbar />
 
       <main className="overflow-hidden bg-cardBg">
-        <div className="sr-only" aria-hidden="true">
-          <h1>{metaTitle}</h1>
-          <p>{metaDescription}</p>
-        </div>
+        <MetaHeroBlock title={metaTitle} description={metaDescription} />
         <HeroSection />
         <ArcSteps railHeight={1300}>
           <ArcStep id="what">
