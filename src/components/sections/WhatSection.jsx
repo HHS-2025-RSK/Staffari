@@ -3,7 +3,7 @@ import SectionTitle from "../ui/SectionTitle";
 
 export default function WhatCard() {
   return (
-    <div className="rounded-3xl border border-mutedOlive/20 bg-white shadow-soft p-6">
+    <div className="w-full max-w-5xl rounded-3xl border border-mutedOlive/20 bg-white shadow-soft p-6">
       <SectionTitle
         eyebrow="What is Staffari"
         title="Hospitality hiring, simplified"

@@ -29,6 +29,7 @@
     "@mui/icons-material": "^7.3.7",
     "@mui/material": "^7.3.7",
     "@studio-freight/react-lenis": "^0.0.47",
+    "framer-motion": "^12.29.2",
     "lucide-react": "^0.563.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",

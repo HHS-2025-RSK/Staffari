@@ -14,7 +14,7 @@ export default function Navbar() {
           STAFFARI
         </a>
 
-        <nav className="hidden items-center gap-6 md:flex">
+        {/* <nav className="hidden items-center gap-6 md:flex">
           <a
             className="font-body text-[14px] font-semibold text-mutedOlive hover:text-deepJungleGreen"
             href="#what"
@@ -45,13 +45,13 @@ export default function Navbar() {
           >
             Newsletter
           </a>
-          {/* <a
+          <a
             className="font-body text-[14px] font-semibold text-mutedOlive hover:text-deepJungleGreen"
             href="#faq"
           >
             FAQ
-          </a> */}
-        </nav>
+          </a> 
+        </nav> */}
 
         <div className="flex items-center gap-3">
           <PrimaryButton as="a" href="#download">
