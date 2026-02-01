@@ -22,6 +22,18 @@ export default {
       boxShadow: {
         soft: "0 12px 30px rgba(15, 61, 52, 0.08)",
       },
+      perspective: {
+        1000: "1200px",
+      },
+      rotate: {
+        "y-180": "rotateY(180deg)",
+      },
+      transformStyle: {
+        "preserve-3d": "preserve-3d",
+      },
+      backface: {
+        hidden: "backface-visibility: hidden",
+      },
     },
   },
   plugins: [],
