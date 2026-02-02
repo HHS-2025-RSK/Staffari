@@ -211,7 +211,7 @@ export default function ArcSteps({
                         {String(s.number).padStart(2, "0")}
                       </span>
                     </div>
-                    <div className="sm:mt-12">
+                    <div>
                       {s.titleNode ? (
                         <div className="mb-3">{s.titleNode}</div>
                       ) : null}

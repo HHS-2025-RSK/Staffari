@@ -1,0 +1,341 @@
+/* ProblemSection.css */
+
+.problem-section {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.problem-wrapper {
+  width: 100%;
+  max-width: 80rem; /* ~max-w-5xl */
+  margin: 0 auto;
+}
+
+/* Card container */
+.problem-card {
+  position: relative;
+  width: 100%;
+  min-height: 350px;
+  overflow: hidden;
+  border-radius: 1.5rem;
+  border: 1px solid rgba(136, 149, 96, 0.2); /* mutedOlive/20 – tweak as needed */
+  background-color: #ffffff;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08); /* similar to shadow-soft */
+  transition: box-shadow 0.3s ease;
+  perspective: 1200px;
+}
+
+.problem-card:hover {
+  box-shadow: 0 20px 45px rgba(15, 23, 42, 0.16);
+}
+
+/* Flip inner */
+.problem-card-inner {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  transition: transform 0.7s ease-out;
+  transform-style: preserve-3d;
+}
+
+/* Hover flip only on devices that support hover */
+@media (hover: hover) and (pointer: fine) {
+  .problem-card:hover .problem-card-inner {
+    transform: rotateY(180deg);
+  }
+}
+
+/* Sides */
+.problem-card-front,
+.problem-card-back {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0.75rem 0.75rem; /* default small screens */
+  font-size: 0.875rem; /* text-sm */
+  line-height: 1.5;
+}
+
+/* Back side rotates */
+.problem-card-back {
+  transform: rotateY(180deg);
+  justify-content: flex-start;
+}
+
+/* Front spacing (replaces pt-[320px] etc.) */
+.problem-title-wrapper {
+  padding-top: 320px;
+}
+
+/* Side note block */
+.problem-side-note-wrapper {
+  margin-top: 1rem;
+}
+
+/* Icon sizes responsive */
+.problem-side-note-icon {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+/* Bullet wrapper on back side */
+.problem-bullet-wrapper {
+  flex: 1;
+  vertical-align: middle;
+}
+
+/* Tap hint text */
+.problem-tap-hint {
+  margin-top: 1rem;
+  text-align: center;
+  font-size: 0.75rem;
+  color: rgba(15, 23, 42, 0.5); /* text-charcoalBlack/50 approx */
+}
+
+/* Hide hint on hover-capable devices (mirrors [@media(hover:hover)_and_(pointer:fine)]:hidden) */
+@media (hover: hover) and (pointer: fine) {
+  .problem-tap-hint {
+    display: none;
+  }
+}
+
+/* Extra responsiveness: tweak min-height by breakpoint */
+
+@media (min-width: 340px) {
+  .problem-card {
+    min-height: 580px;
+  }
+
+  .problem-title-wrapper {
+    padding-top: 560px;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .problem-side-note-wrapper {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+
+@media (min-width: 355px) {
+  .problem-card {
+    min-height: 430px;
+  }
+
+  .problem-title-wrapper {
+    padding-top: 400px;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .problem-side-note-wrapper {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+
+@media (min-width: 400px) {
+  .problem-card {
+    min-height: 400px;
+  }
+
+  .problem-title-wrapper {
+    padding-top: 380px;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .problem-side-note-wrapper {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+
+@media (min-width: 515px) {
+  .problem-card {
+    min-height: 370px;
+  }
+
+  .problem-title-wrapper {
+    padding-top: 350px;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .problem-side-note-wrapper {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+
+@media (min-width: 561px) {
+  .problem-card {
+    min-height: 350px;
+  }
+
+  .problem-title-wrapper {
+    padding-top: 330px;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .problem-side-note-wrapper {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+
+@media (min-width: 595px) {
+  .problem-card {
+    min-height: 310px;
+  }
+
+  .problem-title-wrapper {
+    padding-top: 290px;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .problem-side-note-wrapper {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+
+@media (min-width: 640px) {
+  .problem-card {
+    min-height: 310px;
+  }
+  .problem-side-note-icon {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+
+  .problem-title-wrapper {
+    padding-top: 280px;
+  }
+
+  .problem-card-front,
+  .problem-card-back {
+    padding: 1rem 1rem;
+    font-size: 1rem; /* sm:text-base */
+  }
+}
+
+@media (min-width: 768px) {
+  .problem-card {
+    min-height: 510px;
+  }
+
+  .problem-title-wrapper {
+    padding-top: 380px;
+  }
+
+  .problem-card-front,
+  .problem-card-back {
+    padding: 4rem 10px; /* md:py-16 px-8-ish */
+    font-size: 0.9375rem; /* md:text-[15px] */
+  }
+}
+
+@media (min-width: 776px) {
+  .problem-card {
+    min-height: 470px;
+  }
+
+  .problem-title-wrapper {
+    padding-top: 350px;
+  }
+
+  .problem-card-front,
+  .problem-card-back {
+    padding: 4rem 10px; /* md:py-16 px-8-ish */
+    font-size: 0.9375rem; /* md:text-[15px] */
+  }
+}
+
+@media (min-width: 781px) {
+  .problem-card {
+    min-height: 400px;
+  }
+
+  .problem-title-wrapper {
+    padding-top: 280px;
+  }
+
+  .problem-card-front,
+  .problem-card-back {
+    padding: 4rem 10px; /* md:py-16 px-8-ish */
+    font-size: 0.9375rem; /* md:text-[15px] */
+  }
+}
+
+@media (min-width: 935px) {
+  .problem-card {
+    min-height: 350px;
+  }
+
+  .problem-title-wrapper {
+    padding-top: 230px;
+  }
+
+  .problem-card-front,
+  .problem-card-back {
+    padding: 4rem 10px; /* md:py-16 px-8-ish */
+    font-size: 0.9375rem; /* md:text-[15px] */
+    vertical-align: middle;
+  }
+}
+
+@media (min-width: 1024px) {
+  .problem-card {
+    min-height: 350px;
+  }
+
+  .problem-title-wrapper {
+    padding-top: 220px;
+  }
+
+  .problem-card-front,
+  .problem-card-back {
+    font-size: 1rem;
+    vertical-align: middle;
+  }
+}
+
+@media (min-width: 1061px) {
+  .problem-card {
+    min-height: 310px;
+  }
+
+  .problem-title-wrapper {
+    padding-top: 180px;
+  }
+
+  .problem-card-front,
+  .problem-card-back {
+    font-size: 1rem;
+    vertical-align: middle;
+  }
+}
+
+@media (min-width: 1197px) {
+  .problem-card {
+    min-height: 290px;
+  }
+
+  .problem-title-wrapper {
+    padding-top: 160px;
+  }
+
+  .problem-card-front,
+  .problem-card-back {
+    font-size: 1rem;
+    vertical-align: middle;
+  }
+}
