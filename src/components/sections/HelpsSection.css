@@ -1,19 +1,19 @@
 /* ProblemSection.css */
 
-.problem-section {
+.help-section {
   width: 100%;
   display: flex;
   justify-content: center;
 }
 
-.problem-wrapper {
+.help-wrapper {
   width: 100%;
   max-width: 80rem; /* ~max-w-5xl */
   margin: 0 auto;
 }
 
 /* Card container */
-.problem-card {
+.help-card {
   position: relative;
   width: 100%;
   min-height: 350px;
@@ -26,12 +26,12 @@
   perspective: 1200px;
 }
 
-.problem-card:hover {
+.help-card:hover {
   box-shadow: 0 20px 45px rgba(15, 23, 42, 0.16);
 }
 
 /* Flip inner */
-.problem-card-inner {
+.help-card-inner {
   position: relative;
   height: 100%;
   width: 100%;
@@ -41,14 +41,14 @@
 
 /* Hover flip only on devices that support hover */
 @media (hover: hover) and (pointer: fine) {
-  .problem-card:hover .problem-card-inner {
+  .help-card:hover .help-card-inner {
     transform: rotateY(180deg);
   }
 }
 
 /* Sides */
-.problem-card-front,
-.problem-card-back {
+.help-card-front,
+.help-card-back {
   position: absolute;
   inset: 0;
   backface-visibility: hidden;
@@ -61,35 +61,35 @@
 }
 
 /* Back side rotates */
-.problem-card-back {
+.help-card-back {
   transform: rotateY(180deg);
   justify-content: flex-start;
 }
 
 /* Front spacing (replaces pt-[320px] etc.) */
-.problem-title-wrapper {
+.help-title-wrapper {
   padding-top: 320px;
 }
 
 /* Side note block */
-.problem-side-note-wrapper {
+.help-side-note-wrapper {
   margin-top: 1rem;
 }
 
 /* Icon sizes responsive */
-.problem-side-note-icon {
+.help-side-note-icon {
   width: 1.25rem;
   height: 1.25rem;
 }
 
 /* Bullet wrapper on back side */
-.problem-bullet-wrapper {
+.help-bullet-wrapper {
   flex: 1;
   vertical-align: middle;
 }
 
 /* Tap hint text */
-.problem-tap-hint {
+.help-tap-hint {
   margin-top: 1rem;
   text-align: center;
   font-size: 0.75rem;
@@ -98,7 +98,7 @@
 
 /* Hide hint on hover-capable devices (mirrors [@media(hover:hover)_and_(pointer:fine)]:hidden) */
 @media (hover: hover) and (pointer: fine) {
-  .problem-tap-hint {
+  .help-tap-hint {
     display: none;
   }
 }
@@ -106,186 +106,186 @@
 /* Extra responsiveness: tweak min-height by breakpoint */
 
 @media (min-width: 340px) {
-  .problem-card {
+  .help-card {
     min-height: 580px;
   }
 
-  .problem-title-wrapper {
+  .help-title-wrapper {
     padding-top: 560px;
     padding-left: 10px;
     padding-right: 10px;
   }
 
-  .problem-side-note-wrapper {
+  .help-side-note-wrapper {
     padding-left: 10px;
     padding-right: 10px;
   }
 }
 
 @media (min-width: 355px) {
-  .problem-card {
+  .help-card {
     min-height: 430px;
   }
 
-  .problem-title-wrapper {
+  .help-title-wrapper {
     padding-top: 400px;
     padding-left: 10px;
     padding-right: 10px;
   }
 
-  .problem-side-note-wrapper {
+  .help-side-note-wrapper {
     padding-left: 10px;
     padding-right: 10px;
   }
 }
 
 @media (min-width: 400px) {
-  .problem-card {
+  .help-card {
     min-height: 400px;
   }
 
-  .problem-title-wrapper {
+  .help-title-wrapper {
     padding-top: 380px;
     padding-left: 10px;
     padding-right: 10px;
   }
 
-  .problem-side-note-wrapper {
+  .help-side-note-wrapper {
     padding-left: 10px;
     padding-right: 10px;
   }
 }
 
 @media (min-width: 515px) {
-  .problem-card {
+  .help-card {
     min-height: 370px;
   }
 
-  .problem-title-wrapper {
+  .help-title-wrapper {
     padding-top: 350px;
     padding-left: 10px;
     padding-right: 10px;
   }
 
-  .problem-side-note-wrapper {
+  .help-side-note-wrapper {
     padding-left: 10px;
     padding-right: 10px;
   }
 }
 
 @media (min-width: 561px) {
-  .problem-card {
+  .help-card {
     min-height: 350px;
   }
 
-  .problem-title-wrapper {
+  .help-title-wrapper {
     padding-top: 330px;
     padding-left: 10px;
     padding-right: 10px;
   }
 
-  .problem-side-note-wrapper {
+  .help-side-note-wrapper {
     padding-left: 10px;
     padding-right: 10px;
   }
 }
 
 @media (min-width: 595px) {
-  .problem-card {
+  .help-card {
     min-height: 310px;
   }
 
-  .problem-title-wrapper {
+  .help-title-wrapper {
     padding-top: 290px;
     padding-left: 10px;
     padding-right: 10px;
   }
 
-  .problem-side-note-wrapper {
+  .help-side-note-wrapper {
     padding-left: 10px;
     padding-right: 10px;
   }
 }
 
 @media (min-width: 640px) {
-  .problem-card {
+  .help-card {
     min-height: 310px;
   }
-  .problem-side-note-icon {
+  .help-side-note-icon {
     width: 1.5rem;
     height: 1.5rem;
   }
 
-  .problem-title-wrapper {
+  .help-title-wrapper {
     padding-top: 280px;
   }
 
-  .problem-card-front,
-  .problem-card-back {
+  .help-card-front,
+  .help-card-back {
     padding: 1rem 1rem;
     font-size: 1rem; /* sm:text-base */
   }
 }
 
 @media (min-width: 768px) {
-  .problem-card {
+  .help-card {
     min-height: 510px;
   }
 
-  .problem-title-wrapper {
+  .help-title-wrapper {
     padding-top: 380px;
   }
 
-  .problem-card-front,
-  .problem-card-back {
+  .help-card-front,
+  .help-card-back {
     padding: 4rem 10px; /* md:py-16 px-8-ish */
     font-size: 0.9375rem; /* md:text-[15px] */
   }
 }
 
 @media (min-width: 776px) {
-  .problem-card {
+  .help-card {
     min-height: 470px;
   }
 
-  .problem-title-wrapper {
+  .help-title-wrapper {
     padding-top: 350px;
   }
 
-  .problem-card-front,
-  .problem-card-back {
+  .help-card-front,
+  .help-card-back {
     padding: 4rem 10px; /* md:py-16 px-8-ish */
     font-size: 0.9375rem; /* md:text-[15px] */
   }
 }
 
 @media (min-width: 781px) {
-  .problem-card {
+  .help-card {
     min-height: 400px;
   }
 
-  .problem-title-wrapper {
+  .help-title-wrapper {
     padding-top: 280px;
   }
 
-  .problem-card-front,
-  .problem-card-back {
+  .help-card-front,
+  .help-card-back {
     padding: 4rem 10px; /* md:py-16 px-8-ish */
     font-size: 0.9375rem; /* md:text-[15px] */
   }
 }
 
 @media (min-width: 935px) {
-  .problem-card {
+  .help-card {
     min-height: 350px;
   }
 
-  .problem-title-wrapper {
+  .help-title-wrapper {
     padding-top: 230px;
   }
 
-  .problem-card-front,
-  .problem-card-back {
+  .help-card-front,
+  .help-card-back {
     padding: 4rem 10px; /* md:py-16 px-8-ish */
     font-size: 0.9375rem; /* md:text-[15px] */
     vertical-align: middle;
@@ -293,57 +293,57 @@
 }
 
 @media (min-width: 1024px) {
-  .problem-card {
+  .help-card {
     min-height: 350px;
   }
 
-  .problem-title-wrapper {
+  .help-title-wrapper {
     padding-top: 220px;
   }
 
-  .problem-card-front,
-  .problem-card-back {
+  .help-card-front,
+  .help-card-back {
     font-size: 1rem;
     vertical-align: middle;
   }
 }
 
 @media (min-width: 1061px) {
-  .problem-card {
+  .help-card {
     min-height: 310px;
   }
 
-  .problem-title-wrapper {
+  .help-title-wrapper {
     padding-top: 180px;
   }
 
-  .problem-card-front,
-  .problem-card-back {
+  .help-card-front,
+  .help-card-back {
     font-size: 1rem;
     vertical-align: middle;
   }
 
-  .problem-bullet-wrapper {
+  .help-bullet-wrapper {
     margin-top: -1.5rem;
   }
 }
 
 @media (min-width: 1197px) {
-  .problem-card {
+  .help-card {
     min-height: 290px;
   }
 
-  .problem-title-wrapper {
+  .help-title-wrapper {
     padding-top: 160px;
   }
 
-  .problem-card-front,
-  .problem-card-back {
+  .help-card-front,
+  .help-card-back {
     font-size: 1rem;
     vertical-align: middle;
   }
 
-  .problem-bullet-wrapper {
+  .help-bullet-wrapper {
     margin-top: -1.8rem;
   }
 }
