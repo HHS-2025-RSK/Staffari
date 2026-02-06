@@ -32,7 +32,7 @@ export default function Navbar() {
       <Container className="flex h-14 items-center justify-between">
         <a
           href="#home"
-          className="font-display text-2xl font-bold text-deepJungleGreen"
+          className="font-display text-3xl font-bold text-deepJungleGreen"
         >
           STAFFARI
         </a>
