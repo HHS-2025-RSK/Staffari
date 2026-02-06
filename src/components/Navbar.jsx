@@ -5,7 +5,7 @@ import { PrimaryButton } from "./ui/Buttons";
 
 export default function Navbar() {
   return (
-    <header className="sticky top-0 z-50 border-b border-mutedOlive/15 bg-white/80 backdrop-blur">
+    <header className="sticky top-0 z-50 border-b border-mutedOlive/15 bg-beige/80 backdrop-blur">
       <Container className="flex h-16 items-center justify-between">
         <a
           href="#home"

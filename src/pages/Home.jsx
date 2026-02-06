@@ -13,6 +13,7 @@ import FooterSection from "../components/sections/FooterSection";
 import ArcSteps, { ArcStep } from "../components/ArcSteps";
 import { Helmet } from "react-helmet-async";
 import MetaHeroBlock from "../components/MetaHeroBlock";
+import ContactSection from "../components/sections/ContactSection";
 
 export default function Home() {
   // const [faqOpen, setFaqOpen] = useState(0);
@@ -20,9 +21,9 @@ export default function Home() {
   const PLAYSTORE_URL = "YOUR_PLAYSTORE_LINK";
   const APPSTORE_URL = "YOUR_APPSTORE_LINK";
 
-  const metaTitle = "Staffari | Hospitality Jobs & Hiring Platform";
-  const metaDescription =
-    "Hiring shouldn’t slow hospitality down. Staffari cuts recruitment friction and costs by connecting you directly with ready-to-work hospitality talent.";
+  // const metaTitle = "Staffari | Hospitality Jobs & Hiring Platform";
+  // const metaDescription =
+  //   "Hiring shouldn’t slow hospitality down. Staffari cuts recruitment friction and costs by connecting you directly with ready-to-work hospitality talent.";
 
   const problemBullets = useMemo(
     () => [
@@ -45,11 +46,12 @@ export default function Home() {
 
   const unfairAdvantageBullets = useMemo(
     () => [
-      "Hospitality-Only Focus",
-      "Reduced Hiring Friction",
-      "More Relevant Talent",
-      "Operationally Aligned Hiring",
-      "Quality Over Volume",
+      "Hospitality-first platform",
+      "Hospitality-first platform",
+      "Verified hospitality talent",
+      "Smarter job matching",
+      "Lower cost per hire",
+      "Quality over quantity",
     ],
     [],
   );
@@ -84,10 +86,13 @@ export default function Home() {
     <div className="min-h-screen bg-cardBg" id="home">
       <Navbar />
 
-      <main className="overflow-hidden bg-cardBg">
-        <MetaHeroBlock title={metaTitle} description={metaDescription} />
-        <HeroSection />
-        <ArcSteps railHeight={1300}>
+      <main className="bg-cardBg">
+        {/* <MetaHeroBlock title={metaTitle} description={metaDescription} /> */}
+        <HeroSection
+          PLAYSTORE_URL={PLAYSTORE_URL}
+          APPSTORE_URL={APPSTORE_URL}
+        />
+        <ArcSteps>
           <ArcStep id="what">
             <WhatSection />
           </ArcStep>
@@ -105,12 +110,15 @@ export default function Home() {
         <ProblemSection problemBullets={problemBullets} />
         <HelpsSection helpsBullets={helpsBullets} /> */}
         <AdvantageSection unfairAdvantageBullets={unfairAdvantageBullets} />
-        <NewsletterSection />
         {/* <FAQSection faqs={faqs} faqOpen={faqOpen} setFaqOpen={setFaqOpen} /> */}
         <DownloadSection
           PLAYSTORE_URL={PLAYSTORE_URL}
           APPSTORE_URL={APPSTORE_URL}
         />
+
+        <ContactSection />
+
+        <NewsletterSection />
         <FooterSection />
       </main>
     </div>

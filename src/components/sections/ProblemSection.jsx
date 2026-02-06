@@ -15,20 +15,33 @@ export default function ProblemSection({ problemBullets }) {
           <div className="problem-card-inner">
             {/* Front */}
             <div className="problem-card-front">
-              <div className="problem-title-wrapper">
-                <SectionTitle
-                  eyebrow="The Problem"
-                  title="Why hospitality hiring is broken"
-                  desc="Hospitality businesses lose time and money dealing with:"
-                />
-              </div>
+              <div className="problem-card-layout">
+                <div className="problem-card-image-container animate-fade-in-left">
+                  <div className="problem-card-image-overlay" />
+                  <img
+                    src="/images/problem.png"
+                    alt="Staffari bellhop in jungle setting"
+                    className="problem-card-image"
+                    loading="lazy"
+                  />
+                </div>
+                <div className="problem-card-content animate-fade-in-right">
+                  <div className="problem-title-wrapper">
+                    <SectionTitle
+                      // eyebrow="The Problem"
+                      title="Why hospitality hiring is broken"
+                      desc="Hospitality businesses lose time and money dealing with:"
+                    />
+                  </div>
 
-              <div className="problem-side-note-wrapper">
-                <SideNote
-                  icon={<ShieldCheck className="problem-side-note-icon" />}
-                  title="Built for confidence"
-                  text="Staffari is built to remove these friction points and help teams hire with confidence."
-                />
+                  <div className="problem-side-note-wrapper">
+                    <SideNote
+                      icon={<ShieldCheck className="problem-side-note-icon" />}
+                      title="Built for confidence"
+                      text="Staffari is built to remove these friction points and help teams hire with confidence."
+                    />
+                  </div>
+                </div>
               </div>
             </div>
 

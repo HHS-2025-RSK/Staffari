@@ -1,70 +1,88 @@
 import React from "react";
 import { ArrowRight } from "lucide-react";
 import Container from "../ui/Container";
-import SectionTitle from "../ui/SectionTitle";
 import { PrimaryButton } from "../ui/Buttons";
 
 export default function NewsletterSection() {
   return (
-    <section id="newsletter" className="py-16 bg-white">
-      <Container>
-        <div className="rounded-3xl border border-mutedOlive/20 bg-cardBg p-8 shadow-soft md:p-10">
-          <SectionTitle
-            eyebrow="Newsletter"
-            title="Subscribe to Our Newsletter"
-            desc="Get product updates and hiring insights tailored for hospitality teams."
-          />
+    <section id="newsletter">
+      {/* Patch */}
+      <div className="border-t border-mutedOlive/20 bg-deepJungleGreen">
+        <div className="px-40">
+          <div className="py-6 md:py-8">
+            <div className="grid gap-4 md:grid-cols-[1.1fr_1fr] md:items-center">
+              {/* Left copy */}
+              <div>
+                <div className="inline-flex items-center rounded-full border border-mutedOlive/25 bg-white px-3 py-1 font-body text-[12px] font-semibold text-mutedOlive">
+                  Newsletter
+                </div>
 
-          <form
-            className="mt-6 grid gap-3 md:grid-cols-2"
-            onSubmit={(e) => {
-              e.preventDefault();
-              const data = new FormData(e.currentTarget);
+                <h3 className="mt-4 font-display text-2xl font-bold text-[#fdf9f0] md:text-3xl">
+                  Subscribe for hiring insights
+                </h3>
 
-              const payload = {
-                fullName: data.get("fullName"),
-                email: data.get("email"),
-                phone: data.get("phone") || "",
-              };
+                <p className="mt-2 font-body text-[15px] leading-7 text-[#fdf9f0]">
+                  Product updates, hiring tips, and hospitality insights—no
+                  spam.
+                </p>
+              </div>
 
-              console.log("Newsletter:", payload);
-              alert("Thanks! You’re subscribed. (Hook this to your API)");
-              e.currentTarget.reset();
-            }}
-          >
-            <input
-              name="fullName"
-              required
-              placeholder="Full Name"
-              className="w-full rounded-2xl border border-mutedOlive/25 bg-white px-4 py-3 font-body text-[14px] text-charcoalBlack outline-none focus:ring-4 focus:ring-emeraldGreen/15"
-            />
+              {/* Right form */}
+              <form
+                className="grid gap-3"
+                onSubmit={(e) => {
+                  e.preventDefault(); // prevent page refresh on submit [web:91]
+                  const data = new FormData(e.currentTarget);
 
-            <input
-              name="email"
-              type="email"
-              required
-              placeholder="Email"
-              className="w-full rounded-2xl border border-mutedOlive/25 bg-white px-4 py-3 font-body text-[14px] text-charcoalBlack outline-none focus:ring-4 focus:ring-emeraldGreen/15"
-            />
+                  const payload = {
+                    fullName: data.get("fullName"),
+                    email: data.get("email"),
+                    phone: data.get("phone") || "",
+                  };
 
-            <input
-              name="phone"
-              type="tel"
-              placeholder="Phone Number (optional)"
-              className="w-full rounded-2xl border border-mutedOlive/25 bg-white px-4 py-3 font-body text-[14px] text-charcoalBlack outline-none focus:ring-4 focus:ring-emeraldGreen/15 md:col-span-2"
-            />
+                  console.log("Newsletter:", payload);
+                  alert("Thanks! You’re subscribed. (Hook this to your API)");
+                  e.currentTarget.reset();
+                }}
+              >
+                <div className="grid gap-3 md:grid-cols-2">
+                  <input
+                    name="fullName"
+                    required
+                    placeholder="Full Name"
+                    className="w-full rounded-2xl border border-mutedOlive/25 bg-[#fdf9f0] px-4 py-3 font-body text-[14px] text-charcoalBlack outline-none focus:ring-4 focus:ring-emeraldGreen/15"
+                  />
 
-            <div className="md:col-span-2 flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
-              <p className="font-body text-[13px] text-mutedOlive">
-                We’ll only use your details to share Staffari updates.
-              </p>
-              <PrimaryButton className="md:w-[220px]">
-                Subscribe <ArrowRight className="h-4 w-4" />
-              </PrimaryButton>
+                  <input
+                    name="email"
+                    type="email"
+                    required
+                    placeholder="Email"
+                    className="w-full rounded-2xl border border-mutedOlive/25 bg-[#fdf9f0] px-4 py-3 font-body text-[14px] text-charcoalBlack outline-none focus:ring-4 focus:ring-emeraldGreen/15"
+                  />
+                </div>
+
+                <div className="grid gap-3 md:grid-cols-[1fr_220px] md:items-center">
+                  <input
+                    name="phone"
+                    type="tel"
+                    placeholder="Phone (optional)"
+                    className="w-full rounded-2xl border border-mutedOlive/25 bg-[#fdf9f0] px-4 py-3 font-body text-[14px] text-charcoalBlack outline-none focus:ring-4 focus:ring-emeraldGreen/15"
+                  />
+
+                  <PrimaryButton className="w-full md:w-[220px] text-[#fdf9f0]">
+                    Subscribe <ArrowRight className="h-4 w-4" />
+                  </PrimaryButton>
+                </div>
+
+                <p className="font-body text-[13px] text-[#fdf9f0]">
+                  We’ll only use your details to share Staffari updates.
+                </p>
+              </form>
             </div>
-          </form>
+          </div>
         </div>
-      </Container>
+      </div>
     </section>
   );
 }

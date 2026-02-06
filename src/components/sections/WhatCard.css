@@ -1,0 +1,131 @@
+.what-card {
+  width: 100%;
+  max-width: 80rem; /* max-w-5xl ≈ 1280px / 16 = 80rem */
+  border-radius: 1.5rem; /* rounded-3xl */
+  border: 1px solid rgba(107, 114, 128, 0.1); /* approximate mutedOlive/20 – adjust color if you have exact mutedOlive */
+  background-color: #fdf9f0;
+  box-shadow:
+    0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06); /* shadow-soft – mild soft shadow */
+  overflow: hidden;
+  transition: all 500ms ease;
+  height: 280px;
+  margin: 0 auto; /* center horizontally */
+}
+
+.what-card:hover {
+  box-shadow:
+    0 20px 25px -5px rgba(0, 0, 0, 0.1),
+    0 10px 10px -5px rgba(0, 0, 0, 0.04); /* shadow-xl */
+  transform: translateY(-4px); /* -translate-y-1 ≈ -0.25rem */
+}
+
+.what-card-inner {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+@media (min-width: 768px) {
+  .what-card-inner {
+    flex-direction: row;
+  }
+}
+
+.what-card-image-container {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 12rem; /* h-48 = 192px ≈ 12rem */
+}
+
+@media (min-width: 768px) {
+  .what-card-image-container {
+    width: 40%; /* md:w-2/5 was better fit than 1/5 */
+    height: 100%;
+  }
+}
+
+.what-card-image-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom right,
+    rgba(19, 78, 74, 0.2),
+    transparent
+  ); /* from-teal-900/20 */
+  mix-blend-mode: multiply;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.what-card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* changed to cover per your latest code */
+  object-position: center;
+  transition: transform 700ms ease;
+}
+
+.what-card-image-container:hover .what-card-image {
+  transform: scale(1.04);
+}
+
+.what-card-content {
+  width: 100%;
+  padding: 1.5rem; /* p-6 */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+@media (min-width: 1024px) {
+  .what-card-content {
+    width: 100%;
+    padding: 2rem;
+  }
+  .what-card {
+    max-width: 45rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .what-card-content {
+    width: 100%;
+    padding: 2rem;
+  }
+  .what-card {
+    max-width: 65rem;
+  }
+}
+
+/* Fade-in animations (add to global CSS or keep here) */
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-2.5rem); /* ≈ -40px */
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(1.875rem); /* ≈ 30px */
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-fade-in-left {
+  animation: fadeInLeft 0.9s ease-out forwards;
+}
+
+.animate-fade-in-right {
+  animation: fadeInRight 0.9s ease-out forwards 0.15s;
+}

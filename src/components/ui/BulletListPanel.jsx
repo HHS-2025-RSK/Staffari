@@ -7,7 +7,7 @@ export default function BulletListPanel({ items }) {
       {items.map((it) => (
         <div
           key={it}
-          className="flex items-start gap-3 rounded-2xl border border-mutedOlive/15 bg-white p-2"
+          className="flex items-start gap-3 rounded-2xl border border-mutedOlive/15 bg-beige p-2"
         >
           <span className="mt-0.5 inline-flex h-7 w-7 items-center justify-center rounded-full bg-emeraldGreen/10 text-emeraldGreen">
             <BadgeCheck className="h-4 w-4" />

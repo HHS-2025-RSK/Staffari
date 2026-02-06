@@ -10,7 +10,7 @@ export default function DownloadSection({ PLAYSTORE_URL, APPSTORE_URL }) {
         <div className="rounded-3xl border border-mutedOlive/20 bg-deepJungleGreen p-8 text-white md:p-10">
           <div className="grid gap-8 md:grid-cols-2 md:items-center">
             <div>
-              <Pill>Download</Pill>
+              {/* <Pill>Download</Pill> */}
               <h2 className="mt-4 font-display text-3xl font-bold">
                 One ecosystem for hospitality careers and hiring
               </h2>

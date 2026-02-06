@@ -8,7 +8,7 @@
 
 .problem-wrapper {
   width: 100%;
-  max-width: 80rem; /* ~max-w-5xl */
+  max-width: 65rem; /* ~max-w-5xl */
   margin: 0 auto;
 }
 
@@ -20,7 +20,7 @@
   overflow: hidden;
   border-radius: 1.5rem;
   border: 1px solid rgba(136, 149, 96, 0.2); /* mutedOlive/20 – tweak as needed */
-  background-color: #ffffff;
+  background-color: #fdf9f0;
   box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08); /* similar to shadow-soft */
   transition: box-shadow 0.3s ease;
   perspective: 1200px;
@@ -29,10 +29,51 @@
 .problem-card:hover {
   box-shadow: 0 20px 45px rgba(15, 23, 42, 0.16);
 }
+.problem-card-layout {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.problem-card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.problem-card-image-container {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 12rem;
+}
+
+.problem-card-image-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom right,
+    rgba(19, 78, 74, 0.2),
+    transparent
+  ); /* from-teal-900/20 */
+  mix-blend-mode: multiply;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.problem-card-content {
+  width: 100%;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
 
 /* Flip inner */
 .problem-card-inner {
-  position: relative;
+  position: absolute;
+  inset: 0; /* makes it exactly card-sized */
   height: 100%;
   width: 100%;
   transition: transform 0.7s ease-out;
@@ -47,7 +88,17 @@
 }
 
 /* Sides */
-.problem-card-front,
+.problem-card-front {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 0.875rem; /* text-sm */
+  line-height: 1.5;
+}
+
 .problem-card-back {
   position: absolute;
   inset: 0;
@@ -55,7 +106,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 0.75rem 0.75rem; /* default small screens */
+  padding: 3rem 1rem;
   font-size: 0.875rem; /* text-sm */
   line-height: 1.5;
 }
@@ -68,7 +119,7 @@
 
 /* Front spacing (replaces pt-[320px] etc.) */
 .problem-title-wrapper {
-  padding-top: 320px;
+  padding-top: 0;
 }
 
 /* Side note block */
@@ -107,11 +158,11 @@
 
 @media (min-width: 340px) {
   .problem-card {
-    min-height: 580px;
+    min-height: 880px;
   }
 
   .problem-title-wrapper {
-    padding-top: 560px;
+    padding-top: 0px;
     padding-left: 10px;
     padding-right: 10px;
   }
@@ -119,16 +170,20 @@
   .problem-side-note-wrapper {
     padding-left: 10px;
     padding-right: 10px;
+  }
+
+  .problem-card-image-container {
+    height: 100%;
   }
 }
 
 @media (min-width: 355px) {
   .problem-card {
-    min-height: 430px;
+    min-height: 730px;
   }
 
   .problem-title-wrapper {
-    padding-top: 400px;
+    padding-top: 0px;
     padding-left: 10px;
     padding-right: 10px;
   }
@@ -136,16 +191,20 @@
   .problem-side-note-wrapper {
     padding-left: 10px;
     padding-right: 10px;
+  }
+
+  .problem-card-image-container {
+    height: 100%;
   }
 }
 
 @media (min-width: 400px) {
   .problem-card {
-    min-height: 400px;
+    min-height: 700px;
   }
 
   .problem-title-wrapper {
-    padding-top: 380px;
+    padding-top: 0px;
     padding-left: 10px;
     padding-right: 10px;
   }
@@ -153,16 +212,19 @@
   .problem-side-note-wrapper {
     padding-left: 10px;
     padding-right: 10px;
+  }
+  .problem-card-image-container {
+    height: 100%;
   }
 }
 
 @media (min-width: 515px) {
   .problem-card {
-    min-height: 370px;
+    min-height: 670px;
   }
 
   .problem-title-wrapper {
-    padding-top: 350px;
+    padding-top: 0px;
     padding-left: 10px;
     padding-right: 10px;
   }
@@ -170,16 +232,19 @@
   .problem-side-note-wrapper {
     padding-left: 10px;
     padding-right: 10px;
+  }
+  .problem-card-image-container {
+    height: 100%;
   }
 }
 
 @media (min-width: 561px) {
   .problem-card {
-    min-height: 350px;
+    min-height: 650px;
   }
 
   .problem-title-wrapper {
-    padding-top: 330px;
+    padding-top: 0px;
     padding-left: 10px;
     padding-right: 10px;
   }
@@ -187,16 +252,20 @@
   .problem-side-note-wrapper {
     padding-left: 10px;
     padding-right: 10px;
+  }
+
+  .problem-card-image-container {
+    height: 100%;
   }
 }
 
 @media (min-width: 595px) {
   .problem-card {
-    min-height: 310px;
+    min-height: 610px;
   }
 
   .problem-title-wrapper {
-    padding-top: 290px;
+    padding-top: 10px;
     padding-left: 10px;
     padding-right: 10px;
   }
@@ -205,11 +274,15 @@
     padding-left: 10px;
     padding-right: 10px;
   }
+
+  .problem-card-image-container {
+    height: 100%;
+  }
 }
 
 @media (min-width: 640px) {
   .problem-card {
-    min-height: 310px;
+    min-height: 610px;
   }
   .problem-side-note-icon {
     width: 1.5rem;
@@ -217,13 +290,16 @@
   }
 
   .problem-title-wrapper {
-    padding-top: 280px;
+    padding-top: 0px;
   }
 
   .problem-card-front,
   .problem-card-back {
-    padding: 1rem 1rem;
     font-size: 1rem; /* sm:text-base */
+  }
+
+  .problem-card-image-container {
+    height: 100%;
   }
 }
 
@@ -233,13 +309,19 @@
   }
 
   .problem-title-wrapper {
-    padding-top: 380px;
+    padding-top: 0px;
   }
 
   .problem-card-front,
   .problem-card-back {
-    padding: 4rem 10px; /* md:py-16 px-8-ish */
     font-size: 0.9375rem; /* md:text-[15px] */
+  }
+  .problem-card-image-container {
+    width: 70%; /* md:w-2/5 was better fit than 1/5 */
+    height: 100%;
+  }
+  .problem-card-layout {
+    flex-direction: row;
   }
 }
 
@@ -249,28 +331,26 @@
   }
 
   .problem-title-wrapper {
-    padding-top: 350px;
+    padding-top: 0px;
   }
 
   .problem-card-front,
   .problem-card-back {
-    padding: 4rem 10px; /* md:py-16 px-8-ish */
     font-size: 0.9375rem; /* md:text-[15px] */
   }
 }
 
 @media (min-width: 781px) {
   .problem-card {
-    min-height: 400px;
+    min-height: 470px;
   }
 
   .problem-title-wrapper {
-    padding-top: 280px;
+    padding-top: 0px;
   }
 
   .problem-card-front,
   .problem-card-back {
-    padding: 4rem 10px; /* md:py-16 px-8-ish */
     font-size: 0.9375rem; /* md:text-[15px] */
   }
 }
@@ -281,12 +361,11 @@
   }
 
   .problem-title-wrapper {
-    padding-top: 230px;
+    padding-top: 0px;
   }
 
   .problem-card-front,
   .problem-card-back {
-    padding: 4rem 10px; /* md:py-16 px-8-ish */
     font-size: 0.9375rem; /* md:text-[15px] */
     vertical-align: middle;
   }
@@ -298,7 +377,7 @@
   }
 
   .problem-title-wrapper {
-    padding-top: 220px;
+    padding-top: 0px;
   }
 
   .problem-card-front,
@@ -314,7 +393,7 @@
   }
 
   .problem-title-wrapper {
-    padding-top: 180px;
+    padding-top: 0px;
   }
 
   .problem-card-front,
@@ -334,7 +413,7 @@
   }
 
   .problem-title-wrapper {
-    padding-top: 160px;
+    padding-top: 0;
   }
 
   .problem-card-front,
@@ -346,4 +425,34 @@
   .problem-bullet-wrapper {
     margin-top: -1.8rem;
   }
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-2.5rem); /* ≈ -40px */
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(1.875rem); /* ≈ 30px */
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-fade-in-left {
+  animation: fadeInLeft 0.9s ease-out forwards;
+}
+
+.animate-fade-in-right {
+  animation: fadeInRight 0.9s ease-out forwards 0.15s;
 }

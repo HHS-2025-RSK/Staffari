@@ -5,10 +5,10 @@ import AdvantageTile from "../ui/AdvantageTile";
 
 export default function AdvantageSection({ unfairAdvantageBullets }) {
   return (
-    <section id="advantage" className="py-14 bg-white">
+    <section id="advantage" className="py-14 bg-beige">
       <Container>
         <SectionTitle
-          eyebrow="Advantage"
+          // eyebrow="Advantage"
           title="Why is Staffari Your Unfair Advantage?"
           desc={null}
         />
