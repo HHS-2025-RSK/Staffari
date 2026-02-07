@@ -14,6 +14,7 @@ import ArcSteps, { ArcStep } from "../components/ArcSteps";
 import { Helmet } from "react-helmet-async";
 import MetaHeroBlock from "../components/MetaHeroBlock";
 import ContactSection from "../components/sections/ContactSection";
+import HiringProblemSection from "../components/sections/HiringProblemSection";
 
 export default function Home() {
   // const [faqOpen, setFaqOpen] = useState(0);
@@ -92,6 +93,8 @@ export default function Home() {
           PLAYSTORE_URL={PLAYSTORE_URL}
           APPSTORE_URL={APPSTORE_URL}
         />
+
+        <HiringProblemSection />
         <ArcSteps>
           <ArcStep id="what">
             <WhatSection />

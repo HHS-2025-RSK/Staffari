@@ -249,6 +249,31 @@ export default function ArcSteps({
         ref={stageRef}
         className="sticky top-0 h-[100vh] pb-14 overflow-hidden"
       >
+        {/* Top compact helper strip */}
+        <div className="absolute top-20 left-[58%] -translate-x-1/2 w-[92%] max-w-5xl">
+          <div className="rounded-2xl bg-beige backdrop-blur-md shadow-soft px-5 py-6">
+            <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2">
+              {/* Left text */}
+              <div>
+                <p className="text-lg font-bold uppercase tracking-wide text-deepJungleGreen">
+                  How Staffari Helps
+                </p>
+                <p className="text-sm text-muted-foreground">
+                  From posting to placement — all in one flow
+                </p>
+              </div>
+
+              {/* Steps */}
+              <div className="flex flex-wrap gap-x-3 gap-y-1 text-md text-deepJungleGreen font-semibold">
+                <span>• Post jobs / talent profile</span>
+                <span>• Smart matching</span>
+                <span>• Chat & shortlist</span>
+                <span>• Close hires faster</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
         {/* Tree overlay (left edge, animated). Appears ONLY when stage is full-screen. [web:17] */}
         <div
           className="pointer-events-none absolute inset-y-0 left-0 hidden md:block"
