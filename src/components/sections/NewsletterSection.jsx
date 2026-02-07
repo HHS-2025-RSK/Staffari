@@ -5,7 +5,7 @@ import { PrimaryButton } from "../ui/Buttons";
 
 export default function NewsletterSection() {
   return (
-    <section id="newsletter">
+    <section id="newsletter" className="-mt-20">
       {/* Patch */}
       <div className="border-t border-mutedOlive/20 bg-deepJungleGreen">
         <div className="px-40">

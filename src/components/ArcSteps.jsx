@@ -25,9 +25,8 @@ export default function ArcSteps({
   rotationStartDeg = 200,
 
   // horizontal placement of the arc (negative = off to the left)
-  // tune these two if you want it more/less visible
   arcLeftOffsetPx = -0.7, // fraction of circle size (e.g. -0.70 * size)
-  arcTopOffsetPx = -0.1, // fraction of circle size
+  arcTopOffsetPx = -0.1, // fraction of circle size (currently unused in your math)
 }) {
   const steps = React.Children.toArray(children)
     .filter(Boolean)
@@ -50,6 +49,9 @@ export default function ArcSteps({
   const stageRef = React.useRef(null);
 
   const [progress, setProgress] = React.useState(0);
+
+  // Tree animation state (tied to "stage is full screen")
+  const [treeIn, setTreeIn] = React.useState(false);
 
   // dynamic geometry state
   const [geom, setGeom] = React.useState(() => ({
@@ -92,7 +94,6 @@ export default function ArcSteps({
       };
 
       // 4) Compute where the circle center is in *rail coordinates*
-      // circle center Y relative to rail container:
       const cyRail = outer.top + outer.size / 2;
 
       // midSlot should map to that center Y so dot starts exactly in the arc middle
@@ -141,6 +142,29 @@ export default function ArcSteps({
     arcTopOffsetPx,
     slotDelta,
   ]);
+
+  // IMPORTANT: Trigger tree ONLY when the sticky stage is (almost) fully visible.
+  // This will set true on enter (crossing up) and set false on exit (crossing down). [web:17][web:1]
+  React.useEffect(() => {
+    const stage = stageRef.current;
+    if (!stage) return;
+
+    const FULL_SCREEN_RATIO = 0.98; // change to 0.95 if too strict [web:1][web:17]
+
+    const obs = new IntersectionObserver(
+      ([entry]) => {
+        const inNow =
+          entry.isIntersecting && entry.intersectionRatio >= FULL_SCREEN_RATIO;
+        setTreeIn(inNow);
+      },
+      {
+        threshold: [0, FULL_SCREEN_RATIO, 1],
+      },
+    );
+
+    obs.observe(stage);
+    return () => obs.disconnect();
+  }, []);
 
   const { railHeight, outer, inner, topSlot, midSlot, botSlot } = geom;
 
@@ -221,8 +245,38 @@ export default function ArcSteps({
       className="relative -mt-20"
       style={{ height: `${wrapperHeightVh}vh` }}
     >
-      <div ref={stageRef} className="sticky top-0 h-[100vh] pb-14">
-        <div className="mx-auto w-full px-6 h-full">
+      <div
+        ref={stageRef}
+        className="sticky top-0 h-[100vh] pb-14 overflow-hidden"
+      >
+        {/* Tree overlay (left edge, animated). Appears ONLY when stage is full-screen. [web:17] */}
+        <div
+          className="pointer-events-none absolute inset-y-0 left-0 hidden md:block"
+          style={{
+            width: 640,
+            zIndex: 10,
+
+            backgroundImage: "url(/images/arcsection/image.png)",
+            backgroundRepeat: "no-repeat",
+            backgroundPosition: "left",
+            backgroundSize: "cover",
+
+            opacity: treeIn ? 1 : 0,
+            transform: treeIn
+              ? "translateX(-250px) scale(1)"
+              : "translateX(-160%) scale(0.92)",
+
+            // Enter and Exit both animate; exit is intentionally slower.
+            transition: treeIn
+              ? "opacity 900ms cubic-bezier(0.23, 1, 0.32, 1) 120ms, transform 1100ms cubic-bezier(0.22, 1, 0.36, 1) 80ms"
+              : "opacity 900ms ease-out, transform 900ms ease-out",
+          }}
+        />
+
+        <div
+          className="mx-auto w-full px-6 h-full relative"
+          style={{ zIndex: 1 }}
+        >
           <div className="relative grid gap-10 md:grid-cols-[220px_1fr] md:gap-12 h-full items-center">
             {/* Left: arc + dots */}
             <div className="relative hidden md:block">
@@ -241,7 +295,7 @@ export default function ArcSteps({
                   cy={cyOuter}
                   r={rOuterStrokeCenter}
                   fill="none"
-                  stroke="rgba(150, 160, 110, 0.15)"
+                  stroke="rgba(148, 196, 51, 0.63)"
                   strokeWidth={outer.border}
                   strokeLinecap="round"
                   style={{
@@ -256,11 +310,13 @@ export default function ArcSteps({
                   cy={inner.size / 2}
                   r={inner.size / 2 - inner.border / 2}
                   fill="none"
-                  stroke="rgba(16, 90, 60, 0.10)"
+                  stroke="rgba(39, 100, 33, 0.42)"
                   strokeWidth={inner.border}
                   style={{
                     transformOrigin: "0 0",
-                    transform: `translate(${inner.left - outer.left}px, ${inner.top - outer.top}px)`,
+                    transform: `translate(${inner.left - outer.left}px, ${
+                      inner.top - outer.top
+                    }px)`,
                   }}
                 />
               </svg>

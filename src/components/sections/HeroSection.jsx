@@ -34,7 +34,7 @@ export default function HeroSection({ PLAYSTORE_URL, APPSTORE_URL }) {
     >
       {/* Large Jungle Frame – full visibility, dominant size */}
       {/* Large Jungle Frame – zooms evenly from center */}
-      <div className="absolute inset-x-0 top-[4%] bottom-[20%] z-0 pointer-events-none flex items-center justify-center">
+      <div className="absolute inset-x-0 top-[3%] bottom-[40%] z-0 pointer-events-none flex items-center justify-center">
         <img
           src="/images/herosection/heroborder.svg"
           alt="Jungle adventure frame"
@@ -42,7 +42,7 @@ export default function HeroSection({ PLAYSTORE_URL, APPSTORE_URL }) {
       max-w-none max-h-none
       w-auto h-auto
       object-contain
-      transform scale-[1.5] sm:scale-[1.4] lg:scale-[1.3]
+      transform scale-[1.6] sm:scale-[1.5] lg:scale-[1.4]
       origin-center
       drop-shadow-xl
     "
@@ -56,7 +56,7 @@ export default function HeroSection({ PLAYSTORE_URL, APPSTORE_URL }) {
       <div className="relative z-10 w-full max-w-5xl px-6 sm:px-10 md:px-12 lg:px-16">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
           {/* Left: Text – centered on mobile, left-aligned on desktop */}
-          <div className="text-center lg:text-left space-y-4 lg:space-y-6 max-w-2xl mx-auto lg:mx-0 -mt-20">
+          <div className="text-center lg:text-left space-y-4 lg:space-y-6 max-w-2xl mx-auto lg:mx-0 -mt-40">
             <h1 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-deepJungleGreen leading-tight">
               Find. Connect.
               <br className="hidden sm:block" /> Thrive.
@@ -84,7 +84,7 @@ export default function HeroSection({ PLAYSTORE_URL, APPSTORE_URL }) {
           </div>
 
           {/* Right: FlippingCard or illustration – hidden on mobile or small screens */}
-          <div className="hidden lg:flex justify-center lg:justify-end -mt-20">
+          <div className="hidden lg:flex justify-center lg:justify-end -mt-40">
             <div className="w-full max-w-md lg:max-w-lg xl:max-w-xl transform scale-105 lg:scale-110">
               <FlippingCard />
               {/* If you want to replace with static jungle scene later:

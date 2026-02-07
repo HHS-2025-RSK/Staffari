@@ -47,7 +47,7 @@ export default function Home() {
   const unfairAdvantageBullets = useMemo(
     () => [
       "Hospitality-first platform",
-      "Hospitality-first platform",
+      "Reduced Hiring Friction",
       "Verified hospitality talent",
       "Smarter job matching",
       "Lower cost per hire",
@@ -117,8 +117,6 @@ export default function Home() {
         />
 
         <ContactSection />
-
-        <NewsletterSection />
         <FooterSection />
       </main>
     </div>
