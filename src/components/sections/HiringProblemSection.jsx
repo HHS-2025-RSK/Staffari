@@ -33,7 +33,7 @@ export default function HiringProblemSection() {
         </div>
 
         {/* Bottom line */}
-        <p className="mx-auto mt-16 max-w-3xl text-center font-body text-[15px] leading-7 text-mutedOlive">
+        <p className="mx-auto mt-10 max-w-3xl text-center font-body text-[20px] leading-7 text-mutedOlive">
           Disconnected systems slow everyone down. Staffari brings it all
           together in one unified ecosystem.
         </p>
