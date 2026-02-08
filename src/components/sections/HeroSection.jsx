@@ -2,105 +2,66 @@ import React, { useState } from "react";
 import { ArrowRight, X } from "lucide-react";
 import Container from "../ui/Container";
 import { PrimaryButton } from "../ui/Buttons";
-import FlippingCard from "../ui/FlippingCard";
 import StoreButton from "../ui/StoreButton";
 
 export default function HeroSection({ PLAYSTORE_URL, APPSTORE_URL }) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    // <section
-    //   className="
-    //     relative bg-beige overflow-hidden
-    //     border-l border-r border-b border-mutedOlive/25
-    //     rounded-bl-[4rem] rounded-br-[4rem]
-    //     shadow-so
-    //     min-h-[100vh] lg:min-h-[100vh]
-    //     flex items-center justify-center
-    //     py-12 md:py-16 lg:py-60
-    //     -mt-14
-    //   "
-    // >
     <section
       id="hero-section"
-      className="
-        relative bg-[#fdf9f0] overflow-hidden
-        shadow-so
-        min-h-[100vh] lg:min-h-[100vh]
-        flex items-center justify-center
-        py-40 md:py-40 lg:py-80
-        -mt-20
-      "
+      className="relative bg-[#fdf9f0] min-h-screen flex items-center overflow-hidden"
     >
-      {/* Large Jungle Frame – full visibility, dominant size */}
-      {/* Large Jungle Frame – zooms evenly from center */}
-      <div className="absolute inset-x-0 top-[3%] bottom-[40%] z-0 pointer-events-none flex items-center justify-center">
+      {/* Illustration Layer */}
+      <div className="absolute left-0 bottom-0 w-full lg:w-1/2 pointer-events-none z-0">
         <img
-          src="/images/herosection/heroborder.svg"
+          src="/images/herosection/newtree.png"
           alt="Jungle adventure frame"
-          className="
-      max-w-none max-h-none
-      w-auto h-auto
-      object-contain
-      transform scale-[1.6] sm:scale-[1.5] lg:scale-[1.4]
-      origin-center
-      drop-shadow-xl
-    "
+          className="w-full h-auto object-contain object-left-bottom max-h-[85vh]"
         />
       </div>
 
-      {/* Very subtle tint/overlay to help text pop against leaves (optional – adjust or remove) */}
-      <div className="absolute inset-0 z-0 bg-beige/10 pointer-events-none" />
-
-      {/* Content – forced to stay inside the frame's open area */}
-      <div className="relative z-10 w-full max-w-5xl px-6 sm:px-10 md:px-12 lg:px-16">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
-          {/* Left: Text – centered on mobile, left-aligned on desktop */}
-          <div className="text-center lg:text-left space-y-4 lg:space-y-6 max-w-2xl mx-auto lg:mx-0 -mt-40">
-            <h1 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-deepJungleGreen leading-tight">
-              Find. Connect.
-              <br className="hidden sm:block" /> Thrive.
+      <Container className="relative z-10 w-full">
+        {/* Changed justify-center to justify-end to anchor content to the right */}
+        <div className="flex flex-col lg:flex-row items-center justify-end">
+          
+          {/* MODIFIED DIV: 
+              1. Reduced width to lg:w-1/2 (50%) to keep it strictly on the right side.
+              2. Added lg:pl-12 to push it slightly further right from the imaginary center line.
+          */}
+          <div className="w-full lg:w-1/2 text-center lg:text-left space-y-6 lg:pl-12">
+            <h1 className="font-display text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight text-deepJungleGreen leading-[1.1]">
+              <span className="block">Find. </span>
+              <span className="block">Connect. </span>
+              <span className="block text-emerald-600">Thrive.</span>
             </h1>
 
-            <p className="font-body text-sm sm:text-lg md:text-xl text-charcoalBlack/90 leading-relaxed">
+            <p className="font-body text-lg md:text-2xl text-charcoalBlack/80 max-w-lg mx-auto lg:mx-0 leading-relaxed">
               A single ecosystem for hospitality hiring, jobs, and careers.
               Built to power smarter recruitment and meaningful hospitality
               careers.
             </p>
 
-            <div className="pt-2">
-              <p className="font-display font-semibold text-deepJungleGreen text-lg md:text-xl mb-6">
+            <div className="pt-4 flex flex-col items-center lg:items-start">
+              <p className="font-display font-semibold text-deepJungleGreen text-xl md:text-2xl mb-8">
                 Hire faster. Get hired smarter.
               </p>
 
               <PrimaryButton
                 onClick={() => setIsOpen(true)}
-                size="lg" // assume your button supports larger size – otherwise use className="text-xl py-6 px-10"
-                className="text-lg py-4 px-8"
+                className="text-xl py-6 px-10 rounded-full shadow-lg transform transition hover:scale-105"
               >
                 Start Your Hunt <ArrowRight className="ml-3 h-6 w-6" />
               </PrimaryButton>
             </div>
           </div>
-
-          {/* Right: FlippingCard or illustration – hidden on mobile or small screens */}
-          <div className="hidden lg:flex justify-center lg:justify-end -mt-40">
-            <div className="w-full max-w-md lg:max-w-lg xl:max-w-xl transform scale-105 lg:scale-110">
-              <FlippingCard />
-              {/* If you want to replace with static jungle scene later:
-              <img src="/path/to/jungle-scene-illustration.png" alt="Talent hunt scene" className="w-full h-auto" /> */}
-            </div>
-          </div>
         </div>
-      </div>
+      </Container>
 
-      {/* Modal – unchanged */}
+      {/* Modal logic remains the same */}
       {isOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-deepJungleGreen/60 backdrop-blur-sm">
           <div className="relative w-full max-w-md overflow-hidden rounded-3xl bg-emerald-900 border-4 border-emerald-700 shadow-2xl">
-            <div className="absolute top-0 right-0 w-32 h-32 bg-emerald-500/20 rounded-full -mr-16 -mt-16 blur-2xl" />
-            <div className="absolute bottom-0 left-0 w-32 h-32 bg-lime-500/20 rounded-full -ml-16 -mb-16 blur-2xl" />
-
             <div className="relative p-8 text-center">
               <button
                 onClick={() => setIsOpen(false)}
@@ -108,29 +69,11 @@ export default function HeroSection({ PLAYSTORE_URL, APPSTORE_URL }) {
               >
                 <X className="h-6 w-6" />
               </button>
-
-              <h2 className="font-display text-2xl font-bold text-white mb-2">
-                Welcome to the Jungle
-              </h2>
-              <p className="text-emerald-100/80 mb-8 font-body">
-                The hunt starts here. Download the app to begin.
-              </p>
-
+              <h2 className="font-display text-2xl font-bold text-white mb-2">Welcome to the Jungle</h2>
+              <p className="text-emerald-100/80 mb-8 font-body">The hunt starts here. Download the app to begin.</p>
               <div className="flex flex-col gap-4 items-center">
-                <StoreButton
-                  variant="light"
-                  href={PLAYSTORE_URL}
-                  subtitle="Get it on"
-                  title="Google Play"
-                  className="w-full max-w-[200px]"
-                />
-                <StoreButton
-                  variant="light"
-                  href={APPSTORE_URL}
-                  subtitle="Download on the"
-                  title="App Store"
-                  className="w-full max-w-[200px]"
-                />
+                <StoreButton variant="light" href={PLAYSTORE_URL} subtitle="Get it on" title="Google Play" className="w-full max-w-[200px]" />
+                <StoreButton variant="light" href={APPSTORE_URL} subtitle="Download on the" title="App Store" className="w-full max-w-[200px]" />
               </div>
             </div>
           </div>

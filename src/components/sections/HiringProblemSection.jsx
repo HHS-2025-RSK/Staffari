@@ -3,7 +3,7 @@ import Container from "../ui/Container";
 
 export default function HiringProblemSection() {
   return (
-    <section id="problem" className="py-20 bg-beige">
+    <section id="problem" className=" bg-beige">
       <Container>
         {/* Title */}
         <h2 className="mx-auto max-w-4xl text-center font-display text-4xl font-bold leading-tight sm:text-5xl">
