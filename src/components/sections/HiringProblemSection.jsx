@@ -78,6 +78,8 @@ function HiringCard({ title, description, image }) {
         <p className="mt-2 font-body text-[14px] leading-6 text-mutedOlive">
           {description}
         </p>
+
+
       </div>
     </div>
   );
