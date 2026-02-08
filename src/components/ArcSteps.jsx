@@ -238,7 +238,7 @@ export default function ArcSteps({
   return (
     <section
       ref={sectionRef}
-      className="relative"
+      className="relative font-body"
       style={{ height: wrapperHeightVh ? `${wrapperHeightVh}vh` : "auto" }}
     >
       <div
@@ -250,7 +250,7 @@ export default function ArcSteps({
           <div className="rounded-2xl bg-beige backdrop-blur-md shadow-soft px-5 py-6">
             <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2">
               <div>
-                <p className="text-lg font-bold uppercase tracking-wide text-deepJungleGreen">
+                <p className="text-lg font-bold uppercase text-deepJungleGreen">
                   How Staffari Helps
                 </p>
                 <p className="text-sm text-muted-foreground">
