@@ -563,7 +563,7 @@ export default function ContactSection() {
                   />
 
                   <div className="md:col-span-2 flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
-                    <p className="font-body text-[13px] text-mutedOlive">
+                    <p className="font-body text-[13px] text-beige ml-20">
                       We’ll only use your details to respond to your message.
                     </p>
                     <PrimaryButton
