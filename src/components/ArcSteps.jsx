@@ -242,7 +242,7 @@ export default function ArcSteps({
   return (
     <section
       ref={sectionRef}
-      className="relative -mt-20"
+      className="relative"
       style={{ height: `${wrapperHeightVh}vh` }}
     >
       <div
