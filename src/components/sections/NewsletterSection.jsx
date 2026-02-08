@@ -5,12 +5,12 @@ import { PrimaryButton } from "../ui/Buttons";
 
 export default function NewsletterSection() {
   return (
-    <section id="newsletter" className="-mt-20">
+    <section id="newsletter" className="mt-20">
       {/* Patch */}
       <div className="border-t border-mutedOlive/20 bg-deepJungleGreen">
-        <div className="px-40">
-          <div className="py-6 md:py-8">
-            <div className="grid gap-4 md:grid-cols-[1.1fr_1fr] md:items-center">
+        <Container>
+          <div className="py-6 md:py-8 lg:py-10">
+            <div className="grid gap-6 md:gap-6 lg:gap-4 md:grid-cols-[1.1fr_1fr] md:items-center">
               {/* Left copy */}
               <div>
                 <div className="inline-flex items-center rounded-full border border-mutedOlive/25 bg-white px-3 py-1 font-body text-[12px] font-semibold text-mutedOlive">
@@ -22,8 +22,7 @@ export default function NewsletterSection() {
                 </h3>
 
                 <p className="mt-2 font-body text-[15px] leading-7 text-[#fdf9f0]">
-                  Product updates, hiring tips, and hospitality insights—no
-                  spam.
+                  Product updates, hiring tips, and hospitality insights—no spam.
                 </p>
               </div>
 
@@ -31,9 +30,9 @@ export default function NewsletterSection() {
               <form
                 className="grid gap-3"
                 onSubmit={(e) => {
-                  e.preventDefault(); // prevent page refresh on submit [web:91]
-                  const data = new FormData(e.currentTarget);
+                  e.preventDefault();
 
+                  const data = new FormData(e.currentTarget);
                   const payload = {
                     fullName: data.get("fullName"),
                     email: data.get("email"),
@@ -81,7 +80,7 @@ export default function NewsletterSection() {
               </form>
             </div>
           </div>
-        </div>
+        </Container>
       </div>
     </section>
   );

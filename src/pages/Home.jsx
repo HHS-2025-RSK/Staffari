@@ -118,7 +118,7 @@ export default function Home() {
           PLAYSTORE_URL={PLAYSTORE_URL}
           APPSTORE_URL={APPSTORE_URL}
         />
-
+  
         <ContactSection />
         <FooterSection />
       </main>
