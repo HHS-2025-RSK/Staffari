@@ -6,7 +6,7 @@ export default function HiringProblemSection() {
     <section id="problem" className=" bg-beige">
       <Container>
         {/* Title */}
-        <h2 className="mx-auto max-w-4xl text-center font-display text-4xl font-bold leading-tight sm:text-5xl">
+        <h2 className="mx-auto max-w-4xl text-center font-body text-4xl font-bold leading-tight sm:text-5xl">
           Why hospitality hiring is broken?
         </h2>
 

@@ -45,7 +45,7 @@ export default function Navbar() {
 
           {/* Text overlaid exactly centered on the image */}
           <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-            <span className="mb-1 font-display text-3xl font-bold text-[#FDF9F0] drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)] group-hover:drop-shadow-[0_3px_6px_rgba(0,0,0,0.6)] transition-all duration-300">
+            <span className="mb-1 font-body text-3xl font-bold text-[#FDF9F0] drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)] group-hover:drop-shadow-[0_3px_6px_rgba(0,0,0,0.6)] transition-all duration-300">
               STAFFARI
             </span>
           </div>

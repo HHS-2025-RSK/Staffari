@@ -392,7 +392,7 @@ function Modal({ open, title, onClose, children }) {
         style={{ maxHeight: "90vh", overflow: "auto" }}
       >
         <div className="flex items-start justify-between gap-4">
-          <div className="font-display text-xl font-bold text-charcoalBlack">
+          <div className="font-body text-xl font-bold text-charcoalBlack">
             {title}
           </div>
           <button

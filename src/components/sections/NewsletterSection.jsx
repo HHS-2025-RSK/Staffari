@@ -17,7 +17,7 @@ export default function NewsletterSection() {
                   Newsletter
                 </div>
 
-                <h3 className="mt-4 font-display text-2xl font-bold text-[#fdf9f0] md:text-3xl">
+                <h3 className="mt-4 font-body text-2xl font-bold text-[#fdf9f0] md:text-3xl">
                   Subscribe for hiring insights
                 </h3>
 
