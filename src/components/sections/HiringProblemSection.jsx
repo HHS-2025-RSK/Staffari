@@ -3,10 +3,10 @@ import Container from "../ui/Container";
 
 export default function HiringProblemSection() {
   return (
-    <section id="problem" className=" bg-beige">
+    <section id="problem" className="mt-10 bg-beige">
       <Container>
         {/* Title */}
-        <h2 className="mx-auto max-w-4xl text-center font-body text-4xl font-bold leading-tight sm:text-5xl">
+        <h2 className="mx-auto max-w-4xl text-center font-body text-3xl font-bold leading-tight sm:text-5xl">
           Why hospitality hiring is broken?
         </h2>
 
@@ -78,8 +78,6 @@ function HiringCard({ title, description, image }) {
         <p className="mt-2 font-body text-[14px] leading-6 text-mutedOlive">
           {description}
         </p>
-
-
       </div>
     </div>
   );
