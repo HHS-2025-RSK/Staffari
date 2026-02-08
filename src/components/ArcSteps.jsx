@@ -13,10 +13,10 @@ export default function ArcSteps({
   dotSize = 80,
 
   // slots relative to MID; these are distances in rail fraction
-  slotDelta = 0.5, // 0.30 => top = mid - 0.30, bot = mid + 0.30
+  slotDelta = 0.5,
 
   // dynamic sizing knobs
-  arcScale = 1.05, // circle diameter relative to stage height
+  arcScale = 1.05,
   outerBorder = 58,
   innerBorder = 20,
 
@@ -25,8 +25,8 @@ export default function ArcSteps({
   rotationStartDeg = 200,
 
   // horizontal placement of the arc (negative = off to the left)
-  arcLeftOffsetPx = -0.7, // fraction of circle size (e.g. -0.70 * size)
-  arcTopOffsetPx = -0.1, // fraction of circle size (currently unused in your math)
+  arcLeftOffsetPx = -0.7,
+  arcTopOffsetPx = -0.1, // (unused in math currently)
 }) {
   const steps = React.Children.toArray(children)
     .filter(Boolean)
@@ -75,7 +75,7 @@ export default function ArcSteps({
       const stageRect = stage.getBoundingClientRect();
       const stageH = Math.max(1, stageRect.height);
 
-      // 2) Rail height = stage height (so arc "takes the screen size")
+      // 2) Rail height = stage height
       const railHeight = Math.round(stageH);
 
       // 3) Compute dynamic arc sizes from stage height
@@ -93,13 +93,10 @@ export default function ArcSteps({
         top: Math.round(outer.top + size * 0.05),
       };
 
-      // 4) Compute where the circle center is in *rail coordinates*
+      // 4) Circle center in rail coords
       const cyRail = outer.top + outer.size / 2;
 
-      // midSlot should map to that center Y so dot starts exactly in the arc middle
       const midSlot = clamp01(cyRail / railHeight);
-
-      // top/bot relative to mid
       const topSlot = clamp01(midSlot - slotDelta);
       const botSlot = clamp01(midSlot + slotDelta);
 
@@ -143,13 +140,12 @@ export default function ArcSteps({
     slotDelta,
   ]);
 
-  // IMPORTANT: Trigger tree ONLY when the sticky stage is (almost) fully visible.
-  // This will set true on enter (crossing up) and set false on exit (crossing down). [web:17][web:1]
+  // Trigger tree ONLY when sticky stage is (almost) fully visible.
   React.useEffect(() => {
     const stage = stageRef.current;
     if (!stage) return;
 
-    const FULL_SCREEN_RATIO = 0.98; // change to 0.95 if too strict [web:1][web:17]
+    const FULL_SCREEN_RATIO = 0.98;
 
     const obs = new IntersectionObserver(
       ([entry]) => {
@@ -157,9 +153,7 @@ export default function ArcSteps({
           entry.isIntersecting && entry.intersectionRatio >= FULL_SCREEN_RATIO;
         setTreeIn(inNow);
       },
-      {
-        threshold: [0, FULL_SCREEN_RATIO, 1],
-      },
+      { threshold: [0, FULL_SCREEN_RATIO, 1] },
     );
 
     obs.observe(stage);
@@ -185,14 +179,14 @@ export default function ArcSteps({
   const i = Math.min(Math.max(base, 0), Math.max(0, count - 1));
   const next = Math.min(i + 1, count - 1);
 
-  // Dot motion (MID->TOP and BOT->MID)
+  // Dot motion
   const curYNorm = midSlot + (topSlot - midSlot) * frac;
   const curOpacity = 1 - frac;
 
   const nextYNorm = botSlot + (midSlot - botSlot) * frac;
   const nextOpacity = frac === 0 ? 0 : frac;
 
-  // full rotation
+  // rotation
   const rotateDeg = rotationStartDeg - progress * (360 * rotationTurns);
 
   // circle geometry
@@ -200,8 +194,10 @@ export default function ArcSteps({
   const cxOuter = outer.size / 2;
   const cyOuter = outer.size / 2;
 
-  // scroll length (pinned pages)
-  const wrapperHeightVh = Math.max(1, count) * 100;
+  // scroll length (pinned pages) - DISABLED ON MOBILE (natural height)
+  const isClient = typeof window !== "undefined";
+  const wrapperHeightVh =
+    !isClient || window.innerWidth < 768 ? undefined : Math.max(1, count) * 100;
 
   const renderDot = (step, yNorm, opacity) => {
     const y = Math.round(yNorm * railHeight);
@@ -243,17 +239,16 @@ export default function ArcSteps({
     <section
       ref={sectionRef}
       className="relative"
-      style={{ height: `${wrapperHeightVh}vh` }}
+      style={{ height: wrapperHeightVh ? `${wrapperHeightVh}vh` : "auto" }}
     >
       <div
         ref={stageRef}
-        className="sticky top-0 h-[100vh] pb-14 overflow-hidden"
+        className="md:sticky md:top-0 md:h-[100vh] md:pb-14 overflow-hidden h-auto"
       >
-        {/* Top compact helper strip */}
-        <div className="absolute top-20 left-[58%] -translate-x-1/2 w-[92%] max-w-5xl">
+        {/* WEB helper strip (on TOP) */}
+        <div className="hidden md:block absolute top-20 left-[58%] -translate-x-1/2 w-[92%] max-w-5xl">
           <div className="rounded-2xl bg-beige backdrop-blur-md shadow-soft px-5 py-6">
             <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2">
-              {/* Left text */}
               <div>
                 <p className="text-lg font-bold uppercase tracking-wide text-deepJungleGreen">
                   How Staffari Helps
@@ -263,7 +258,6 @@ export default function ArcSteps({
                 </p>
               </div>
 
-              {/* Steps */}
               <div className="flex flex-wrap gap-x-3 gap-y-1 text-md text-deepJungleGreen font-semibold">
                 <span>• Post jobs / talent profile</span>
                 <span>• Smart matching</span>
@@ -274,24 +268,20 @@ export default function ArcSteps({
           </div>
         </div>
 
-        {/* Tree overlay (left edge, animated). Appears ONLY when stage is full-screen. [web:17] */}
+        {/* Tree overlay */}
         <div
           className="pointer-events-none absolute inset-y-0 left-0 hidden md:block"
           style={{
             width: 640,
             zIndex: 10,
-
             backgroundImage: "url(/images/arcsection/image.png)",
             backgroundRepeat: "no-repeat",
             backgroundPosition: "left",
             backgroundSize: "cover",
-
             opacity: treeIn ? 1 : 0,
             transform: treeIn
               ? "translateX(-250px) scale(1)"
               : "translateX(-160%) scale(0.92)",
-
-            // Enter and Exit both animate; exit is intentionally slower.
             transition: treeIn
               ? "opacity 900ms cubic-bezier(0.23, 1, 0.32, 1) 120ms, transform 1100ms cubic-bezier(0.22, 1, 0.36, 1) 80ms"
               : "opacity 900ms ease-out, transform 900ms ease-out",
@@ -302,7 +292,7 @@ export default function ArcSteps({
           className="mx-auto w-full px-6 h-full relative"
           style={{ zIndex: 1 }}
         >
-          <div className="relative grid gap-10 md:grid-cols-[220px_1fr] md:gap-12 h-full items-center">
+          <div className="relative grid gap-10 md:grid-cols-[220px_1fr] md:gap-12 h-full md:items-center">
             {/* Left: arc + dots */}
             <div className="relative hidden md:block">
               <svg
@@ -398,27 +388,54 @@ export default function ArcSteps({
               </div>
             </div>
 
-            {/* Mobile unchanged */}
-            <div className="md:hidden mt-20">
+            {/* Mobile: straight line */}
+            <div className="md:hidden pt-20 pb-10 max-w-2xl mx-auto">
               <div className="relative pl-10">
                 <div className="absolute left-4 top-0 h-full w-px bg-mutedOlive/20" />
-                <div className="grid gap-6">
+                <div className="space-y-8 py-8">
                   {steps.map((s) => (
                     <div key={s.id} className="relative" id={s.id}>
-                      <div className="absolute -left-10 top-0.5 flex h-9 w-9 items-center justify-center rounded-full bg-deepJungleGreen text-white shadow-soft">
-                        <span className="font-body text-[12px] font-bold">
+                      <div className="absolute -left-10 top-1 flex h-10 w-10 items-center justify-center rounded-full bg-deepJungleGreen text-white shadow-soft border-2 border-cardBg">
+                        <span className="font-body text-xs font-bold">
                           {String(s.number).padStart(2, "0")}
                         </span>
                       </div>
-                      <div>
+                      <div className="pl-2">
                         {s.titleNode ? (
-                          <div className="mb-3">{s.titleNode}</div>
+                          <div className="mb-4 font-bold text-lg">
+                            {s.titleNode}
+                          </div>
                         ) : null}
                         {s.element}
                       </div>
                     </div>
                   ))}
                 </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* ✅ MOBILE helper strip as a NEW SECTION BELOW */}
+      <div className="md:hidden px-6 pb-16">
+        <div className="mx-auto w-full max-w-2xl lg:max-w-4xl">
+          <div className="rounded-2xl bg-beige backdrop-blur-md shadow-soft px-4 sm:px-5 lg:px-7 py-5 sm:py-6">
+            <div className="flex flex-col gap-2">
+              <div>
+                <p className="text-lg font-bold uppercase tracking-wide text-deepJungleGreen">
+                  How Staffari Helps
+                </p>
+                <p className="text-sm text-muted-foreground">
+                  From posting to placement — all in one flow
+                </p>
+              </div>
+
+              <div className="flex flex-wrap gap-x-3 gap-y-1 text-md text-deepJungleGreen font-semibold">
+                <span>• Post jobs / talent profile</span>
+                <span>• Smart matching</span>
+                <span>• Chat & shortlist</span>
+                <span>• Close hires faster</span>
               </div>
             </div>
           </div>
