@@ -231,10 +231,8 @@ export default function ArcSteps({
       </div>
     );
   };
-
   const curStep = steps[i];
   const nextStep = steps[next];
-
   return (
     <section
       ref={sectionRef}
