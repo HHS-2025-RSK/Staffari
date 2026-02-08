@@ -238,7 +238,7 @@ export default function ArcSteps({
   return (
     <section
       ref={sectionRef}
-      className="relative font-body"
+      className="relative font-body mt-2"
       style={{ height: wrapperHeightVh ? `${wrapperHeightVh}vh` : "auto" }}
     >
       <div
