@@ -1,4 +1,3 @@
-
 // // import React from "react";
 // // import { ArrowRight, X } from "lucide-react";
 // // import Container from "../ui/Container";
@@ -155,7 +154,6 @@
 // //               className="pointer-events-none h-full w-full object-contain"
 // //             />
 
-       
 // //             {/* Content positioned on top of board */}
 // //             <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
 // //               <div className="pointer-events-auto w-[90%] max-w-3xl py-10">
@@ -333,8 +331,8 @@
 // import ContactTitle from "../ui/ContactTitle";
 // import NewsletterSection from "./NewsletterSection";
 
-// const BG_URL = "/images/contactus/image.png"; 
-// const CARD_BG_URL = "/images/common/woodplatewithbush.png"; 
+// const BG_URL = "/images/contactus/image.png";
+// const CARD_BG_URL = "/images/common/woodplatewithbush.png";
 // const SECTION_BG = "/images/common/bg.png";
 
 // const ROLES = [
@@ -468,7 +466,7 @@
 //       />
 
 //       {/* Content */}
-//       {/* UPDATED: 
+//       {/* UPDATED:
 //           mt-44 (mobile): Pushes it down significantly to clear vines
 //           md:mt-56 (tablet/iPad): Pushes it down even more for taller tablets
 //           lg:mt-64 (desktop): Keeps original position for the wood log
@@ -477,7 +475,7 @@
 //         <div>
 //           {/* WOOD BOARD CARD AREA */}
 //           <div className="relative overflow-hidden">
-            
+
 //             {/* 1. WOOD IMAGE: Hidden on Mobile/Tablet, Visible on Large Screens (lg:block) */}
 //             <img
 //               src={CARD_BG_URL}
@@ -488,10 +486,10 @@
 
 //             {/* 2. WRAPPER: Normal flex flow on Mobile, Absolute Overlay on Large Screens */}
 //             <div className="flex items-center justify-center lg:pointer-events-none lg:absolute lg:inset-0 px-4 pb-10 lg:px-0 lg:pb-0">
-              
-//               {/* 3. FORM CONTAINER: 
+
+//               {/* 3. FORM CONTAINER:
 //                    Mobile: White background, rounded corners, shadow.
-//                    Desktop: Transparent background (shows wood), no shadow, no borders. 
+//                    Desktop: Transparent background (shows wood), no shadow, no borders.
 //               */}
 //               <div className="pointer-events-auto w-full max-w-3xl rounded-3xl bg-white/95 p-8 shadow-xl backdrop-blur-sm lg:w-[90%] lg:bg-transparent lg:p-0 lg:py-10 lg:shadow-none lg:backdrop-blur-none lg:rounded-none">
 //                 <ContactTitle
@@ -661,8 +659,6 @@
 //   );
 // }
 
-
-
 import React from "react";
 import { ArrowRight, X } from "lucide-react";
 import Container from "../ui/Container";
@@ -671,8 +667,8 @@ import { PrimaryButton } from "../ui/Buttons";
 import ContactTitle from "../ui/ContactTitle";
 import NewsletterSection from "./NewsletterSection";
 
-const BG_URL = "/images/contactus/image.png"; 
-const CARD_BG_URL = "/images/common/woodplatewithbush.png"; 
+const BG_URL = "/images/contactus/image.png";
+const CARD_BG_URL = "/images/common/woodplatewithbush.png";
 const SECTION_BG = "/images/common/bg.png";
 
 const ROLES = [
@@ -791,7 +787,7 @@ export default function ContactSection() {
     <section
       id="contact"
       className="relative min-h-[800px] overflow-hidden pt-4 bg-cover bg-center bg-no-repeat"
-      style={{ backgroundImage: `url(${SECTION_BG})` }}
+      // style={{ backgroundImage: `url(${SECTION_BG})` }}
     >
       {/* UPDATED: BG_URL (The vines/leaves)
         Added 'hidden lg:block' to hide it on mobile/iPad and show on desktop.
@@ -813,7 +809,6 @@ export default function ContactSection() {
         <div>
           {/* WOOD BOARD CARD AREA */}
           <div className="relative overflow-hidden">
-            
             {/* 1. WOOD IMAGE: Hidden on Mobile/Tablet, Visible on Large Screens (lg:block) */}
             <img
               src={CARD_BG_URL}
@@ -824,7 +819,6 @@ export default function ContactSection() {
 
             {/* 2. WRAPPER: Normal flex flow on Mobile, Absolute Overlay on Large Screens */}
             <div className="flex items-center justify-center lg:pointer-events-none lg:absolute lg:inset-0 px-4 pb-10 lg:px-0 lg:pb-0">
-              
               {/* 3. FORM CONTAINER: 
                    Mobile: White background, rounded corners, shadow.
                    Desktop: Transparent background (shows wood), no shadow, no borders. 
