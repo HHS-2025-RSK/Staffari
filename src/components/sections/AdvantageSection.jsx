@@ -33,7 +33,7 @@ export default function AdvantageSection({ unfairAdvantageBullets }) {
     <section id="advantage" className="py-14 bg-beige">
       <Container>
         <SectionTitle
-          title="Why is Staffari Your Unfair Advantage?"
+          title="Why is Staffari Your Competitive Advantage?"
           desc={null}
         />
 

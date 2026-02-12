@@ -8,11 +8,11 @@ export default function DownloadSection({ PLAYSTORE_URL, APPSTORE_URL }) {
     <section id="download" className="py-16">
       <Container>
         <div className="rounded-3xl border border-mutedOlive/20 bg-deepJungleGreen p-8 text-white md:p-10">
-          <div className="grid gap-8 md:grid-cols-2 md:items-center">
+          <div className="grid gap-8 md:grid-cols-1 md:items-center">
             <div>
               {/* <Pill>Download</Pill> */}
               <h2 className="mt-4 font-body text-3xl font-bold">
-                One ecosystem for hospitality careers and hiring
+                Hire Faster. Get Hired Smarter.
               </h2>
               <p className="mt-3 font-body text-[15px] leading-7 text-white/80">
                 Staffari connects the entire hospitality workforce. Download the
@@ -35,7 +35,7 @@ export default function DownloadSection({ PLAYSTORE_URL, APPSTORE_URL }) {
               </div>
             </div>
 
-            <div className="grid gap-3">
+            {/* <div className="grid gap-3">
               <div className="rounded-2xl border border-white/15 bg-white/5 p-4">
                 <div className="font-body font-semibold">
                   Cuts recruitment friction
@@ -60,7 +60,7 @@ export default function DownloadSection({ PLAYSTORE_URL, APPSTORE_URL }) {
                   Designed around practical hiring for hospitality operations.
                 </div>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </Container>

@@ -36,24 +36,24 @@ export default function HeroSection({ PLAYSTORE_URL, APPSTORE_URL }) {
           <div className="w-full lg:w-1/2 text-center lg:text-left space-y-6 lg:pl-12">
             <h1 className="font-display text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight text-deepJungleGreen leading-[1.1]">
               <span className="block">Find. </span>
-              <span className="block">Connect. </span>
-              <span className="block text-emerald-600">Thrive.</span>
+              <span className="block text-[#7da855]">Connect. </span>
+              <span className="block text-[#bad878]">Thrive.</span>
             </h1>
 
-            <p className="font-body text-lg md:text-2xl text-charcoalBlack/80 max-w-lg mx-auto lg:mx-0 leading-relaxed">
+            <p className="font-body text-lg md:text-2xl text-black max-w-lg mx-auto lg:mx-0 leading-relaxed">
               A single ecosystem for hospitality hiring, jobs, and careers.
               Built to power smarter recruitment and meaningful hospitality
               careers.
             </p>
 
             <div className="pt-4 flex flex-col items-center lg:items-start">
-              <p className="font-display font-semibold text-deepJungleGreen text-xl md:text-2xl mb-8">
-                Hire faster. Get hired smarter.
-              </p>
+              {/* <p className="font-display font-semibold text-[#5A3E2B] text-xl md:text-2xl tracking-[0.1em] leading-relaxed mb-8">
+                Hire Faster. Get Hired Smarter.
+              </p> */}
 
               <PrimaryButton
                 onClick={() => setIsOpen(true)}
-                className="text-xl py-6 px-10 rounded-full shadow-lg transform transition hover:scale-105"
+                className="text-xl py-4 px-10 rounded-full shadow-lg transform transition hover:scale-105"
               >
                 Start Your Hunt <ArrowRight className="ml-3 h-6 w-6" />
               </PrimaryButton>

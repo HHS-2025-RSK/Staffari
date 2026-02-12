@@ -14,7 +14,7 @@ export function PrimaryButton({
       href={href}
       onClick={onClick}
       className={cn(
-        "inline-flex items-center justify-center gap-2 rounded-2xl bg-emeraldGreen px-5 py-3 text-white",
+        "inline-flex items-center justify-center gap-2 rounded-2xl bg-[#52110f] px-5 py-3 text-[#fdf9f0]",
         "font-body text-[15px] font-semibold shadow-soft transition",
         "hover:brightness-110 active:translate-y-[1px] active:brightness-95",
         "focus:outline-none focus-visible:ring-4 focus-visible:ring-emeraldGreen/20",

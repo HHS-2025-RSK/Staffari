@@ -10,7 +10,7 @@ export default function FooterSection() {
             STAFFARI
           </div>
           <div className="mt-1 font-body text-[13px] text-mutedOlive">
-            Hiring shouldn’t slow hospitality down.
+            Hunt Smart, Hire Right.
           </div>
         </div>
         <div className="font-body text-[13px] text-mutedOlive">
