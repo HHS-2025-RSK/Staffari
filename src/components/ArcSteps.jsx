@@ -244,7 +244,7 @@ export default function ArcSteps({
         className="md:sticky md:top-0 md:h-[100vh] md:pb-14 overflow-hidden h-auto"
       >
         {/* WEB helper strip (on TOP) */}
-        <div className="hidden md:block absolute top-20 left-[58%] -translate-x-1/2 w-[92%] max-w-5xl">
+        {/* <div className="hidden md:block absolute top-20 left-[58%] -translate-x-1/2 w-[92%] max-w-5xl">
           <div className="rounded-2xl bg-beige backdrop-blur-md shadow-soft px-5 py-6">
             <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2">
               <div>
@@ -264,7 +264,7 @@ export default function ArcSteps({
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
 
         {/* Tree overlay */}
         <div
@@ -346,7 +346,7 @@ export default function ArcSteps({
             <div className="relative hidden md:block h-full">
               <div className="h-full flex items-center">
                 <div className="w-full relative">
-                  {curStep ? (
+                  {/* {curStep ? (
                     <div
                       style={{
                         opacity: 1 - frac,
@@ -381,7 +381,21 @@ export default function ArcSteps({
                         {curStep.element}
                       </>
                     ) : null}
-                  </div>
+                  </div> */
+                  curStep ? (
+  <div
+    key={curStep.id}
+    style={{
+      transition: "opacity 200ms ease-out",
+      opacity: 1,
+    }}
+  >
+    {curStep.titleNode ? (
+      <div className="mb-3">{curStep.titleNode}</div>
+    ) : null}
+    {curStep.element}
+  </div>
+) : null}
                 </div>
               </div>
             </div>
@@ -415,7 +429,7 @@ export default function ArcSteps({
         </div>
       </div>
 
-      {/* ✅ MOBILE helper strip as a NEW SECTION BELOW */}
+      {/* ✅ MOBILE helper strip as a NEW SECTION BELOW
       <div className="md:hidden px-6 pb-16">
         <div className="mx-auto w-full max-w-2xl lg:max-w-4xl">
           <div className="rounded-2xl bg-beige backdrop-blur-md shadow-soft px-4 sm:px-5 lg:px-7 py-5 sm:py-6">
@@ -438,7 +452,7 @@ export default function ArcSteps({
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
     </section>
   );
 }

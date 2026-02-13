@@ -2,6 +2,7 @@ import React from "react";
 import { CheckCircle2, Hotel, GraduationCap } from "lucide-react";
 import Container from "../ui/Container";
 import SectionTitle from "../ui/SectionTitle";
+import Pill from "../ui/Pill";
 
 // ────────────────────────────────────────────────
 // Premium Side-by-Side Card (Responsive)
@@ -110,11 +111,18 @@ export default function AdvantageSection() {
   return (
     <section className="py-16 sm:py-24 md:py-32 bg-[#FDFCF7] overflow-hidden relative">
       <Container>
-        <SectionTitle
-          title="Why is Staffari Your Competitive Advantage?"
-          desc="Built exclusively for hospitality — faster, smarter, better."
-          className="mb-12 sm:mb-16 md:mb-24 text-center"
-        />
+        <div className="mb-4">
+          {/* {eyebrow ? <Pill>{eyebrow}</Pill> : null} */}
+          <h2 className="mt-4 font-body text-5xl font-bold text-deepJungleGreen md:text-7xl text-center uppercase">
+            {/* {title} */}
+            Why is Staffari Your Competitive Advantage?
+          </h2>
+
+          <p className="mt-3 max-w-2xl font-body text-[18px] leading-7 text-charcoalBlack/75 text-center mx-auto">
+            {/* {desc} */}
+            Built exclusively for hospitality — faster, smarter, better.
+          </p>
+        </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10 xl:gap-14">
           <PremiumCard content={hotelContent} icon={Hotel} />

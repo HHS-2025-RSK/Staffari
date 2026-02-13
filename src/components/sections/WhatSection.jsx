@@ -14,11 +14,55 @@
 // }
 
 // WhatCard.tsx
+
+// import React from "react";
+// import SectionTitle from "../ui/SectionTitle";
+// import "./WhatCard.css"; // ← import your new CSS file
+
+// export default function WhatCard() {
+//   return (
+//     <div className="what-card">
+//       <div className="what-card-inner">
+//         {/* Left: Image */}
+//         <div className="what-card-image-container animate-fade-in-left">
+//           <div className="what-card-image-overlay" />
+//           <img
+//             src="/images/what.png"
+//             alt="Staffari bellhop in jungle setting"
+//             className="what-card-image"
+//             loading="lazy"
+//           />
+//         </div>
+
+//         {/* Right: Text content */}
+//         <div className="what-card-content animate-fade-in-right">
+//           <SectionTitle
+//             // eyebrow="What is Staffari"
+//             title="Hospitality hiring, simplified"
+//             desc="Staffari is a hiring platform designed specifically for the hospitality industry. We help hotels, restaurants, and hospitality businesses connect with relevant, ready-to-work talent through a streamlined, tech-enabled process."
+//           />
+
+//           {/* Uncomment if needed */}
+//           {/* <div style={{ marginTop: '1.5rem', display: 'flex', gap: '0.75rem', flexWrap: 'wrap' }}>
+//             <div style={{ padding: '0.5rem 1rem', borderRadius: '9999px', backgroundColor: 'rgba(19, 78, 74, 0.1)', color: '#134E4A', fontSize: '0.875rem', fontWeight: 500 }}>
+//               40% faster hiring
+//             </div>
+//             <div style={{ padding: '0.5rem 1rem', borderRadius: '9999px', backgroundColor: 'rgba(245, 158, 11, 0.1)', color: '#92400E', fontSize: '0.875rem', fontWeight: 500 }}>
+//               Trusted by 500+ venues
+//             </div>
+//           </div> */}
+//         </div>
+//       </div>
+//     </div>
+//   );
+// }
+
 import React from "react";
 import SectionTitle from "../ui/SectionTitle";
-import "./WhatCard.css"; // ← import your new CSS file
+import { ShieldCheck } from "lucide-react";
+import "./WhatCard.css";
 
-export default function WhatCard() {
+export default function WhatSection() {
   return (
     <div className="what-card">
       <div className="what-card-inner">
@@ -36,20 +80,26 @@ export default function WhatCard() {
         {/* Right: Text content */}
         <div className="what-card-content animate-fade-in-right">
           <SectionTitle
-            // eyebrow="What is Staffari"
             title="Hospitality hiring, simplified"
-            desc="Staffari is a hiring platform designed specifically for the hospitality industry. We help hotels, restaurants, and hospitality businesses connect with relevant, ready-to-work talent through a streamlined, tech-enabled process."
+            desc="Staffari is a hiring platform designed specifically for the hospitality industry."
           />
+          {/* Matching structured info box (like other sections) */}
+          <div className="mt-6">
+            <div className="flex items-start gap-3 rounded-2xl border border-[#889560]/30 bg-[#f1f1e8] px-5 py-4">
+              <div className="mt-1 text-deepJungleGreen">
+                <ShieldCheck className="h-5 w-5" />
+              </div>
 
-          {/* Uncomment if needed */}
-          {/* <div style={{ marginTop: '1.5rem', display: 'flex', gap: '0.75rem', flexWrap: 'wrap' }}>
-            <div style={{ padding: '0.5rem 1rem', borderRadius: '9999px', backgroundColor: 'rgba(19, 78, 74, 0.1)', color: '#134E4A', fontSize: '0.875rem', fontWeight: 500 }}>
-              40% faster hiring
+              <div>
+                <p className="font-semibold text-deepJungleGreen">
+                  Purpose-built for hospitality
+                </p>
+                <p className="mt-1 text-sm text-[#8c8c87]">
+                  We help hotels, restaurants, and hospitality businesses connect with relevant, ready-to-work talent through a streamlined, tech-enabled process.
+                </p>
+              </div>
             </div>
-            <div style={{ padding: '0.5rem 1rem', borderRadius: '9999px', backgroundColor: 'rgba(245, 158, 11, 0.1)', color: '#92400E', fontSize: '0.875rem', fontWeight: 500 }}>
-              Trusted by 500+ venues
-            </div>
-          </div> */}
+          </div>
         </div>
       </div>
     </div>
