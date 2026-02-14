@@ -2,6 +2,7 @@ import React from "react";
 import { CheckCircle2, Hotel, GraduationCap } from "lucide-react";
 import Container from "../ui/Container";
 import SectionTitle from "../ui/SectionTitle";
+import Pill from "../ui/Pill";
 
 // ────────────────────────────────────────────────
 // Premium Side-by-Side Card
