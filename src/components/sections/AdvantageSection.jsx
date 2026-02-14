@@ -112,7 +112,7 @@ export default function AdvantageSection() {
   };
 
   return (
-    <section className="py-10 md:py-20 bg-[#FDFCF7] overflow-hidden relative">
+    <section className="py-10 md:py-20 bg-[#fdf9f0] overflow-hidden relative">
       {/* Background decor */}
       <div className="absolute top-0 left-0 w-full h-64 bg-gradient-to-b from-beige/30 to-transparent pointer-events-none" />
 
