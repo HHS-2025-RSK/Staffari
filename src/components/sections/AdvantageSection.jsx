@@ -1,11 +1,9 @@
 import React from "react";
 import { CheckCircle2, Hotel, GraduationCap } from "lucide-react";
 import Container from "../ui/Container";
-import SectionTitle from "../ui/SectionTitle";
-import Pill from "../ui/Pill";
 
 // ────────────────────────────────────────────────
-// Premium Side-by-Side Card
+// Premium Glass Card (Unified Color System)
 // ────────────────────────────────────────────────
 function PremiumCard({ content, icon }) {
   const Icon = icon;
@@ -13,69 +11,113 @@ function PremiumCard({ content, icon }) {
   return (
     <div
       className="
-        font-body
-        group relative
-        rounded-[2rem] overflow-hidden
-        shadow-[0_20px_50px_rgba(0,0,0,0.1)]
-        hover:shadow-[0_30px_60px_rgba(0,0,0,0.2)]
+        font-body group relative
+        rounded-[2.25rem]
+        overflow-hidden
+        backdrop-blur-xl
+        border
+        shadow-[0_25px_60px_rgba(0,0,0,0.12)]
+        hover:shadow-[0_40px_90px_rgba(0,0,0,0.18)]
         transition-all duration-700 ease-[cubic-bezier(0.23,1,0.32,1)]
-        transform hover:-translate-y-4
+        hover:-translate-y-3
         flex flex-col h-full
       "
-      style={{ backgroundColor: content.bg }}
+      style={{
+        borderColor: `${content.bg}55`,
+        background: `
+          linear-gradient(
+            135deg,
+            ${content.bg}22,
+            ${content.bg}10,
+            rgba(255,255,255,0.08)
+          )
+        `,
+      }}
     >
-      {/* Decorative inner glow */}
-      <div className="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-white via-transparent to-transparent pointer-events-none" />
+      {/* glass sheen */}
+      <div className="absolute inset-0 bg-gradient-to-br from-white/20 via-transparent to-white/10 opacity-60 pointer-events-none" />
 
-      <div className="flex flex-col md:flex-row h-full">
-        {/* LEFT: Image */}
-        <div className="md:w-2/5 lg:w-5/12 relative overflow-hidden flex-shrink-0 min-h-[300px] md:min-h-full">
+      {/* inner glow */}
+      <div
+        className="absolute inset-0 pointer-events-none opacity-25"
+        style={{
+          background: `radial-gradient(circle at top right, ${content.bg}55, transparent 60%)`,
+        }}
+      />
+
+      <div className="flex flex-col md:flex-row h-full relative z-10">
+        {/* LEFT: IMAGE */}
+        <div className="md:w-2/5 lg:w-5/12 relative overflow-hidden min-h-[280px]">
           <img
             src={content.imageUrl}
             alt={content.heading}
             className="
               w-full h-full object-cover
-              transition-transform duration-[1.5s] ease-out
+              transition-transform duration-[1.6s] ease-out
               group-hover:scale-110
             "
           />
 
-          {/* Image overlay */}
-          <div className="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r from-black/40 via-transparent to-transparent" />
+          {/* image tint */}
+          {/* <div
+            className="absolute inset-0"
+            style={{
+              background: `linear-gradient(to top, ${content.bg}88, transparent)`,
+            }}
+          /> */}
 
-          {/* Floating icon */}
-          <div className="absolute top-6 left-6 p-3 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 shadow-xl">
-            <Icon className="w-6 h-6 text-white" />
+          {/* floating icon */}
+          <div
+            className="absolute top-6 left-6 p-3 rounded-2xl backdrop-blur-md border shadow-lg"
+            style={{
+              background: `${content.bg}44`,
+              borderColor: `${content.bg}88`,
+            }}
+          >
+            <Icon className="w-6 h-6" style={{ color: content.bg }} />
           </div>
         </div>
 
-        {/* RIGHT: Content */}
-        <div className="md:w-3/5 lg:w-7/12 p-6 md:p-7 lg:p-8 flex flex-col relative">
-          {/* Fixed heading region – same starting position & height on both cards */}
-          <div className="mb-10 h-[50px] flex flex-col justify-end">
-            <h3 className="text-xl md:text-2xl font-bold text-white leading-tight line-clamp-2">
+        {/* RIGHT: CONTENT */}
+        <div className="md:w-3/5 lg:w-7/12 p-7 md:p-8 lg:p-10 flex flex-col relative">
+          {/* heading */}
+          <div className="mb-8">
+            <h3
+              className="text-2xl md:text-3xl font-semibold"
+              style={{ color: content.bg }}
+            >
               {content.heading}
             </h3>
-            <div className="h-1 w-16 bg-white/40 mt-4 rounded-full group-hover:w-24 transition-all duration-500" />
+            <div
+              className="mt-4 h-[2px] w-14 rounded-full transition-all duration-500 group-hover:w-24"
+              style={{ backgroundColor: `${content.bg}aa` }}
+            />
           </div>
 
-          {/* Bullet points – start at consistent position */}
+          {/* points */}
           <ul className="space-y-5 flex-grow">
             {content.points.map((point, idx) => (
               <li
                 key={idx}
-                className="group/item flex items-start gap-4 text-white/90"
+                className="flex items-start gap-4"
+                style={{ color: `${content.bg}cc` }}
               >
-                <CheckCircle2 className="w-6 h-6 mt-0.5 flex-shrink-0 text-white opacity-70 group-hover/item:opacity-100 transition-opacity duration-300" />
-                <span className="text-base md:text-lg font-medium tracking-wide leading-relaxed">
+                <CheckCircle2
+                  className="w-5 h-5 mt-1 flex-shrink-0"
+                  style={{ color: content.bg }}
+                />
+                <span className="text-base md:text-lg leading-relaxed font-medium">
                   {point}
                 </span>
               </li>
             ))}
           </ul>
 
-          {/* Depth accent */}
-          <div className="absolute -bottom-10 -right-10 w-48 h-48 bg-white/5 rounded-full blur-3xl pointer-events-none" />
+          {/* depth glow */}
+          <div
+            className="absolute -bottom-16 -right-16 w-56 h-56 rounded-full blur-3xl pointer-events-none opacity-30"
+            style={{ backgroundColor: content.bg }}
+          />
         </div>
       </div>
     </div>
@@ -83,7 +125,7 @@ function PremiumCard({ content, icon }) {
 }
 
 // ────────────────────────────────────────────────
-// Main Section
+// SECTION
 // ────────────────────────────────────────────────
 export default function AdvantageSection() {
   const hotelContent = {
@@ -98,6 +140,7 @@ export default function AdvantageSection() {
     bg: "#3b652b",
     imageUrl: "/images/hiring/hotel.png",
   };
+
   const jobseekerContent = {
     heading: "Students & Job Seekers",
     points: [
@@ -107,34 +150,27 @@ export default function AdvantageSection() {
       "Hotels actively look for you",
       "Faster entry into premium properties",
     ],
-    bg: "#7da855",
+    // bg: "#7da855",
+    bg: "#3b652b",
     imageUrl: "/images/hiring/jobseeker.png",
   };
 
   return (
-    <section className="py-10 md:py-20 bg-[#fdf9f0] overflow-hidden relative">
-      {/* Background decor */}
-      <div className="absolute top-0 left-0 w-full h-64 bg-gradient-to-b from-beige/30 to-transparent pointer-events-none" />
+    <section className="relative py-16 md:py-28 bg-[#fdf9f0] overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-to-b from-white/50 via-transparent to-white/40 pointer-events-none" />
 
       <Container className="relative z-10">
-        <div className="mb-4">
-          <h2 className="font-body text-5xl font-bold text-deepJungleGreen md:text-7xl text-center uppercase">
-            {/* {title} */}
-            Why Staffari is Your Competitive Advantage
+        <div className="mb-14 text-center">
+          <h2 className="font-body text-4xl md:text-6xl font-bold text-deepJungleGreen uppercase">
+            Why Staffari Is Your Competitive Advantage
           </h2>
-          <p className="mt-3 max-w-2xl font-body text-[18px] leading-7 text-charcoalBlack/75 mx-auto text-center">
-            {/* {desc} */}
+          <p className="mt-4 max-w-2xl mx-auto text-lg text-charcoalBlack/70">
             Built exclusively for hospitality — faster, smarter, better
             matching.
           </p>
         </div>
-        {/* <SectionTitle
-          title="Why Staffari is Your Competitive Advantage"
-          desc="Built exclusively for hospitality — faster, smarter, better matching."
-          className="mb-16 md:mb-24 text-center"
-        /> */}
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 xl:gap-14 items-stretch">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 xl:gap-14">
           <PremiumCard content={hotelContent} icon={Hotel} />
           <PremiumCard content={jobseekerContent} icon={GraduationCap} />
         </div>

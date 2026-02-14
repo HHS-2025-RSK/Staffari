@@ -44,46 +44,74 @@ export default function FooterSection() {
 
             {/* Newsletter + Socials */}
             <div className="w-full lg:w-auto lg:max-w-md">
-              <p className="mb-5 text-sm font-semibold tracking-widest uppercase text-[#fdf9f0]">
-                Subscribe to our newsletter
-              </p>
-              <div className="flex items-center gap-3">
-                <input
-                  type="email"
-                  placeholder="Enter your e-mail"
-                  className="
-                    flex-1
-                    h-14 min-w-[280px] lg:min-w-[340px]
-                    rounded-full
-                    px-6 py-3
-                    text-sm
-                    outline-none
-                    border border-[#fdf9f0]/30
-                    bg-[#fdf9f0]/10
-                    text-white placeholder:text-[#fdf9f0]/60
-                    shadow-inner
-                    hover:border-[#fdf9f0]/50
-                    focus:border-indigo-400 focus:bg-white/15
-                    focus:ring-2 focus:ring-indigo-500/30
-                    transition-all duration-300
-                  "
-                />
-                <button
-                  type="button"
-                  className="
-                    h-14 w-14
-                    rounded-full
-                    flex items-center justify-center
-                    border-2 border-[#0f3d34]-500
-                    bg-[#0f3d34]
-                    hover:bg-[#0f3d34]/50 hover:border-[#0f3d34]-400
-                    text-white
-                    transition-all duration-300
-                    shadow-lg hover:shadow-xl hover:shadow-[#0f3d34]-500/80
-                  "
-                >
-                  <ArrowRight className="h-5 w-5" />
-                </button>
+              <div
+                className="
+    relative
+    w-full lg:w-auto lg:max-w-md
+    rounded-3xl
+    p-6 md:p-7
+    backdrop-blur-xl
+    border
+    shadow-[0_25px_60px_rgba(0,0,0,0.45)]
+    overflow-hidden
+  "
+                style={{
+                  background:
+                    "linear-gradient(135deg, rgba(255,255,255,0.14), rgba(255,255,255,0.06))",
+                  borderColor: "rgba(255,255,255,0.25)",
+                }}
+              >
+                {/* subtle glass sheen */}
+                <div className="absolute inset-0 bg-gradient-to-br from-white/25 via-transparent to-white/10 opacity-60 pointer-events-none" />
+
+                {/* soft inner glow */}
+                <div className="absolute -top-16 -right-16 w-40 h-40 bg-white/10 rounded-full blur-3xl pointer-events-none" />
+
+                <p className="relative mb-5 text-sm font-semibold tracking-widest uppercase text-[#fdf9f0]/80">
+                  Subscribe to our newsletter
+                </p>
+
+                <div className="relative flex items-center gap-3">
+                  <input
+                    type="email"
+                    placeholder="Enter your e-mail"
+                    className="
+        flex-1
+        h-14 min-w-[260px] lg:min-w-[320px]
+        rounded-full
+        px-6
+        text-sm
+        outline-none
+        backdrop-blur-md
+        border
+        bg-white/10
+        text-white
+        placeholder:text-white/60
+        shadow-inner
+        transition-all duration-300
+        focus:bg-white/15
+      "
+                    style={{ borderColor: "rgba(255,255,255,0.35)" }}
+                  />
+
+                  <button
+                    type="button"
+                    className="
+        h-14 w-14
+        rounded-full
+        flex items-center justify-center
+        backdrop-blur-md
+        border
+        bg-white/15
+        hover:bg-white/25
+        transition-all duration-300
+        shadow-lg
+      "
+                    style={{ borderColor: "rgba(255,255,255,0.35)" }}
+                  >
+                    <ArrowRight className="h-5 w-5 text-white" />
+                  </button>
+                </div>
               </div>
 
               {/* Social Media Icons */}
