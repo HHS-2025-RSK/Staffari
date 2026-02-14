@@ -308,7 +308,7 @@ export default function ArcSteps({
                   cy={cyOuter}
                   r={rOuterStrokeCenter}
                   fill="none"
-                  stroke="rgba(148, 196, 51, 0.63)"
+                  stroke="#7da855be"
                   strokeWidth={outer.border}
                   strokeLinecap="round"
                   style={{
@@ -323,7 +323,7 @@ export default function ArcSteps({
                   cy={inner.size / 2}
                   r={inner.size / 2 - inner.border / 2}
                   fill="none"
-                  stroke="rgba(39, 100, 33, 0.42)"
+                  stroke="#3b652bb5"
                   strokeWidth={inner.border}
                   style={{
                     transformOrigin: "0 0",
@@ -346,7 +346,8 @@ export default function ArcSteps({
             <div className="relative hidden md:block h-full">
               <div className="h-full flex items-center">
                 <div className="w-full relative">
-                  {/* {curStep ? (
+                  {
+                    /* {curStep ? (
                     <div
                       style={{
                         opacity: 1 - frac,
@@ -382,20 +383,21 @@ export default function ArcSteps({
                       </>
                     ) : null}
                   </div> */
-                  curStep ? (
-  <div
-    key={curStep.id}
-    style={{
-      transition: "opacity 200ms ease-out",
-      opacity: 1,
-    }}
-  >
-    {curStep.titleNode ? (
-      <div className="mb-3">{curStep.titleNode}</div>
-    ) : null}
-    {curStep.element}
-  </div>
-) : null}
+                    curStep ? (
+                      <div
+                        key={curStep.id}
+                        style={{
+                          transition: "opacity 200ms ease-out",
+                          opacity: 1,
+                        }}
+                      >
+                        {curStep.titleNode ? (
+                          <div className="mb-3">{curStep.titleNode}</div>
+                        ) : null}
+                        {curStep.element}
+                      </div>
+                    ) : null
+                  }
                 </div>
               </div>
             </div>

@@ -122,7 +122,7 @@ export default function Navbar() {
             STAFFARI
           </span>
           <span className="font-body text-sm font-medium text-deepJungleGreen/80 tracking-wide mt-0.5">
-            Hunt Smart, Hire Right.
+            Hunt Smart. Hire Right.
           </span>
         </a>
         {/* <a href="#home" className="flex flex-col items-start gap-0.5">

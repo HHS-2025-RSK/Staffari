@@ -95,10 +95,9 @@ export default function AdvantageSection() {
       "Ready bench for peak seasons",
       "Better staff fit, guest reviews",
     ],
-    bg: "#0f3d34",
+    bg: "#3b652b",
     imageUrl: "/images/hiring/hotel.png",
   };
-
   const jobseekerContent = {
     heading: "Students & Job Seekers",
     points: [
@@ -108,21 +107,32 @@ export default function AdvantageSection() {
       "Hotels actively look for you",
       "Faster entry into premium properties",
     ],
-    bg: "#6b8e4e",
+    bg: "#7da855",
     imageUrl: "/images/hiring/jobseeker.png",
   };
 
   return (
-    <section className="py-20 md:py-32 bg-[#FDFCF7] overflow-hidden relative">
+    <section className="py-10 md:py-20 bg-[#FDFCF7] overflow-hidden relative">
       {/* Background decor */}
       <div className="absolute top-0 left-0 w-full h-64 bg-gradient-to-b from-beige/30 to-transparent pointer-events-none" />
 
       <Container className="relative z-10">
-        <SectionTitle
+        <div className="mb-4">
+          <h2 className="font-body text-5xl font-bold text-deepJungleGreen md:text-7xl text-center uppercase">
+            {/* {title} */}
+            Why Staffari is Your Competitive Advantage
+          </h2>
+          <p className="mt-3 max-w-2xl font-body text-[18px] leading-7 text-charcoalBlack/75 mx-auto text-center">
+            {/* {desc} */}
+            Built exclusively for hospitality — faster, smarter, better
+            matching.
+          </p>
+        </div>
+        {/* <SectionTitle
           title="Why Staffari is Your Competitive Advantage"
           desc="Built exclusively for hospitality — faster, smarter, better matching."
           className="mb-16 md:mb-24 text-center"
-        />
+        /> */}
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 xl:gap-14 items-stretch">
           <PremiumCard content={hotelContent} icon={Hotel} />

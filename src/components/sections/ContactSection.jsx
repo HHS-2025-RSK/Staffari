@@ -786,17 +786,17 @@ export default function ContactSection() {
   return (
     <section
       id="contact"
-      className="relative min-h-[800px] overflow-hidden pt-4 bg-cover bg-center bg-no-repeat"
+      className="relative overflow-hidden bg-cover bg-center bg-no-repeat"
       // style={{ backgroundImage: `url(${SECTION_BG})` }}
     >
       {/* UPDATED: BG_URL (The vines/leaves)
         Added 'hidden lg:block' to hide it on mobile/iPad and show on desktop.
       */}
-      <div
+      {/* <div
         aria-hidden="true"
         className="hidden lg:block pointer-events-none absolute inset-0 z-10 bg-cover bg-center contact-bg-fade -mt-[100px]"
         style={{ backgroundImage: `url(${BG_URL})` }}
-      />
+      /> */}
 
       {/* Blur + tint overlay above image */}
       <div
@@ -805,7 +805,7 @@ export default function ContactSection() {
       />
 
       {/* Content */}
-      <div className="relative z-[1] mt-40 md:mt-56 lg:mt-64">
+      <div className="relative z-[1]">
         <div>
           {/* WOOD BOARD CARD AREA */}
           <div className="relative overflow-hidden">
@@ -826,7 +826,7 @@ export default function ContactSection() {
               <div className="pointer-events-auto w-full max-w-3xl rounded-3xl bg-white/95 p-8 shadow-xl backdrop-blur-sm lg:w-[90%] lg:bg-transparent lg:p-0 lg:py-10 lg:shadow-none lg:backdrop-blur-none lg:rounded-none">
                 <ContactTitle
                   title="Contact Us"
-                  desc="Tell us who you are and what you need—our team will get back to you."
+                  desc="Tell us who you are and what you need our team will get back to you."
                 />
 
                 <form
@@ -936,7 +936,7 @@ export default function ContactSection() {
           </div>
         </div>
       </div>
-      <NewsletterSection />
+      {/* <NewsletterSection /> */}
 
       <Modal
         open={roleOpen}
