@@ -789,16 +789,6 @@ export default function ContactSection() {
       className="relative overflow-hidden bg-cover bg-center bg-no-repeat"
       // style={{ backgroundImage: `url(${SECTION_BG})` }}
     >
-      {/* UPDATED: BG_URL (The vines/leaves)
-        Added 'hidden lg:block' to hide it on mobile/iPad and show on desktop.
-      */}
-      {/* <div
-        aria-hidden="true"
-        className="hidden lg:block pointer-events-none absolute inset-0 z-10 bg-cover bg-center contact-bg-fade -mt-[100px]"
-        style={{ backgroundImage: `url(${BG_URL})` }}
-      /> */}
-
-      {/* Blur + tint overlay above image */}
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 z-[1]"
@@ -818,12 +808,8 @@ export default function ContactSection() {
             />
 
             {/* 2. WRAPPER: Normal flex flow on Mobile, Absolute Overlay on Large Screens */}
-            <div className="flex items-center justify-center lg:pointer-events-none lg:absolute lg:inset-0 px-4 pb-10 lg:px-0 lg:pb-0">
-              {/* 3. FORM CONTAINER: 
-                   Mobile: White background, rounded corners, shadow.
-                   Desktop: Transparent background (shows wood), no shadow, no borders. 
-              */}
-              <div className="pointer-events-auto w-full max-w-3xl rounded-3xl bg-white/95 p-8 shadow-xl backdrop-blur-sm lg:w-[90%] lg:bg-transparent lg:p-0 lg:py-10 lg:shadow-none lg:backdrop-blur-none lg:rounded-none">
+            <div className="mx-auto w-full max-w-6xl flex items-center justify-center lg:pointer-events-none lg:absolute lg:-top-28 lg:inset-0 px-4 pb-10 lg:px-0 lg:pb-0">
+              <div className="pointer-events-auto w-full rounded-3xl bg-[#3b652b]/95 px-8 lg:px-28 py-8 shadow-xl backdrop-blur-sm lg:w-[90%] lg:bg-transparent lg:shadow-none lg:backdrop-blur-none lg:rounded-none">
                 <ContactTitle
                   title="Contact Us"
                   desc="Tell us who you are and what you need our team will get back to you."
@@ -919,7 +905,7 @@ export default function ContactSection() {
                   />
 
                   <div className="md:col-span-2 flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
-                    <p className="font-body text-[13px] text-charcoalBlack/70 lg:text-beige lg:ml-20">
+                    <p className="font-body text-[13px] text-[#fefbf6] lg:text-charcoalBlack lg:text-beige lg:ml-20">
                       We’ll only use your details to respond to your message.
                     </p>
                     <PrimaryButton

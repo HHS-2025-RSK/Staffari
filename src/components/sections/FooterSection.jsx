@@ -19,7 +19,7 @@ export default function FooterSection() {
       }}
     >
       {/* Dark overlay to ensure the "STAFFARI" text and newsletter stand out against the busy jungle art */}
-      <div className="absolute inset-0 bg-black/40 pointer-events-none" />
+      <div className="absolute inset-0 bg-black/60 pointer-events-none" />
 
       <div className="w-full relative z-10">
         {/* Glassmorphism card - This will look amazing over the jungle background */}
