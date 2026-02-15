@@ -47,12 +47,13 @@ export default function FooterSection() {
               <div
                 className="
     relative
-    w-full lg:w-auto lg:max-w-md
-    rounded-3xl
-    p-6 md:p-7
+    w-full
+    max-w-lg mx-auto lg:mx-0           /* centers on mobile, left-align on lg+ */
+    rounded-2xl sm:rounded-3xl
+    p-5 sm:p-6 md:p-7 lg:p-8
     backdrop-blur-xl
-    border
-    shadow-[0_25px_60px_rgba(0,0,0,0.45)]
+    border border-white/20
+    shadow-[0_20px_50px_rgba(0,0,0,0.4)] sm:shadow-[0_25px_60px_rgba(0,0,0,0.45)]
     overflow-hidden
   "
                 style={{
@@ -64,32 +65,33 @@ export default function FooterSection() {
                 {/* subtle glass sheen */}
                 <div className="absolute inset-0 bg-gradient-to-br from-white/25 via-transparent to-white/10 opacity-60 pointer-events-none" />
 
-                {/* soft inner glow */}
-                <div className="absolute -top-16 -right-16 w-40 h-40 bg-white/10 rounded-full blur-3xl pointer-events-none" />
+                {/* soft inner glow – smaller on mobile */}
+                <div className="absolute -top-12 -right-12 sm:-top-16 sm:-right-16 w-32 h-32 sm:w-40 sm:h-40 bg-white/10 rounded-full blur-3xl pointer-events-none" />
 
-                <p className="relative mb-5 text-sm font-semibold tracking-widest uppercase text-[#fdf9f0]/80">
+                <p className="relative mb-4 sm:mb-5 text-xs sm:text-sm font-semibold tracking-widest uppercase text-[#fdf9f0]/80 text-center sm:text-left">
                   Subscribe to our newsletter
                 </p>
 
-                <div className="relative flex items-center gap-3">
+                <div className="relative flex flex-col sm:flex-row items-center gap-3 sm:gap-4">
                   <input
                     type="email"
-                    placeholder="Enter your e-mail"
+                    placeholder="Enter your email"
                     className="
-        flex-1
-        h-14 min-w-[260px] lg:min-w-[320px]
+        w-full
+        h-12 sm:h-14
+        min-w-0                           /* prevents flex overflow */
         rounded-full
-        px-6
-        text-sm
+        px-5 sm:px-6
+        text-sm sm:text-base
         outline-none
         backdrop-blur-md
-        border
+        border border-white/30
         bg-white/10
         text-white
         placeholder:text-white/60
         shadow-inner
         transition-all duration-300
-        focus:bg-white/15
+        focus:bg-white/15 focus:border-white/40
       "
                     style={{ borderColor: "rgba(255,255,255,0.35)" }}
                   />
@@ -97,19 +99,23 @@ export default function FooterSection() {
                   <button
                     type="button"
                     className="
-        h-14 w-14
+        h-12 sm:h-14
+        w-12 sm:w-14
+        shrink-0                          /* prevents button from shrinking */
         rounded-full
         flex items-center justify-center
         backdrop-blur-md
-        border
+        border border-white/30
         bg-white/15
         hover:bg-white/25
+        active:scale-95                   /* gives feedback on touch */
         transition-all duration-300
         shadow-lg
       "
                     style={{ borderColor: "rgba(255,255,255,0.35)" }}
+                    aria-label="Subscribe"
                   >
-                    <ArrowRight className="h-5 w-5 text-white" />
+                    <ArrowRight className="h-5 w-5 sm:h-6 sm:w-6 text-white" />
                   </button>
                 </div>
               </div>
