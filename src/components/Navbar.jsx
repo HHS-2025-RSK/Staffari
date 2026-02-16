@@ -167,7 +167,7 @@ export default function Navbar() {
               // 1. whitespace-nowrap: Forces text to be one line.
               // 2. px-3 py-1.5 text-xs: Makes button smaller/shorter on mobile.
               // 3. sm:... : Restores normal size on tablets/desktops.
-              className="flex items-center gap-1.5 whitespace-nowrap px-3 py-1.5 text-xs font-medium sm:gap-2 sm:px-4 sm:py-2 sm:text-sm"
+              className="font-display flex items-center gap-1.5 whitespace-nowrap px-3 py-1.5 text-xs font-medium sm:gap-2 sm:px-4 sm:py-2 sm:text-sm"
             >
               Start Your Hunt
               <ArrowRight className="h-3 w-3 sm:h-4 sm:w-4" />

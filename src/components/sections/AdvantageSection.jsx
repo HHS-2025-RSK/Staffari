@@ -74,7 +74,7 @@ function PremiumCard({ content, icon }) {
               borderColor: `${content.bg}88`,
             }}
           >
-            <Icon className="w-6 h-6" style={{ color: content.bg }} />
+            <Icon className="w-6 h-6" style={{ color: "#fdf9f0" }} />
           </div>
         </div>
 
@@ -83,7 +83,7 @@ function PremiumCard({ content, icon }) {
           {/* heading */}
           <div className="mb-8">
             <h3
-              className="text-2xl md:text-3xl font-semibold"
+              className="font-display text-2xl md:text-3xl"
               style={{ color: content.bg }}
             >
               {content.heading}
@@ -106,7 +106,7 @@ function PremiumCard({ content, icon }) {
                   className="w-5 h-5 mt-1 flex-shrink-0"
                   style={{ color: content.bg }}
                 />
-                <span className="text-base md:text-lg leading-relaxed font-medium">
+                <span className="text-[#0f3d34] text-base md:text-lg leading-relaxed font-medium">
                   {point}
                 </span>
               </li>
@@ -159,7 +159,7 @@ export default function AdvantageSection() {
     <section className="relative py-16 md:py-28 bg-[#fdf9f0] overflow-hidden">
       <Container className="relative z-10">
         <div className="mb-14 text-center">
-          <h2 className="font-body text-5xl md:text-8xl font-bold text-deepJungleGreen uppercase">
+          <h2 className="font-display max-w-7xl text-[#402701] text-center text-5xl tracking-wide leading-relaxed sm:text-7xl leading-[1.1] uppercase">
             Why Staffari Is Your Competitive Advantage
           </h2>
           <p className="mt-4 max-w-2xl mx-auto text-lg text-charcoalBlack/70">

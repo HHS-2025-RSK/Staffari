@@ -669,6 +669,7 @@ import NewsletterSection from "./NewsletterSection";
 
 const BG_URL = "/images/contactus/image.png";
 const CARD_BG_URL = "/images/common/woodplate1.png";
+const M_CARD_BG_URL = "/images/common/woodplate.png";
 const SECTION_BG = "/images/common/bg.png";
 
 const ROLES = [
@@ -808,7 +809,7 @@ export default function ContactSection() {
             />
 
             <img
-              src={CARD_BG_URL} // <-- your new image
+              src={M_CARD_BG_URL} // <-- your new image
               alt=""
               aria-hidden="true"
               className="lg:hidden absolute inset-0 w-full h-full object-cover pointer-events-none"

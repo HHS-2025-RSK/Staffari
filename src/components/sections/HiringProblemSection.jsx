@@ -3,10 +3,10 @@ import Container from "../ui/Container";
 
 export default function HiringProblemSection() {
   return (
-    <section id="problem" className="mt-20 font-body bg-beige">
+    <section id="problem" className="bg-beige">
       <Container>
         {/* Title */}
-        <h2 className="mx-auto max-w-5xl text-[#402701] text-center font-heading text-5xl font-bold tracking-tight leading-tight sm:text-7xl leading-[1.1] uppercase">
+        <h2 className="font-display mx-auto max-w-7xl text-[#402701] text-center text-5xl tracking-wide leading-relaxed sm:text-7xl leading-[1.1] uppercase">
           Why hospitality hiring is broken?
         </h2>
 
@@ -33,7 +33,7 @@ export default function HiringProblemSection() {
         </div>
 
         {/* Bottom line */}
-        <p className="mx-auto mt-10 max-w-3xl text-center font-body text-[20px] leading-7 text-mutedOlive">
+        <p className="font-display mx-auto mt-10 max-w-7xl text-center font-body text-[40px] leading-10 text-black">
           Disconnected systems slow everyone down. Staffari brings it all
           together in one unified ecosystem.
         </p>
@@ -74,7 +74,9 @@ function HiringCard({ title, description, image }) {
 
       {/* Content */}
       <div className="p-5 text-center">
-        <h3 className="font-body text-xl font-semibold uppercase">{title}</h3>
+        <h3 className="font-display text-[#0f3d34] tracking-wide text-2xl">
+          {title}
+        </h3>
         <p className="mt-2 font-body text-[18px] leading-6 text-[#402701]">
           {description}
         </p>
