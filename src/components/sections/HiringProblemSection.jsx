@@ -52,7 +52,7 @@ function HiringCard({ title, description, image }) {
       className="
         group mx-auto w-64
         rounded-3xl bg-white/70 backdrop-blur
-        border border-mutedOlive/20
+        border border-[#402701]
         transition-all duration-300
         hover:-translate-y-1
         hover:shadow-xl
