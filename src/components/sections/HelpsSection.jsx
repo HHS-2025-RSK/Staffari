@@ -66,7 +66,7 @@ export default function HelpsSection({ helpsBullets }) {
                 <div className="help-card-image-container animate-fade-in-left">
                   <div className="help-card-image-overlay" />
                   <img
-                    src="/images/helps.png"
+                    src="/images/helps1.png"
                     alt="Staffari bellhop in jungle setting"
                     className="help-card-image"
                     loading="lazy"

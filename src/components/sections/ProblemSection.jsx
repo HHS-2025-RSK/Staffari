@@ -19,7 +19,7 @@ export default function ProblemSection({ problemBullets }) {
                 <div className="problem-card-image-container animate-fade-in-left">
                   <div className="problem-card-image-overlay" />
                   <img
-                    src="/images/problem.png"
+                    src="/images/problem2.png"
                     alt="Staffari bellhop in jungle setting"
                     className="problem-card-image"
                     loading="lazy"

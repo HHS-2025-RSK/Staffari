@@ -138,7 +138,7 @@ export default function AdvantageSection() {
       "Better staff fit, guest reviews",
     ],
     bg: "#3b652b",
-    imageUrl: "/images/hiring/hotel.png",
+    imageUrl: "/images/advantage/image1.png",
   };
 
   const jobseekerContent = {
@@ -152,7 +152,7 @@ export default function AdvantageSection() {
     ],
     // bg: "#7da855",
     bg: "#3b652b",
-    imageUrl: "/images/hiring/jobseeker.png",
+    imageUrl: "/images/advantage/image2.png",
   };
 
   return (

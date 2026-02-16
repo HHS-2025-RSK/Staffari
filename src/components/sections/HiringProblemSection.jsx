@@ -16,19 +16,19 @@ export default function HiringProblemSection() {
           <HiringCard
             title="Hotels & Restaurants"
             description="Slow hiring cycles and high agency costs"
-            image="/images/hiring/hotel.png"
+            image="/images/hiring/hotel1.png"
           />
 
           <HiringCard
             title="Students & Colleges"
             description="Limited access to real industry opportunities"
-            image="/images/hiring/college.png"
+            image="/images/hiring/college1.png"
           />
 
           <HiringCard
             title="Job Seekers"
             description="Delayed responses and unclear job visibility"
-            image="/images/hiring/jobseeker.png"
+            image="/images/hiring/jobseeker1.png"
           />
         </div>
 

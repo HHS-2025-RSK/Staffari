@@ -100,7 +100,7 @@ export default function DownloadSection({ PLAYSTORE_URL, APPSTORE_URL }) {
   }, [isPaused]);
 
   return (
-    <section id="download" className="py-20">
+    <section id="download" className="py-20 lg:py-0">
       <Container>
         <div className="mx-auto rounded-[28px] bg-deepJungleGreen px-6 sm:px-12 py-12 sm:py-16">
           <div className="grid md:grid-cols-[1.3fr_0.7fr] items-center gap-10 md:gap-14">
@@ -174,7 +174,7 @@ export default function DownloadSection({ PLAYSTORE_URL, APPSTORE_URL }) {
                   "
                 >
                   {/* Dynamic Island / Notch */}
-                  <div className="absolute top-[1.2%] left-1/2 -translate-x-1/2 w-28 sm:w-30 h-4 bg-black rounded-full z-20 shadow-inner flex items-center justify-center">
+                  <div className="absolute top-[1.2%] left-1/2 -translate-x-1/2 w-10 sm:w-20 h-4 bg-black rounded-full z-20 shadow-inner flex items-center justify-center">
                     <div className="w-4 h-4 bg-neutral-950 rounded-full shadow"></div>
                   </div>
 

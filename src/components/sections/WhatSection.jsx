@@ -70,7 +70,7 @@ export default function WhatSection() {
         <div className="what-card-image-container animate-fade-in-left">
           <div className="what-card-image-overlay" />
           <img
-            src="/images/what.png"
+            src="/images/what2.png"
             alt="Staffari bellhop in jungle setting"
             className="what-card-image"
             loading="lazy"
@@ -95,7 +95,9 @@ export default function WhatSection() {
                   Purpose-built for hospitality
                 </p>
                 <p className="mt-1 text-sm text-[#8c8c87]">
-                  We help hotels, restaurants, and hospitality businesses connect with relevant, ready-to-work talent through a streamlined, tech-enabled process.
+                  We help hotels, restaurants, and hospitality businesses
+                  connect with relevant, ready-to-work talent through a
+                  streamlined, tech-enabled process.
                 </p>
               </div>
             </div>
