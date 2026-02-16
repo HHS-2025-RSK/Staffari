@@ -57,7 +57,7 @@ export default function HelpsSection({ helpsBullets }) {
   return (
     <section id="helps" className="helpsBullets">
       <div className="help-wrapper">
-        <div className="help-card">
+        <div className="help-card border-4 border-[#402701]">
           {/* Flip container */}
           <div className="help-card-inner">
             {/* Front */}

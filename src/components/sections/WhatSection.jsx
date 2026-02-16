@@ -64,7 +64,7 @@ import "./WhatCard.css";
 
 export default function WhatSection() {
   return (
-    <div className="what-card">
+    <div className="what-card border-4 border-[#402701]">
       <div className="what-card-inner">
         {/* Left: Image */}
         <div className="what-card-image-container animate-fade-in-left">
@@ -94,7 +94,7 @@ export default function WhatSection() {
                 <p className="font-semibold text-deepJungleGreen">
                   Purpose-built for hospitality
                 </p>
-                <p className="mt-1 text-sm text-[#8c8c87]">
+                <p className="mt-1 text-sm">
                   We help hotels, restaurants, and hospitality businesses
                   connect with relevant, ready-to-work talent through a
                   streamlined, tech-enabled process.

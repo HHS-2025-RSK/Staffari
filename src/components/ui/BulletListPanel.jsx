@@ -14,9 +14,7 @@ export default function BulletListPanel({ items }) {
             <BadgeCheck className="h-4 w-4" />
           </span>
 
-          <div className="font-body text-[15px] leading-6 text-charcoalBlack/80">
-            {it}
-          </div>
+          <div className="font-body text-[15px] leading-6 mt-1.5">{it}</div>
         </div>
       ))}
     </div>

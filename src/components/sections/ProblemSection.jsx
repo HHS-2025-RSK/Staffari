@@ -10,7 +10,7 @@ export default function ProblemSection({ problemBullets }) {
   return (
     <section id="problem" className="problem-section">
       <div className="problem-wrapper">
-        <div className="problem-card">
+        <div className="problem-card border-4 border-[#402701]">
           {/* Flip container */}
           <div className="problem-card-inner">
             {/* Front */}

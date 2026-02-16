@@ -56,10 +56,11 @@ function HiringCard({ title, description, image }) {
         transition-all duration-300
         hover:-translate-y-1
         hover:shadow-xl
+        border-4 border-[#402701]
       "
     >
       {/* Image */}
-      <div className="overflow-hidden rounded-t-3xl">
+      <div className="overflow-hidden rounded-t-2xl">
         <img
           src={image}
           alt={title}

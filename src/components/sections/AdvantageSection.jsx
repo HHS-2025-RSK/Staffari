@@ -15,7 +15,7 @@ function PremiumCard({ content, icon }) {
         rounded-[2.25rem]
         overflow-hidden
         backdrop-blur-xl
-        border
+        border-4
         shadow-[0_25px_60px_rgba(0,0,0,0.12)]
         hover:shadow-[0_40px_90px_rgba(0,0,0,0.18)]
         transition-all duration-700 ease-[cubic-bezier(0.23,1,0.32,1)]
@@ -23,7 +23,7 @@ function PremiumCard({ content, icon }) {
         flex flex-col h-full
       "
       style={{
-        borderColor: `${content.bg}55`,
+        borderColor: "#402701",
         background: `
           linear-gradient(
             135deg,

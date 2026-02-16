@@ -27,9 +27,7 @@ export default function SectionTitle({ eyebrow, title, desc }) {
         {title}
       </h2>
       {desc ? (
-        <p className="mt-3 max-w-2xl font-body text-[15px] leading-7 text-charcoalBlack/75">
-          {desc}
-        </p>
+        <p className="mt-3 max-w-2xl font-body text-[15px] leading-7">{desc}</p>
       ) : null}
     </div>
   );
