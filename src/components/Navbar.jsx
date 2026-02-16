@@ -121,7 +121,7 @@ export default function Navbar() {
           <span className="font-display text-4xl font-bold text-deepJungleGreen">
             STAFFARI
           </span>
-          <span className="font-body text-sm font-medium text-deepJungleGreen/80 tracking-wide mt-0.5">
+          <span className="text-sm font-medium text-deepJungleGreen/80 mt-0.5">
             Hunt Smart. Hire Right.
           </span>
         </a>

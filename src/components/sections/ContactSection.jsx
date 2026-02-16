@@ -953,9 +953,9 @@ export default function ContactSection() {
               <div className="mt-2 font-body font-semibold text-charcoalBlack">
                 {r.label}
               </div>
-              <div className="mt-1 font-body text-[13px] text-mutedOlive">
+              {/* <div className="mt-1 font-body text-[13px] text-mutedOlive">
                 Continue with this role
-              </div>
+              </div> */}
             </button>
           ))}
         </div>
