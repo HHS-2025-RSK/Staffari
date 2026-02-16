@@ -17,7 +17,7 @@ export default function HeroSection() {
   return (
     <section
       id="hero-section"
-      className="relative bg-[#fdf9f0] min-h-screen overflow-hidden"
+      className="relative bg-[#fdf9f0] min-h-screen overflow-hidden font-body"
     >
       {/* MOBILE TOP IMAGE (FULL WIDTH, HERO STYLE) */}
       <div className="block lg:hidden w-full h-[85vh]">
