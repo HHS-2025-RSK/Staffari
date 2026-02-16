@@ -159,7 +159,7 @@ export default function AdvantageSection() {
     <section className="relative py-16 md:py-28 bg-[#fdf9f0] overflow-hidden">
       <Container className="relative z-10">
         <div className="mb-14 text-center">
-          <h2 className="font-body text-4xl md:text-6xl font-bold text-deepJungleGreen uppercase">
+          <h2 className="font-body text-5xl md:text-8xl font-bold text-deepJungleGreen uppercase">
             Why Staffari Is Your Competitive Advantage
           </h2>
           <p className="mt-4 max-w-2xl mx-auto text-lg text-charcoalBlack/70">

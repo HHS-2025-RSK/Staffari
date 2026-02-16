@@ -34,10 +34,10 @@ export default function FooterSection() {
           <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-12 lg:gap-20">
             {/* Logo/Brand - Left */}
             <div className="flex flex-col">
-              <div className="font-body text-3xl md:text-4xl font-bold text-[#fdf9f0] tracking-tight">
+              <div className="font-body text-4xl md:text-6xl font-extrabold text-[#fdf9f0] tracking-tight">
                 STAFFARI
               </div>
-              <div className="font-body text-sm md:text-base text-[#fdf9f0] opacity-80 mt-2 max-w-sm">
+              <div className="font-body text-md md:text-lg text-[#fdf9f0] opacity-80 mt-2 max-w-sm">
                 Hunt Smart. Hire Right.
               </div>
             </div>
@@ -123,19 +123,22 @@ export default function FooterSection() {
               {/* Social Media Icons */}
               <div className="mt-10 flex items-center gap-8">
                 <a
-                  href="#"
+                  href="https://www.instagram.com/staffari_official/"
+                  target="_blank"
                   className="text-[#fdf9f0] opacity-70 hover:opacity-100 transition-opacity"
                 >
                   <Instagram className="h-7 w-7" />
                 </a>
                 <a
-                  href="#"
+                  href="https://www.facebook.com/profile.php?id=61585470624376#/"
+                  target="_blank"
                   className="text-[#fdf9f0] opacity-70 hover:opacity-100 transition-opacity"
                 >
                   <Facebook className="h-7 w-7" />
                 </a>
                 <a
-                  href="#"
+                  href="https://www.linkedin.com/in/staffari-official-40aa8239a/"
+                  target="_blank"
                   className="text-[#fdf9f0] opacity-70 hover:opacity-100 transition-opacity"
                 >
                   <Linkedin className="h-7 w-7" />

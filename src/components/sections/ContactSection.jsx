@@ -668,7 +668,7 @@ import ContactTitle from "../ui/ContactTitle";
 import NewsletterSection from "./NewsletterSection";
 
 const BG_URL = "/images/contactus/image.png";
-const CARD_BG_URL = "/images/common/woodplate.png";
+const CARD_BG_URL = "/images/common/woodplate1.png";
 const SECTION_BG = "/images/common/bg.png";
 
 const ROLES = [
@@ -805,6 +805,13 @@ export default function ContactSection() {
               alt=""
               aria-hidden="true"
               className="hidden lg:block pointer-events-none h-full w-full object-contain"
+            />
+
+            <img
+              src={CARD_BG_URL} // <-- your new image
+              alt=""
+              aria-hidden="true"
+              className="lg:hidden absolute inset-0 w-full h-full object-cover pointer-events-none"
             />
 
             {/* 2. WRAPPER: Normal flex flow on Mobile, Absolute Overlay on Large Screens */}
