@@ -19,8 +19,10 @@ import HiringProblemSection from "../components/sections/HiringProblemSection";
 export default function Home() {
   // const [faqOpen, setFaqOpen] = useState(0);
 
-  const PLAYSTORE_URL = "YOUR_PLAYSTORE_LINK";
-  const APPSTORE_URL = "YOUR_APPSTORE_LINK";
+  const PLAYSTORE_URL =
+    "https://play.google.com/store/apps/details?id=com.jacstaffari.hhs&pcampaignid=web_share";
+  const APPSTORE_URL =
+    "https://play.google.com/store/apps/details?id=com.jacstaffari.hhs&pcampaignid=web_share";
 
   // const metaTitle = "Staffari | Hospitality Jobs & Hiring Platform";
   // const metaDescription =
@@ -118,7 +120,7 @@ export default function Home() {
           PLAYSTORE_URL={PLAYSTORE_URL}
           APPSTORE_URL={APPSTORE_URL}
         />
-  
+
         <ContactSection />
         <FooterSection />
       </main>

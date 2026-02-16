@@ -72,11 +72,16 @@ import React, { useEffect, useState } from "react";
 import Container from "../ui/Container";
 import StoreButton from "../ui/StoreButton";
 
-export default function DownloadSection({ PLAYSTORE_URL, APPSTORE_URL }) {
+export default function DownloadSection({
+  PLAYSTORE_URL = "https://play.google.com/store/apps/details?id=com.jacstaffari.hhs&pcampaignid=web_share",
+  APPSTORE_URL = "https://play.google.com/store/apps/details?id=com.jacstaffari.hhs&pcampaignid=web_share",
+}) {
   const images = [
+    "/images/wireframe4.png",
+    "/images/wireframe5.png",
+    "/images/wireframe6.png",
     "/images/wireframe1.png",
     "/images/wireframe2.png",
-    "/images/wireframe3.png",
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -102,10 +107,10 @@ export default function DownloadSection({ PLAYSTORE_URL, APPSTORE_URL }) {
   return (
     <section id="download" className="py-20 lg:py-0">
       <Container>
-        <div className="mx-auto rounded-[28px] bg-deepJungleGreen px-6 sm:px-12 py-12 sm:py-16">
+        <div className="mx-auto px-6 sm:px-12 py-12 sm:py-0">
           <div className="grid md:grid-cols-[1.3fr_0.7fr] items-center gap-10 md:gap-14">
             {/* TEXT SIDE */}
-            <div className="text-white order-2 md:order-1">
+            <div className="rounded-[28px] bg-deepJungleGreen px-6 sm:px-12 py-12 sm:py-16 text-white order-2 md:order-1">
               <div className="text-white/60 text-xs sm:text-sm tracking-widest uppercase">
                 Download the App
               </div>
@@ -157,7 +162,7 @@ export default function DownloadSection({ PLAYSTORE_URL, APPSTORE_URL }) {
                 {/* Left arrow */}
                 <button
                   onClick={prevSlide}
-                  className="absolute -left-8 sm:-left-10 top-1/2 -translate-y-1/2 text-white/60 hover:text-white text-3xl sm:text-4xl transition-colors"
+                  className="absolute -left-8 sm:-left-10 top-1/2 -translate-y-1/2 text-[#0f3d34]/60 hover:text-[#0f3d34] text-3xl sm:text-4xl transition-colors"
                   aria-label="Previous slide"
                 >
                   ‹
@@ -204,7 +209,7 @@ export default function DownloadSection({ PLAYSTORE_URL, APPSTORE_URL }) {
                 {/* Right arrow */}
                 <button
                   onClick={nextSlide}
-                  className="absolute -right-8 sm:-right-10 top-1/2 -translate-y-1/2 text-white/60 hover:text-white text-3xl sm:text-4xl transition-colors"
+                  className="absolute -right-8 sm:-right-10 top-1/2 -translate-y-1/2 text-[#0f3d34]/60 hover:text-[#0f3d34] text-3xl sm:text-4xl transition-colors"
                   aria-label="Next slide"
                 >
                   ›
@@ -218,8 +223,8 @@ export default function DownloadSection({ PLAYSTORE_URL, APPSTORE_URL }) {
                       onClick={() => setCurrentIndex(index)}
                       className={`h-2.5 w-2.5 rounded-full transition-all duration-300 ${
                         index === currentIndex
-                          ? "bg-white scale-125 shadow-md"
-                          : "bg-white/40 hover:bg-white/70"
+                          ? "bg-[#0f3d34] scale-125 shadow-md"
+                          : "bg-[#0f3d34]/40 hover:bg-white/70"
                       }`}
                       aria-label={`Go to slide ${index + 1}`}
                     />

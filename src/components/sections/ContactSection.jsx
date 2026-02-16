@@ -808,15 +808,15 @@ export default function ContactSection() {
             />
 
             {/* 2. WRAPPER: Normal flex flow on Mobile, Absolute Overlay on Large Screens */}
-            <div className="mx-auto w-full max-w-6xl flex items-center justify-center lg:pointer-events-none lg:absolute lg:-top-18 lg:inset-0 px-4 pb-10 lg:px-0 lg:pb-0">
-              <div className="pointer-events-auto w-full rounded-3xl bg-[#0f3d34]/95 px-8 lg:px-28 py-8 shadow-xl backdrop-blur-sm lg:w-[90%] lg:bg-transparent lg:shadow-none lg:backdrop-blur-none lg:rounded-none">
+            <div className="mx-auto w-full max-w-6xl flex items-center justify-center lg:pointer-events-none lg:absolute lg:-top-18 lg:inset-0 px-6 pb-10 lg:px-0 lg:pb-0">
+              <div className="pointer-events-auto w-full rounded-3xl bg-[#3b652b]/95 px-8 lg:px-28 py-8 shadow-xl backdrop-blur-sm lg:w-[90%] lg:bg-transparent lg:shadow-none lg:backdrop-blur-none lg:rounded-none">
                 <ContactTitle
                   title="Contact Us"
                   desc="Tell us who you are and what you need our team will get back to you."
                 />
 
                 <form
-                  className="mt-6 grid gap-3 md:grid-cols-2"
+                  className="mt-6 grid gap-3 md:grid-cols-2 mx-8"
                   onSubmit={async (e) => {
                     e.preventDefault();
 
