@@ -109,7 +109,7 @@ export default function DownloadSection({
       <Container>
         <div className="mb-14 text-center">
           <h2 className="font-display text-[#402701] text-center text-5xl tracking-wide leading-relaxed sm:text-7xl leading-[1.1] uppercase">
-            Hire Faster. Get Hired Smarter.
+            Start Your Hunt
           </h2>
         </div>
         <div className="mx-auto px-6 sm:px-12 py-12 sm:py-0">
@@ -118,11 +118,11 @@ export default function DownloadSection({
             <div className="rounded-[28px] bg-deepJungleGreen px-6 sm:px-12 py-12 sm:py-16 text-white order-2 md:order-1">
               <h2 className="font-display tracking-wide leading-relaxed mt-3 text-3xl sm:text-4xl font-bold leading-tight max-w-lg">
                 <span className="block max-[860px]:block md:inline">
-                  Start Your Hunt
+                  Hire Faster.
                 </span>{" "}
-                {/* <span className="block max-[860px]:block md:inline">
+                <span className="block max-[860px]:block md:inline">
                   Get Hired Smarter.
-                </span> */}
+                </span>
               </h2>
 
               <div className="mt-4 w-12 h-[2px] bg-white/30" />

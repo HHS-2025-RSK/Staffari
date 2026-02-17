@@ -153,6 +153,44 @@ export default function Navbar() {
           </span>
         </a> */}
         {/* CTA Button Section */}
+        <nav className="hidden items-center gap-6 md:flex">
+          <a
+            className="font-body text-[14px] font-semibold text-mutedOlive hover:text-deepJungleGreen"
+            href="#what"
+          >
+            What is Staffari
+          </a>
+          <a
+            className="font-body text-[14px] font-semibold text-mutedOlive hover:text-deepJungleGreen"
+            href="#problem"
+          >
+            The Problem
+          </a>
+          <a
+            className="font-body text-[14px] font-semibold text-mutedOlive hover:text-deepJungleGreen"
+            href="#helps"
+          >
+            How Staffari Helps
+          </a>
+          <a
+            className="font-body text-[14px] font-semibold text-mutedOlive hover:text-deepJungleGreen"
+            href="#advantage"
+          >
+            Advantage
+          </a>
+          <a
+            className="font-body text-[14px] font-semibold text-mutedOlive hover:text-deepJungleGreen"
+            href="#newsletter"
+          >
+            Newsletter
+          </a>
+          {/* <a
+            className="font-body text-[14px] font-semibold text-mutedOlive hover:text-deepJungleGreen"
+            href="#faq"
+          >
+            FAQ
+          </a> */}
+        </nav>
         <div className="flex items-center gap-3">
           <div
             className={`

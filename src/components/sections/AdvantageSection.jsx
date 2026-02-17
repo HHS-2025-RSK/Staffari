@@ -156,7 +156,10 @@ export default function AdvantageSection() {
   };
 
   return (
-    <section className="relative py-16 md:py-28 bg-[#fdf9f0] overflow-hidden">
+    <section
+      id="advantage"
+      className="relative py-16 md:py-28 bg-[#fdf9f0] overflow-hidden"
+    >
       <Container className="relative z-10">
         <div className="mb-14 text-center">
           <h2 className="font-display max-w-7xl text-[#402701] text-center text-5xl tracking-wide leading-relaxed sm:text-7xl leading-[1.1] uppercase">

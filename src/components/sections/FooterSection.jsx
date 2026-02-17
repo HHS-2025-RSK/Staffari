@@ -4,6 +4,7 @@ import { ArrowRight, Instagram, Facebook, Linkedin } from "lucide-react";
 export default function FooterSection() {
   return (
     <footer
+      id="newsletter"
       className="
         relative
         overflow-hidden
