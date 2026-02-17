@@ -16,14 +16,11 @@ type PremiumCardProps = {
 export default function PremiumCard({ content, icon: Icon }: PremiumCardProps) {
   const ref = useRef<HTMLDivElement | null>(null);
 
-  // scrollYProgress = 0 when card bottom hits viewport bottom,
-  // 1 when card top hits viewport top.
   const { scrollYProgress } = useScroll({
     target: ref,
-    offset: ["start end", "end start"], // Cards animate as SOON as they enter viewport
+    offset: ["start end", "end start"],
   });
 
-  // Map scroll progress -> animation values
   const y = useTransform(scrollYProgress, [0, 1], [10, 0]);
   const opacity = useTransform(scrollYProgress, [0, 0.5], [0, 1]);
   const rotateX = useTransform(scrollYProgress, [0, 1], [12, 0]);
@@ -37,14 +34,12 @@ export default function PremiumCard({ content, icon: Icon }: PremiumCardProps) {
         rotateX,
         transformOrigin: "center bottom",
         borderColor: "#402701",
+
+        // ✨ NEW PREMIUM BACKGROUND (clean luxury glass)
         background: `
-      linear-gradient(
-        135deg,
-        ${content.bg}22,
-        ${content.bg}10,
-        rgba(255,255,255,0.08)
-      )
-    `,
+          radial-gradient(circle at 20% 20%, rgba(255,255,255,0.7), transparent 40%),
+          linear-gradient(160deg, #ffffff, #f7f2e8)
+        `,
       }}
       className="
         font-body group relative
@@ -107,6 +102,7 @@ export default function PremiumCard({ content, icon: Icon }: PremiumCardProps) {
             >
               {content.heading}
             </h3>
+
             <motion.div
               className="mt-4 h-[2px] w-14 rounded-full"
               style={{
