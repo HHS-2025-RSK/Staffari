@@ -85,7 +85,7 @@ export default function HiringProblemSection() {
           }}
         >
           Disconnected systems slow everyone down.{" "}
-          <span className="text-[#0f3d34]">Staffari</span> brings it all
+          <span style={{ color: "#0f3d34" }}>Staffari</span> brings it all
           together in one unified ecosystem.
         </p>
       </Container>
@@ -96,7 +96,7 @@ export default function HiringProblemSection() {
 function HiringCard({ title, description, image, delay, trigger }) {
   return (
     <div
-      className={`
+      className="
         group mx-auto w-64
         rounded-3xl bg-white/70 backdrop-blur
         border border-[#402701]
