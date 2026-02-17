@@ -318,10 +318,10 @@ export default function ContactSection() {
               }}
               className="group rounded-2xl border border-mutedOlive/25 bg-white p-4 text-left hover:bg-beige focus:outline-none focus:ring-4 focus:ring-emeraldGreen/15"
             >
-              <div className="font-body text-[14px] text-mutedOlive">
+              <div className="font-body text-center text-[14px] text-mutedOlive">
                 {r.emoji}
               </div>
-              <div className="mt-2 font-body font-semibold text-charcoalBlack">
+              <div className="mt-2 text-center font-body font-semibold text-charcoalBlack">
                 {r.label}
               </div>
             </button>

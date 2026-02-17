@@ -75,38 +75,50 @@ import { PrimaryButton } from "./ui/Buttons";
 
 export default function Navbar() {
   const [showCta, setShowCta] = useState(false);
+  const [hideNavbar, setHideNavbar] = useState(false);
 
   useEffect(() => {
     const hero = document.querySelector("#hero-section");
     const download = document.querySelector("#download");
+    const footer = document.querySelector("footer"); // or #footer if you have an id
 
-    if (!hero || !download) return;
+    if (!hero || !download || !footer) return;
 
     const observer = new IntersectionObserver(
       (entries) => {
-        const isHeroVisible = entries.find(
-          (e) => e.target.id === "hero-section",
-        )?.isIntersecting;
-        const isDownloadVisible = entries.find(
-          (e) => e.target.id === "download",
-        )?.isIntersecting;
+        const heroEntry = entries.find((e) => e.target.id === "hero-section");
+        const downloadEntry = entries.find((e) => e.target.id === "download");
+        const footerEntry = entries.find((e) => e.target === footer);
 
-        // Show CTA only when BOTH are not visible
+        const isHeroVisible = heroEntry?.isIntersecting;
+        const isDownloadVisible = downloadEntry?.isIntersecting;
+        const isFooterVisible = footerEntry?.isIntersecting;
+
+        // 🔹 Hide CTA when hero or download visible
         setShowCta(!(isHeroVisible || isDownloadVisible));
+
+        // 🔹 Hide entire navbar when footer is visible
+        setHideNavbar(isFooterVisible);
       },
-      {
-        threshold: 0.1,
-      },
+      { threshold: 0.1 },
     );
 
     observer.observe(hero);
     observer.observe(download);
+    observer.observe(footer);
 
     return () => observer.disconnect();
   }, []);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-mutedOlive/15 bg-beige/80 backdrop-blur">
+    <header
+      className={`
+    sticky top-0 z-50 border-b border-mutedOlive/15
+    bg-beige/80 backdrop-blur
+    transition-all duration-300 ease-in-out
+    ${hideNavbar ? "-translate-y-full opacity-0 pointer-events-none" : "translate-y-0 opacity-100"}
+  `}
+    >
       <Container className="flex h-16 items-center justify-between">
         {" "}
         {/* <a
