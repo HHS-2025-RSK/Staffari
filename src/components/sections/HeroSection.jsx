@@ -1,74 +1,121 @@
-// import React from "react";
-// import { ArrowRight } from "lucide-react";
-// import Container from "../ui/Container";
-// import { PrimaryButton } from "../ui/Buttons";
+import React, { useEffect, useState, useRef, useCallback } from "react";
+import { ArrowRight } from "lucide-react";
+import Container from "../ui/Container";
+import { PrimaryButton } from "../ui/Buttons";
 
-// export default function HeroSection() {
-//   const scrollToDownload = () => {
-//     const downloadSection = document.getElementById("download");
-//     if (downloadSection) {
-//       downloadSection.scrollIntoView({
-//         behavior: "smooth",
-//         block: "start",
-//       });
-//     }
-//   };
+export default function HeroSection() {
+  const [isInView, setIsInView] = useState(false);
+  const sectionRef = useRef(null);
+  const observerRef = useRef(null);
 
-//   return (
-//     <section
-//       id="hero-section"
-//       className="relative bg-[#fdf9f0] min-h-screen overflow-hidden font-body"
-//     >
-//       {/* MOBILE TOP IMAGE (FULL WIDTH, HERO STYLE) */}
-//       <div className="block lg:hidden w-full h-[85vh]">
-//         <img
-//           src="/images/herosection/pandaontree.png"
-//           alt="Jungle adventure frame"
-//           className="w-full h-full object-cover"
-//         />
-//       </div>
+  const scrollToDownload = () => {
+    const downloadSection = document.getElementById("download");
+    if (downloadSection) {
+      downloadSection.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }
+  };
 
-//       {/* DESKTOP IMAGE */}
-//       <div className="hidden lg:block absolute top-7 left-0 bottom-0 w-full lg:w-1/2 pointer-events-none z-0">
-//         <img
-//           src="/images/herosection/pandaontree.png"
-//           alt="Jungle adventure frame"
-//           className="w-full h-auto object-contain object-left-bottom max-h-[85vh]"
-//         />
-//       </div>
+  // Intersection Observer callback
+  const handleIntersection = useCallback((entries) => {
+    entries.forEach((entry) => {
+      setIsInView(entry.isIntersecting);
+    });
+  }, []);
 
-//       {/* CONTENT */}
-//       <Container className="relative z-10 w-full py-12 lg:py-16">
-//         <div className="flex flex-col lg:flex-row items-center justify-end py-12 lg:py-0">
-//           <div className="w-full lg:w-1/2 text-center lg:text-left space-y-6 lg:pl-12">
-//             <h1 className="font-display text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight text-deepJungleGreen leading-[1.1]">
-//               <span className="block">Find.</span>
-//               <span className="block text-[#3b652b]">Connect.</span>
-//               <span className="block text-[#7da855]">Thrive.</span>
-//             </h1>
+  // Intersection Observer setup
+  useEffect(() => {
+    if (!sectionRef.current) return;
 
-//             <p className="font-body text-lg md:text-2xl text-black max-w-lg mx-auto lg:mx-0 leading-relaxed">
-//               A single ecosystem for hospitality hiring, jobs, and careers.
-//               Built to power smarter recruitment and meaningful hospitality
-//               careers.
-//             </p>
+    observerRef.current = new IntersectionObserver(handleIntersection, {
+      rootMargin: "-15% 0px -25% 0px", // Early entry for hero section
+      threshold: 0.05,
+    });
 
-//             <div className="pt-6 flex justify-center lg:justify-start">
-//               <PrimaryButton
-//                 onClick={scrollToDownload}
-//                 className="text-xl py-4 px-10 rounded-full shadow-lg transition hover:scale-105"
-//               >
-//                 Start Your Hunt <ArrowRight className="ml-3 h-6 w-6" />
-//               </PrimaryButton>
-//             </div>
-//           </div>
-//         </div>
-//       </Container>
+    observerRef.current.observe(sectionRef.current);
 
-//       {/* ── Removed the entire modal / isOpen logic ── */}
-//     </section>
-//   );
-// }
+    return () => {
+      if (observerRef.current) {
+        observerRef.current.disconnect();
+      }
+    };
+  }, [handleIntersection]);
+
+  return (
+    <section
+      id="hero-section"
+      ref={sectionRef}
+      className="relative bg-[#fdf9f0] min-h-screen overflow-hidden font-body"
+    >
+      {/* MOBILE TOP IMAGE */}
+      <div
+        className={`
+          block lg:hidden w-full h-[85vh]
+          transform transition-all duration-1200 ease-out
+          ${isInView ? "translate-y-0 opacity-100" : "translate-y-[-50px] opacity-0"}
+        `}
+      >
+        <img
+          src="/images/herosection/pandaontree.png"
+          alt="Jungle adventure frame"
+          className="w-full h-full object-cover"
+        />
+      </div>
+
+      {/* DESKTOP IMAGE */}
+      <div
+        className={`
+          hidden lg:block absolute top-7 left-0 bottom-0 w-full lg:w-1/2 pointer-events-none z-0
+          transform transition-all duration-1000 ease-out delay-300
+          ${isInView ? "translate-x-0 opacity-100" : "translate-x-[-60px] opacity-0"}
+        `}
+      >
+        <img
+          src="/images/herosection/pandaontree.png"
+          alt="Jungle adventure frame"
+          className="w-full h-auto object-contain object-left-bottom max-h-[85vh]"
+        />
+      </div>
+
+      {/* CONTENT - Text + Button */}
+      <Container className="relative z-10 w-full py-12 lg:py-16">
+        <div className="flex flex-col lg:flex-row items-center justify-end py-12 lg:py-0">
+          <div
+            className={`
+              w-full lg:w-1/2 text-center lg:text-left space-y-6 lg:pl-12
+              transform transition-all duration-1000 ease-out
+              ${isInView ? "translate-x-0 opacity-100" : "translate-x-[60px] opacity-0"}
+            `}
+          >
+            <h1 className="font-display text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight text-deepJungleGreen leading-[1.1]">
+              <span className="block">Find.</span>
+              <span className="block text-[#3b652b]">Connect.</span>
+              <span className="block text-[#7da855]">Thrive.</span>
+            </h1>
+
+            <p className="font-body text-lg md:text-2xl text-black max-w-lg mx-auto lg:mx-0 leading-relaxed">
+              A single ecosystem for hospitality hiring, jobs, and careers.
+              Built to power smarter recruitment and meaningful hospitality
+              careers.
+            </p>
+
+            <div className="pt-6 flex justify-center lg:justify-start">
+              <PrimaryButton
+                onClick={scrollToDownload}
+                className="text-xl py-4 px-10 rounded-full shadow-lg transition-all duration-300 hover:scale-105 group"
+              >
+                Start Your Hunt
+                <ArrowRight className="ml-3 h-6 w-6 group-hover:translate-x-1 transition-transform" />
+              </PrimaryButton>
+            </div>
+          </div>
+        </div>
+      </Container>
+    </section>
+  );
+}
 
 // import React, { useState } from "react";
 // import { ArrowRight, X } from "lucide-react";
@@ -167,112 +214,3 @@
 //     </section>
 //   );
 // }
-
-import React from "react";
-import { ArrowRight } from "lucide-react";
-import Container from "../ui/Container";
-import { PrimaryButton } from "../ui/Buttons";
-import useScrollReveal from "../../utils/useScrollReveal";
-
-export default function HeroSection() {
-  // Separate observers
-  const desktopImageReveal = useScrollReveal(0.15);
-  const contentReveal = useScrollReveal(0.35);
-
-  const scrollToDownload = () => {
-    const downloadSection = document.getElementById("download");
-    if (downloadSection) {
-      downloadSection.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-      });
-    }
-  };
-
-  return (
-    <section
-      id="hero-section"
-      className="relative bg-[#fdf9f0] min-h-screen overflow-hidden font-body"
-    >
-      {/* ================= MOBILE IMAGE (NO ANIMATION) ================= */}
-      <div className="block lg:hidden w-full h-[75vh]">
-        <img
-          src="/images/herosection/pandaontree.png"
-          alt="Jungle adventure frame"
-          className="w-full h-full object-cover"
-        />
-      </div>
-
-      {/* ================= DESKTOP TREE (GROW ANIMATION) ================= */}
-      <div
-        ref={desktopImageReveal.ref}
-        className={`hidden lg:block absolute top-7 left-0 bottom-0 w-full lg:w-1/2 pointer-events-none z-0 transition-all duration-[1600ms] ease-[cubic-bezier(0.22,1,0.36,1)] ${
-          desktopImageReveal.isVisible
-            ? "opacity-100 scale-x-100 translate-x-0"
-            : "opacity-0 scale-x-75 -translate-x-24"
-        } origin-left`}
-      >
-        <img
-          src="/images/herosection/pandaontree.png"
-          alt="Jungle adventure frame"
-          className="w-full h-auto object-contain object-left-bottom max-h-[85vh]"
-        />
-      </div>
-
-      {/* ================= CONTENT ================= */}
-      <Container className="relative z-10 w-full py-12 lg:py-16">
-        <div className="flex flex-col lg:flex-row items-center justify-end py-12 lg:py-0">
-
-          <div
-            ref={contentReveal.ref}
-            className="w-full lg:w-1/2 text-center lg:text-left space-y-6 lg:pl-12"
-          >
-            {/* HEADLINE */}
-            <h1
-              className={`font-display text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight leading-[1.1] transition-all duration-[1000ms] delay-200 ${
-                contentReveal.isVisible
-                  ? "opacity-100 translate-y-0"
-                  : "opacity-0 translate-y-10"
-              }`}
-            >
-              <span className="block text-deepJungleGreen">Find.</span>
-              <span className="block text-[#3b652b]">Connect.</span>
-              <span className="block text-[#7da855]">Thrive.</span>
-            </h1>
-
-            {/* PARAGRAPH */}
-            <p
-              className={`font-body text-lg md:text-2xl text-black max-w-lg mx-auto lg:mx-0 leading-relaxed transition-all duration-[1000ms] delay-400 ${
-                contentReveal.isVisible
-                  ? "opacity-100 translate-y-0"
-                  : "opacity-0 translate-y-8"
-              }`}
-            >
-              A single ecosystem for hospitality hiring, jobs, and careers.
-              Built to power smarter recruitment and meaningful hospitality
-              careers.
-            </p>
-
-            {/* BUTTON */}
-            <div
-              className={`pt-6 flex justify-center lg:justify-start transition-all duration-[1000ms] delay-600 ${
-                contentReveal.isVisible
-                  ? "opacity-100 translate-y-0 scale-100"
-                  : "opacity-0 translate-y-6 scale-95"
-              }`}
-            >
-              <PrimaryButton
-                onClick={scrollToDownload}
-                className="text-xl py-4 px-10 rounded-full shadow-lg transition hover:scale-105"
-              >
-                Start Your Hunt
-                <ArrowRight className="ml-3 h-6 w-6" />
-              </PrimaryButton>
-            </div>
-
-          </div>
-        </div>
-      </Container>
-    </section>
-  );
-}
