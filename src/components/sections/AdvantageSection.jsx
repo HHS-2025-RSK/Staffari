@@ -101,11 +101,11 @@ export default function AdvantageSection() {
                 : "none",
             }}
           >
-            <span className="block sm:inline">Why </span>
-            <span className="block sm:inline text-[#0f3d34]">Staffari </span>
+            <span className="block sm:inline">Why Staffari </span>
+            {/* <span className="block sm:inline text-[#0f3d34]">Staffari </span> */}
             <span className="block sm:inline">Is Your </span>
             <span className="block sm:inline">Competitive </span>
-            <span className="block sm:inline">Advantage </span>
+            <span className="block sm:inline">Advantage? </span>
 
             {/* Desktop / Tablet line break */}
             <span className="hidden sm:inline">
