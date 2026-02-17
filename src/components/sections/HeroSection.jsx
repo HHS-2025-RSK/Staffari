@@ -162,7 +162,7 @@ export default function HeroSection() {
               </h1>
 
               <p className="font-body font-bold text-xl text-black max-w-md mx-auto text-center">
-                A single ecosystem for hospitality hiring, and jobs.
+                A single ecosystem for hospitality hiring and jobs.
                 <span className="block mt-2">
                   Built to power smarter recruitment and meaningful hospitality
                   careers.
@@ -204,7 +204,7 @@ export default function HeroSection() {
               </h1>
 
               <p className="text-center font-body font-bold text-xl md:text-2xl text-black max-w-lg mx-0">
-                A single ecosystem for hospitality hiring, and jobs.
+                A single ecosystem for hospitality hiring and jobs.
                 <span className="block mt-2">
                   Built to power smarter recruitment and meaningful hospitality
                   careers.
