@@ -34,11 +34,12 @@ export default function AdvantageSection() {
   return (
     <section
       id="advantage"
-      className="relative py-16 md:py-28 bg-[#fdf9f0] overflow-hidden"
+      className="relative pt-16 pb-24 md:py-30 bg-[#fdf9f0] overflow-hidden"
     >
       <Container className="relative z-10">
         <div className="mb-14 text-center">
-          <h2 className="
+          <h2
+            className="
   font-display 
   max-w-7xl 
   text-[#402701] 
@@ -48,7 +49,8 @@ export default function AdvantageSection() {
   uppercase
   tracking-wide
   leading-[0.95]
-">
+"
+          >
             Why <span style={{ color: "#0f3d34" }}>Staffari</span> Is Your
             <br />
             Competitive Advantage
