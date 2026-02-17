@@ -103,7 +103,7 @@ export default function HiringProblemSection() {
 
         <p
           ref={footerTextRef}
-          className="font-display mx-auto mt-16 max-w-7xl text-center text-[32px] md:text-[40px] leading-tight text-[#412802]"
+          className="font-display mx-auto mt-16 max-w-7xl text-center text-5xl sm:text-7xl leading-tight text-[#412802]"
           style={{
             opacity: 0,
             animation: isFooterVisible
@@ -161,7 +161,7 @@ function HiringCard({ title, description, image, delay }) {
         <h3 className="font-display text-[#0f3d34] tracking-wide text-2xl font-bold">
           {title}
         </h3>
-        <p className="mt-3 font-body font-semibold text-[17px] leading-relaxed text-[#402701]">
+        <p className="mt-3 font-body font-semibold text-[18px] leading-relaxed text-black">
           {description}
         </p>
       </div>

@@ -84,16 +84,16 @@ export default function AdvantageSection() {
           <h2
             ref={titleRef}
             className="
-              font-display 
-              max-w-7xl 
-              text-[#402701] 
-              text-center 
-              text-5xl 
-              sm:text-7xl 
-              uppercase
-              tracking-wide
-              leading-[0.95]
-            "
+    font-display 
+    max-w-7xl 
+    text-[#402701] 
+    text-center 
+    text-5xl 
+    sm:text-7xl 
+    uppercase
+    tracking-wide
+    leading-[0.95]
+  "
             style={{
               opacity: 0,
               animation: isTitleVisible
@@ -101,9 +101,16 @@ export default function AdvantageSection() {
                 : "none",
             }}
           >
-            Why <span style={{ color: "#0f3d34" }}>Staffari</span> Is Your
-            <br />
-            Competitive Advantage
+            <span className="block sm:inline">Why </span>
+            <span className="block sm:inline text-[#0f3d34]">Staffari </span>
+            <span className="block sm:inline">Is Your </span>
+            <span className="block sm:inline">Competitive </span>
+            <span className="block sm:inline">Advantage </span>
+
+            {/* Desktop / Tablet line break */}
+            <span className="hidden sm:inline">
+              <br />
+            </span>
           </h2>
 
           <p className="mt-4 max-w-2xl mx-auto text-lg text-charcoalBlack/70">
