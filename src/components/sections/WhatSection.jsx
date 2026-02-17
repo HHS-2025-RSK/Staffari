@@ -91,10 +91,10 @@ export default function WhatSection() {
               </div>
 
               <div>
-                <p className="font-semibold text-deepJungleGreen">
+                <h2 className="font-body text-[18px] font-bold text-deepJungleGreen">
                   Purpose-built for hospitality
-                </p>
-                <p className="mt-1 text-sm">
+                </h2>
+                <p className="mt-2 font-body text-[15px] leading-7">
                   We help hotels, restaurants, and hospitality businesses
                   connect with relevant, ready-to-work talent through a
                   streamlined, tech-enabled process.

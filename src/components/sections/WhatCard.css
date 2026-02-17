@@ -43,33 +43,6 @@
   flex: 0 0 auto;
 }
 
-@media (max-width: 767px) {
-  .what-card-image-container {
-    height: 22rem;
-  }
-
-  .what-card-inner {
-    flex-direction: column;
-  }
-}
-
-/* ✅ >=768px: image becomes left column and fills card height */
-@media (min-width: 768px) {
-  .what-card {
-    height: 18rem; /* let it stretch with content */
-  }
-  .what-card-image-container {
-    width: 40%;
-    height: 22rem; /* let it stretch with the card */
-    flex: 0 0 40%;
-    aspect-ratio: auto; /* disable aspect-ratio so it can match content height */
-  }
-
-  .what-card-inner {
-    flex-direction: row;
-  }
-}
-
 .what-card-image-overlay {
   position: absolute;
   inset: 0;
@@ -95,17 +68,57 @@
   transform: scale(1.04);
 }
 
-/* Content block */
 .what-card-content {
   width: 100%;
-  padding: clamp(1rem, 2.2vw, 2rem);
+  padding: clamp(1.8rem, 2.2vw, 2rem);
   display: flex;
   flex-direction: column;
   justify-content: center;
   min-width: 0;
-
-  /* ✅ takes remaining space in row layout */
   flex: 1 1 auto;
+}
+
+@media (min-width: 768px) {
+  .what-card {
+    height: 18rem; /* let it stretch with content */
+  }
+  .what-card-image-container {
+    width: 40%;
+    height: 22rem; /* let it stretch with the card */
+    flex: 0 0 40%;
+    aspect-ratio: auto; /* disable aspect-ratio so it can match content height */
+  }
+
+  .what-card-inner {
+    flex-direction: row;
+  }
+}
+
+@media (max-width: 767px) {
+  .what-card-image-container {
+    height: 22rem;
+  }
+
+  .what-card-inner {
+    flex-direction: column;
+  }
+}
+
+/* ✅ >=768px: image becomes left column and fills card height */
+@media (min-width: 768px) {
+  .what-card {
+    height: 18rem; /* let it stretch with content */
+  }
+  .what-card-image-container {
+    width: 40%;
+    height: 22rem; /* let it stretch with the card */
+    flex: 0 0 40%;
+    aspect-ratio: auto; /* disable aspect-ratio so it can match content height */
+  }
+
+  .what-card-inner {
+    flex-direction: row;
+  }
 }
 
 /* keep your existing max-width tweak if you want */

@@ -23,7 +23,7 @@ export default function SectionTitle({ eyebrow, title, desc }) {
   return (
     <div className="mb-4">
       {eyebrow ? <Pill>{eyebrow}</Pill> : null}
-      <h2 className="mt-4 font-display text-3xl font-bold text-deepJungleGreen tracking-wide md:text-4xl">
+      <h2 className="mt-4 font-display text-3xl text-deepJungleGreen tracking-wide md:text-4xl">
         {title}
       </h2>
       {desc ? (
