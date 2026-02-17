@@ -9,7 +9,7 @@ export default function SectionTitle({ eyebrow, title, desc }) {
         {title}
       </h2>
       {desc ? (
-        <p className="mt-3 max-w-2xl font-body text-[18px] leading-7 text-[#402701] lg:text-[#402701]/80 text-center mx-auto">
+        <p className="mt-1 max-w-2xl font-body text-[18px] leading-7 text-[#402701] lg:text-[#402701]/80 text-center mx-auto font-semibold">
           {desc}
         </p>
       ) : null}

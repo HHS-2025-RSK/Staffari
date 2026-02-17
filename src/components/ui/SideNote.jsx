@@ -11,7 +11,9 @@ export default function SideNote({ icon, title, text }) {
           <div className="font-body text-[18px] font-bold text-deepJungleGreen">
             {title}
           </div>
-          <p className="mt-2 font-body text-[15px] leading-7">{text}</p>
+          <p className="mt-2 font-body text-[15px] leading-7 font-semibold">
+            {text}
+          </p>
         </div>
       </div>
     </div>

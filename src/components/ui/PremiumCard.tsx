@@ -124,7 +124,7 @@ export default function PremiumCard({ content, icon: Icon }: PremiumCardProps) {
                   className="w-5 h-5 mt-1 flex-shrink-0"
                   style={{ color: content.bg }}
                 />
-                <span className="text-[#0f3d34] text-base md:text-lg leading-relaxed font-medium">
+                <span className="text-[#0f3d34] text-base md:text-lg leading-relaxed font-semibold">
                   {point}
                 </span>
               </li>

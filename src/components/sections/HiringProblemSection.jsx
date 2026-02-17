@@ -103,7 +103,7 @@ export default function HiringProblemSection() {
 
         <p
           ref={footerTextRef}
-          className="font-display mx-auto mt-16 max-w-7xl text-center text-5xl sm:text-7xl leading-tight text-[#412802]"
+          className="font-display mx-auto mt-20 max-w-7xl text-center text-5xl sm:text-7xl leading-tight text-[#412802]"
           style={{
             opacity: 0,
             animation: isFooterVisible

@@ -94,7 +94,7 @@ export default function WhatSection() {
                 <h2 className="font-body text-[18px] font-bold text-deepJungleGreen">
                   Purpose-built for hospitality
                 </h2>
-                <p className="mt-2 font-body text-[15px] leading-7">
+                <p className="mt-2 font-body text-[15px] leading-7 font-semibold">
                   We help hotels, restaurants, and hospitality businesses
                   connect with relevant, ready-to-work talent through a
                   streamlined, tech-enabled process.

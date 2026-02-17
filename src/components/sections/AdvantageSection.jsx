@@ -50,7 +50,7 @@ export default function AdvantageSection() {
     points: [
       "Only hotel & hospitality jobs",
       "Shine with your PIT score profile",
-      "Apply in few taps — no walk-ins needed",
+      "Apply in few taps - no walk-ins needed",
       "Hotels actively look for you",
       "Faster entry into premium properties",
     ],
@@ -115,7 +115,7 @@ export default function AdvantageSection() {
             </span>
           </h2>
 
-          <p className="mt-4 max-w-2xl mx-auto text-lg text-charcoalBlack/70">
+          <p className="mt-4 max-w-2xl mx-auto text-lg text-black font-semibold">
             Built exclusively for hospitality - faster, smarter & better
             matching
           </p>
