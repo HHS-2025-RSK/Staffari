@@ -206,6 +206,7 @@ export default function ArcSteps({
 
     return (
       <div
+        id="what"
         key={step.id}
         className="absolute"
         style={{
