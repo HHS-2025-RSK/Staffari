@@ -225,7 +225,20 @@ export default function Navbar() {
             `}
           >
             <PrimaryButton
-              as="a"
+              as="button"
+              onClick={() => {
+                const section = document.getElementById("download");
+                if (!section) return;
+
+                const yOffset = -140;
+                const y =
+                  section.getBoundingClientRect().top +
+                  window.pageYOffset +
+                  yOffset;
+
+                window.history.pushState(null, "", "#download");
+                window.scrollTo({ top: y, behavior: "smooth" });
+              }}
               href="#download"
               // UPDATED CLASSNAME:
               // 1. whitespace-nowrap: Forces text to be one line.

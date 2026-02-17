@@ -10,13 +10,20 @@ export default function HeroSection() {
   const observerRef = useRef(null);
 
   const scrollToDownload = () => {
-    const downloadSection = document.getElementById("download");
-    if (downloadSection) {
-      downloadSection.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-      });
-    }
+    const section = document.getElementById("download");
+    if (!section) return;
+
+    const NAVBAR_HEIGHT = 140; // h-16 (64px) + breathing space
+
+    const y =
+      section.getBoundingClientRect().top + window.pageYOffset - NAVBAR_HEIGHT;
+
+    window.history.pushState(null, "", "#download");
+
+    window.scrollTo({
+      top: y,
+      behavior: "smooth",
+    });
   };
 
   // Intersection Observer callback for initial entry animation
