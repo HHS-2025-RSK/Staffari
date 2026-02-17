@@ -6,9 +6,9 @@ export default function FooterSection() {
   return (
     <footer
       id="newsletter"
-      className="relative overflow-hidden border-t-4 border-[#402701] bg-white rounded-t-3xl"
+      className="relative overflow-hidden border-t-4 border-[#402701] bg-[#fdf9f0] rounded-t-3xl"
     >
-      <div className="bg-white relative z-10 max-w-7xl mx-auto px-4 md:px-12 pt-8 md:pt-10">
+      <div className="bg-[#fdf9f0] relative z-10 max-w-7xl mx-auto px-4 md:px-12 pt-8 md:pt-10">
         {/* MOBILE FIRST LAYOUT — REDUCED GAPS */}
         <div className="flex flex-col lg:grid lg:grid-cols-2 gap-8 md:gap-12">
           {/* Brand Section */}
@@ -21,7 +21,7 @@ export default function FooterSection() {
             <h1 className="font-display text-4xl md:text-8xl font-extrabold tracking-tight text-[#0f3d34]">
               STAFFARI
             </h1>
-            <p className="font-display text-base md:text-xl text-[#0f3d34]/80">
+            <p className="font-body text-base md:text-xl text-[#0f3d34]/80">
               Hunt Smart. Hire Right.
             </p>
           </motion.div>
@@ -31,7 +31,7 @@ export default function FooterSection() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="order-2 lg:order-none w-full bg-white rounded-2xl p-4 md:p-8 border border-[#402701]/20 shadow-lg text-center lg:text-left"
+            className="order-2 lg:order-none w-full bg-[#fdf9f0] rounded-2xl p-4 md:p-8 border border-[#402701]/20 shadow-lg text-center lg:text-left"
           >
             <p className="text-xs font-semibold tracking-widest uppercase text-[#402701]/80 mb-3">
               Subscribe to our newsletter
@@ -41,7 +41,7 @@ export default function FooterSection() {
               <input
                 type="email"
                 placeholder="Enter your email address"
-                className="w-full lg:flex-1 h-12 rounded-full px-4 text-sm bg-gray-100 border border-[#402701]/30 focus:border-[#402701] focus:outline-none text-[#402701] placeholder-[#402701]/50"
+                className="w-full lg:flex-1 h-12 rounded-full px-4 text-sm bg-[#fdf9f0] border border-[#402701]/30 focus:border-[#402701] focus:outline-none text-[#402701] placeholder-[#402701]/50"
               />
 
               <motion.button
