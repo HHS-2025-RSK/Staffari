@@ -111,7 +111,8 @@ export default function HiringProblemSection() {
               : "none",
           }}
         >
-          Disconnected systems slow everyone down.{" "}
+          <span>Disconnected systems slow everyone down.</span>
+          <br></br>
           <span className="text-[#0f3d34] font-bold">Staffari</span> brings it
           all together in one unified ecosystem.
         </p>
