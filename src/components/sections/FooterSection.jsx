@@ -35,10 +35,10 @@ export default function FooterSection() {
           <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-12 lg:gap-20">
             {/* Logo/Brand - Left */}
             <div className="flex flex-col">
-              <div className="font-body text-4xl md:text-6xl font-extrabold text-[#639a1e] tracking-tight">
+              <div className="font-display text-4xl md:text-6xl font-extrabold text-[#639a1e] tracking-tight">
                 STAFFARI
               </div>
-              <div className="font-body text-md md:text-lg text-[#639a1e] opacity-80 mt-2 max-w-sm">
+              <div className="font-display text-md md:text-lg text-[#639a1e] opacity-80 mt-2 max-w-sm">
                 Hunt Smart. Hire Right.
               </div>
             </div>
