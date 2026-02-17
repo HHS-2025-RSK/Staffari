@@ -111,9 +111,9 @@ export default function HiringProblemSection() {
               : "none",
           }}
         >
-          <span className="block mb-2">
+          {/* <span className="block mb-2">
             Disconnected systems slows everyone down.
-          </span>
+          </span> */}
 
           <span className="block">
             <span className="text-[#0f3d34] font-bold">Staffari</span> brings it
