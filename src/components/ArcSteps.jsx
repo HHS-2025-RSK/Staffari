@@ -404,10 +404,10 @@ export default function ArcSteps({
             </div>
 
             {/* Mobile: straight line */}
-            <div className="md:hidden pt-20 pb-10 max-w-2xl mx-auto">
+            <div className="md:hidden pt-0 pb-10 max-w-2xl mx-auto">
               <div className="relative pl-10">
                 <div className="absolute left-4 top-0 h-full w-px bg-mutedOlive/20" />
-                <div className="space-y-8 py-8">
+                <div className="space-y-8">
                   {steps.map((s) => (
                     <div key={s.id} className="relative" id={s.id}>
                       <div className="absolute -left-10 top-1 flex h-10 w-10 items-center justify-center rounded-full bg-deepJungleGreen text-white shadow-soft border-2 border-cardBg">
