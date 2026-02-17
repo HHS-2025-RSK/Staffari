@@ -168,7 +168,7 @@ export default function ContactSection() {
 
                 <ContactTitle
                   title="Contact Us"
-                  desc="Tell us who you are and what you need our team will get back to you."
+                  desc="Reach out here, our team will get back to you"
                 />
 
                 <form
@@ -261,9 +261,9 @@ export default function ContactSection() {
                   />
 
                   <div className="md:col-span-2 flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
-                    <p className="font-body text-[13px] text-white lg:text-charcoalBlack lg:ml-20">
+                    {/* <p className="font-body text-[13px] text-white lg:text-charcoalBlack lg:ml-20">
                       We’ll only use your details to respond to your message.
-                    </p>
+                    </p> */}
                     <PrimaryButton
                       className="md:w-[220px]"
                       disabled={submitting}

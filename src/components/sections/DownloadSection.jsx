@@ -238,7 +238,7 @@ export default function DownloadSection({
       if (!isPaused) {
         nextSlide();
       }
-    }, 2000);
+    }, 1500);
     return () => clearInterval(interval);
   }, [isPaused]);
 
