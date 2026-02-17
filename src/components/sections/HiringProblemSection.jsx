@@ -103,7 +103,7 @@ export default function HiringProblemSection() {
 
         <p
           ref={footerTextRef}
-          className="font-display mx-auto mt-20 max-w-7xl text-center text-5xl sm:text-7xl leading-tight text-[#412802]"
+          className="font-display mx-auto mt-16 max-w-7xl text-center text-5xl sm:text-7xl leading-tight text-[#412802]"
           style={{
             opacity: 0,
             animation: isFooterVisible
@@ -111,10 +111,14 @@ export default function HiringProblemSection() {
               : "none",
           }}
         >
-          <span>Disconnected systems slows everyone down.</span>
-          <br></br>
-          <span className="text-[#0f3d34] font-bold">Staffari</span> brings it
-          all together in one unified ecosystem.
+          <span className="block mb-2">
+            Disconnected systems slows everyone down.
+          </span>
+
+          <span className="block">
+            <span className="text-[#0f3d34] font-bold">Staffari</span> brings it
+            all together in one unified ecosystem.
+          </span>
         </p>
       </Container>
     </section>
