@@ -287,15 +287,8 @@ export default function DownloadSection({
   return (
     <section id="download" className="py-20 lg:py-0">
       <Container>
-        {/* TITLE */}
-        <div
-          ref={titleReveal.ref}
-          className={`mb-14 text-center transition-all duration-1000 ease-out ${titleReveal.isVisible
-              ? "opacity-100 translate-y-0"
-              : "opacity-0 translate-y-12"
-            }`}
-        >
-          <h2 className="font-display text-[#402701] text-5xl sm:text-6xl lg:text-7xl uppercase leading-[1.1]">
+        <div className="mb-14 text-center">
+          <h2 className="font-display text-[#402701] text-center text-5xl lg:tracking-wide lg:leading-relaxed sm:text-7xl leading-[1.1] uppercase">
             Start Your Hunt
           </h2>
         </div>
