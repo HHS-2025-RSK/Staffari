@@ -37,7 +37,7 @@ export default function HiringProblemSection() {
   return (
     <section
       id="problem"
-      className="bg-beige overflow-hidden py-20"
+      className="bg-beige overflow-hidden pb-20"
       ref={titleRef}
     >
       <style>{`
@@ -80,7 +80,7 @@ export default function HiringProblemSection() {
           Why hospitality hiring is broken?
         </h2>
 
-        <div className="mt-16 grid gap-10 sm:grid-cols-2 lg:grid-cols-3 justify-items-center">
+        <div className="mt-5 grid gap-10 sm:grid-cols-2 lg:grid-cols-3 justify-items-center">
           <HiringCard
             title="Hotels & Restaurants"
             description="Slow hiring cycles and high agency costs"

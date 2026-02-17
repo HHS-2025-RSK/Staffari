@@ -260,7 +260,7 @@ export default function ContactSection() {
                     className="md:col-span-2 w-full rounded-2xl border border-mutedOlive/25 bg-white px-4 py-3 font-body text-[14px] text-charcoalBlack outline-none focus:ring-4 focus:ring-emeraldGreen/15"
                   />
 
-                  <div className="md:col-span-2 flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
+                  <div className="md:col-span-2 flex flex-col gap-3 md:flex-row md:items-end md:justify-end">
                     {/* <p className="font-body text-[13px] text-white lg:text-charcoalBlack lg:ml-20">
                       We’ll only use your details to respond to your message.
                     </p> */}

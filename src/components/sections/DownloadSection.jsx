@@ -263,7 +263,7 @@ export default function DownloadSection({
   }, []);
 
   return (
-    <section id="download" className="py-20 lg:py-0">
+    <section id="download" className="pb-20 lg:py-0">
       <Container>
         <div className="text-center">
           <h2 className="font-display text-[#402701] text-center text-5xl lg:tracking-wide lg:leading-relaxed sm:text-7xl leading-[1.1] uppercase">
@@ -271,7 +271,7 @@ export default function DownloadSection({
           </h2>
         </div>
 
-        <div className="mx-auto px-6 sm:px-12 py-12 sm:py-0">
+        <div className="mx-auto px-6 sm:px-12 py-6 sm:py-0">
           <div className="grid md:grid-cols-[1.3fr_0.7fr] items-center gap-10 md:gap-14">
             {/* TEXT SIDE */}
             <div
@@ -335,7 +335,7 @@ export default function DownloadSection({
             >
               <div className="absolute w-64 h-64 sm:w-80 sm:h-80 bg-white/10 rounded-full blur-3xl -z-10" />
 
-              <div className="relative w-[160px] sm:w-[200px] md:w-[220px] lg:w-[240px]">
+              <div className="relative w-[250px] sm:w-[280px] md:w-[250px] lg:w-[240px]">
                 {/* Left Arrow */}
                 <button
                   onClick={prevSlide}

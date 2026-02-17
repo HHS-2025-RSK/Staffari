@@ -1,160 +1,101 @@
 import React from "react";
 import { ArrowRight, Instagram, Facebook, Linkedin } from "lucide-react";
+import { motion } from "framer-motion";
 
 export default function FooterSection() {
   return (
     <footer
       id="newsletter"
-      className="
-        relative
-        overflow-hidden
-        bg-[#0f3d34] 
-        text-gray-200
-      "
-      style={{
-        // Replace 'your-image-path.jpg' with the actual path or URL of the generated image
-        backgroundImage: "url('/images/footer/image.png')",
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        backgroundRepeat: "no-repeat",
-      }}
+      className="relative overflow-hidden border-t-4 border-[#402701] bg-white rounded-t-3xl"
     >
-      {/* Dark overlay to ensure the "STAFFARI" text and newsletter stand out against the busy jungle art */}
-      <div className="absolute inset-0 bg-black/60 pointer-events-none" />
+      <div className="bg-white relative z-10 max-w-7xl mx-auto px-4 md:px-12 py-8 md:py-10">
+        {/* MOBILE FIRST LAYOUT — REDUCED GAPS */}
+        <div className="flex flex-col lg:grid lg:grid-cols-2 gap-8 md:gap-12">
+          {/* Brand Section */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="space-y-2"
+          >
+            <h1 className="font-display text-4xl md:text-8xl font-extrabold tracking-tight text-[#0f3d34]">
+              STAFFARI
+            </h1>
+            <p className="font-display text-base md:text-xl text-[#0f3d34]/80">
+              Hunt Smart. Hire Right.
+            </p>
+          </motion.div>
 
-      <div className="w-full relative z-10">
-        {/* Glassmorphism card - This will look amazing over the jungle background */}
-        <div
-          className="
-            backdrop-blur-xs bg-white/10 
-            border-t border-white/15 
-            p-8 md:p-12 
-            shadow-2xl shadow-black/40
-          "
-        >
-          <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-12 lg:gap-20">
-            {/* Logo/Brand - Left */}
-            <div className="flex flex-col">
-              <div className="font-display text-4xl md:text-6xl font-extrabold text-[#639a1e] tracking-tight">
-                STAFFARI
-              </div>
-              <div className="font-display text-md md:text-lg text-[#639a1e] opacity-80 mt-2 max-w-sm">
-                Hunt Smart. Hire Right.
-              </div>
-            </div>
+          {/* Newsletter Section */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="order-2 lg:order-none w-full bg-white rounded-2xl p-4 md:p-8 border border-[#402701]/20 shadow-lg"
+          >
+            <p className="text-xs font-semibold tracking-widest uppercase text-[#402701]/80 mb-3">
+              Subscribe to our newsletter
+            </p>
 
-            {/* Newsletter + Socials */}
-            <div className="w-full lg:w-auto lg:max-w-md">
-              <div
-                className="
-    relative
-    w-full
-    max-w-lg mx-auto lg:mx-0           /* centers on mobile, left-align on lg+ */
-    rounded-2xl sm:rounded-3xl
-    p-5 sm:p-6 md:p-7 lg:p-8
-    backdrop-blur-xl
-    border border-white/20
-    shadow-[0_20px_50px_rgba(0,0,0,0.4)] sm:shadow-[0_25px_60px_rgba(0,0,0,0.45)]
-    overflow-hidden
-  "
-                style={{
-                  background:
-                    "linear-gradient(135deg, rgba(255,255,255,0.14), rgba(255,255,255,0.06))",
-                  borderColor: "rgba(255,255,255,0.25)",
-                }}
+            <div className="flex flex-col lg:flex-row gap-3 w-full items-center">
+              <input
+                type="email"
+                placeholder="Enter your email address"
+                className="w-full lg:flex-1 h-12 rounded-full px-4 text-sm bg-gray-100 border border-[#402701]/30 focus:border-[#402701] focus:outline-none text-[#402701] placeholder-[#402701]/50"
+              />
+
+              <motion.button
+                whileTap={{ scale: 0.95 }}
+                className="h-12 w-12 rounded-full flex items-center justify-center bg-[#52110f] text-white shadow-md mx-auto lg:mx-0"
+                aria-label="Subscribe"
               >
-                {/* subtle glass sheen */}
-                <div className="absolute inset-0 bg-gradient-to-br from-white/25 via-transparent to-white/10 opacity-60 pointer-events-none" />
-
-                {/* soft inner glow – smaller on mobile */}
-                <div className="absolute -top-12 -right-12 sm:-top-16 sm:-right-16 w-32 h-32 sm:w-40 sm:h-40 bg-white/10 rounded-full blur-3xl pointer-events-none" />
-
-                <p className="relative mb-4 sm:mb-5 text-xs sm:text-sm font-semibold tracking-widest uppercase text-[#fdf9f0]/80 text-center sm:text-left">
-                  Subscribe to our newsletter
-                </p>
-
-                <div className="relative flex flex-col sm:flex-row items-center gap-3 sm:gap-4">
-                  <input
-                    type="email"
-                    placeholder="Enter your email"
-                    className="
-        w-full
-        h-12 sm:h-14
-        min-w-0                           /* prevents flex overflow */
-        rounded-full
-        px-5 sm:px-6
-        text-sm sm:text-base
-        outline-none
-        backdrop-blur-md
-        border border-white/30
-        bg-white/10
-        text-white
-        placeholder:text-white/60
-        shadow-inner
-        transition-all duration-300
-        focus:bg-white/15 focus:border-white/40
-      "
-                    style={{ borderColor: "rgba(255,255,255,0.35)" }}
-                  />
-
-                  <button
-                    type="button"
-                    className="
-        h-12 sm:h-14
-        w-12 sm:w-14
-        shrink-0                          /* prevents button from shrinking */
-        rounded-full
-        flex items-center justify-center
-        backdrop-blur-md
-        border border-white/30
-        bg-white/15
-        hover:bg-white/25
-        active:scale-95                   /* gives feedback on touch */
-        transition-all duration-300
-        shadow-lg
-      "
-                    style={{ borderColor: "rgba(255,255,255,0.35)" }}
-                    aria-label="Subscribe"
-                  >
-                    <ArrowRight className="h-5 w-5 sm:h-6 sm:w-6 text-white" />
-                  </button>
-                </div>
-              </div>
-
-              {/* Social Media Icons */}
-              <div className="mt-10 flex items-center gap-8">
-                <a
-                  href="https://www.instagram.com/staffari_official/"
-                  target="_blank"
-                  className="text-[#fdf9f0] opacity-70 hover:opacity-100 transition-opacity"
-                >
-                  <Instagram className="h-7 w-7" />
-                </a>
-                <a
-                  href="https://www.facebook.com/profile.php?id=61585470624376#/"
-                  target="_blank"
-                  className="text-[#fdf9f0] opacity-70 hover:opacity-100 transition-opacity"
-                >
-                  <Facebook className="h-7 w-7" />
-                </a>
-                <a
-                  href="https://www.linkedin.com/in/staffari-official-40aa8239a/"
-                  target="_blank"
-                  className="text-[#fdf9f0] opacity-70 hover:opacity-100 transition-opacity"
-                >
-                  <Linkedin className="h-7 w-7" />
-                </a>
-              </div>
+                <ArrowRight className="h-5 w-5" />
+              </motion.button>
             </div>
-          </div>
+          </motion.div>
 
-          {/* Copyright */}
-          <div className="border-t border-white/10 mt-12 pt-8">
-            <div className="font-body text-sm text-gray-400 text-center">
-              © {new Date().getFullYear()} Staffari. All rights reserved.
+          <div></div>
+
+          {/* Social Icons — BELOW NEWSLETTER ON MOBILE */}
+          <div className="order-3 lg:order-none w-full">
+            <p className="text-xs font-semibold tracking-widest uppercase text-[#402701]/80 mb-3">
+              Social Media
+            </p>
+
+            <div className="flex items-center gap-4">
+              {[
+                {
+                  icon: Instagram,
+                  link: "https://www.instagram.com/staffari_official/",
+                },
+                {
+                  icon: Facebook,
+                  link: "https://www.facebook.com/profile.php?id=61585470624376#/",
+                },
+                {
+                  icon: Linkedin,
+                  link: "https://www.linkedin.com/in/staffari-official-40aa8239a/",
+                },
+              ].map((item, index) => (
+                <motion.a
+                  key={index}
+                  href={item.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  whileTap={{ scale: 0.95 }}
+                  className="w-10 h-10 flex items-center justify-center rounded-full bg-[#52110f] text-white shadow"
+                >
+                  <item.icon size={18} />
+                </motion.a>
+              ))}
             </div>
           </div>
         </div>
+      </div>
+
+      {/* Bottom Bar — REDUCED SPACING */}
+      <div className="my-6 pt-4 border-t border-[#402701]/20 text-center text-xs text-[#402701]">
+        © {new Date().getFullYear()} Staffari. All rights reserved.
       </div>
     </footer>
   );
