@@ -33,8 +33,9 @@ export default function HiringProblemSection() {
         </div>
 
         {/* Bottom line */}
-        <p className="font-display mx-auto mt-10 max-w-7xl text-center font-body text-[40px] leading-10 text-black">
-          Disconnected systems slow everyone down. Staffari brings it all
+        <p className="font-display mx-auto mt-10 max-w-7xl text-center text-[40px] leading-10 text-[#523101c2]">
+          Disconnected systems slow everyone down.{" "}
+          <span style={{ color: "#0f3d34" }}>Staffari</span> brings it all
           together in one unified ecosystem.
         </p>
       </Container>

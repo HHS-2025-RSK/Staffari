@@ -160,7 +160,8 @@ export default function AdvantageSection() {
       <Container className="relative z-10">
         <div className="mb-14 text-center">
           <h2 className="font-display max-w-7xl text-[#402701] text-center text-5xl tracking-wide leading-relaxed sm:text-7xl leading-[1.1] uppercase">
-            Why Staffari Is Your Competitive Advantage
+            Why <span style={{ color: "#0f3d34" }}>Staffari</span> Is Your
+            Competitive Advantage
           </h2>
           <p className="mt-4 max-w-2xl mx-auto text-lg text-charcoalBlack/70">
             Built exclusively for hospitality — faster, smarter, better
