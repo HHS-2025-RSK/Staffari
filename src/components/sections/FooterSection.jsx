@@ -16,7 +16,7 @@ export default function FooterSection() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="space-y-2"
+            className="space-y-2 text-center lg:text-left"
           >
             <h1 className="font-display text-4xl md:text-8xl font-extrabold tracking-tight text-[#0f3d34]">
               STAFFARI
@@ -31,13 +31,13 @@ export default function FooterSection() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="order-2 lg:order-none w-full bg-white rounded-2xl p-4 md:p-8 border border-[#402701]/20 shadow-lg"
+            className="order-2 lg:order-none w-full bg-white rounded-2xl p-4 md:p-8 border border-[#402701]/20 shadow-lg text-center lg:text-left"
           >
             <p className="text-xs font-semibold tracking-widest uppercase text-[#402701]/80 mb-3">
               Subscribe to our newsletter
             </p>
 
-            <div className="flex flex-col lg:flex-row gap-3 w-full items-center">
+            <div className="flex flex-col lg:flex-row gap-3 w-full items-center justify-center lg:justify-start">
               <input
                 type="email"
                 placeholder="Enter your email address"
@@ -57,12 +57,12 @@ export default function FooterSection() {
           <div></div>
 
           {/* Social Icons — BELOW NEWSLETTER ON MOBILE */}
-          <div className="order-3 lg:order-none w-full">
+          <div className="order-3 lg:order-none w-full text-center lg:text-left">
             <p className="text-xs font-semibold tracking-widest uppercase text-[#402701]/80 mb-3">
               Social Media
             </p>
 
-            <div className="flex items-center gap-4">
+            <div className="flex items-center justify-center lg:justify-start gap-4">
               {[
                 {
                   icon: Instagram,
