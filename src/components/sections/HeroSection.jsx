@@ -155,7 +155,7 @@ export default function HeroSection() {
                 ${isInView ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"}
               `}
             >
-              <h1 className="font-display text-4xl sm:text-5xl font-bold tracking-tight text-deepJungleGreen leading-[1.1]">
+              <h1 className="font-display text-7xl sm:text-8xl font-bold tracking-tight text-deepJungleGreen leading-[1.1]">
                 <span className="block">Find.</span>
                 <span className="block text-[#3b652b]">Connect.</span>
                 <span className="block text-[#7da855]">Thrive.</span>
