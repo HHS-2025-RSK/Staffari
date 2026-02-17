@@ -298,12 +298,16 @@ export default function DownloadSection({
 
               <div className="mt-4 w-12 h-[2px] bg-white/30" />
 
-              <p className="mt-5 text-white/75 max-w-sm text-base sm:text-lg">
-                Staffari connects the entire hospitality workforce. Download the
-                app from the App Store or Play Store to begin your journey.
+              <p className="mt-5 text-white/75 max-w-md font-semibold text-base sm:text-lg">
+                Staffari connects the entire hospitality workforce.
+              </p>
+              <p className="mt-2 text-white/75 max-w-sm text-base sm:text-lg">
+                {" "}
+                Download the app from the App Store or Play Store to begin your
+                hunt.
               </p>
 
-              <div className="mt-10 text-white/60 text-xs sm:text-sm tracking-widest uppercase">
+              <div className="mt-10 text-white/60 font-semibold text-xs sm:text-sm tracking-widest uppercase">
                 Download the App
               </div>
 
