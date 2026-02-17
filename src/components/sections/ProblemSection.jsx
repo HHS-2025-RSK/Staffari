@@ -29,7 +29,7 @@ export default function ProblemSection({ problemBullets }) {
                   <div className="problem-title-wrapper">
                     <SectionTitle
                       // eyebrow="The Problem"
-                      title="Why hospitality hiring is broken"
+                      title="Why hospitality hiring is broken?"
                       desc="Hospitality businesses lose time and money dealing with:"
                     />
                   </div>
