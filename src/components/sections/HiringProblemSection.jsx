@@ -161,7 +161,7 @@ function HiringCard({ title, description, image, delay }) {
         <h3 className="font-display text-[#0f3d34] tracking-wide text-2xl font-bold">
           {title}
         </h3>
-        <p className="mt-3 font-body text-[17px] leading-relaxed text-[#402701]">
+        <p className="mt-3 font-body font-semibold text-[17px] leading-relaxed text-[#402701]">
           {description}
         </p>
       </div>
