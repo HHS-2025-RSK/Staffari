@@ -8,7 +8,7 @@ export default function FooterSection() {
       id="newsletter"
       className="relative overflow-hidden border-t-4 border-[#402701] bg-white rounded-t-3xl"
     >
-      <div className="bg-white relative z-10 max-w-7xl mx-auto px-4 md:px-12 py-8 md:py-10">
+      <div className="bg-white relative z-10 max-w-7xl mx-auto px-4 md:px-12 pt-8 md:pt-10">
         {/* MOBILE FIRST LAYOUT — REDUCED GAPS */}
         <div className="flex flex-col lg:grid lg:grid-cols-2 gap-8 md:gap-12">
           {/* Brand Section */}
@@ -89,12 +89,25 @@ export default function FooterSection() {
                 </motion.a>
               ))}
             </div>
+
+            {/* Added: Built by line – centered on all screens */}
+            <p className="mt-6 mb-3 text-sm text-[#402701]/80">
+              A product built by{" "}
+              <a
+                href="https://www.jacmagnus.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[#986701] hover:underline font-medium"
+              >
+                JAC Magnus Private Limited
+              </a>
+            </p>
           </div>
         </div>
       </div>
 
       {/* Bottom Bar — REDUCED SPACING */}
-      <div className="my-6 pt-4 border-t border-[#402701]/20 text-center text-xs text-[#402701]">
+      <div className="mb-6 pt-4 border-t border-[#402701]/20 text-center text-xs text-[#402701]">
         © {new Date().getFullYear()} Staffari. All rights reserved.
       </div>
     </footer>

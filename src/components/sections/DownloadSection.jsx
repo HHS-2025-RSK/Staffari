@@ -263,7 +263,11 @@ export default function DownloadSection({
   }, []);
 
   return (
-    <section id="download" className="pb-20 lg:py-0">
+    <section
+      id="download"
+      className={`pb-20 lg:pb-32 transition-all duration-900 ease-out
+    ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-16"}`}
+    >
       <Container>
         <div className="text-center">
           <h2 className="font-display text-[#402701] text-center text-5xl lg:tracking-wide lg:leading-relaxed sm:text-7xl leading-[1.1] uppercase">
@@ -390,6 +394,7 @@ export default function DownloadSection({
           </div>
         </div>
       </Container>
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-b from-transparent via-[#0f3d34]/5 to-transparent pointer-events-none" />{" "}
     </section>
   );
 }

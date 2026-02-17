@@ -107,7 +107,8 @@ export default function AdvantageSection() {
           </h2>
 
           <p className="mt-4 max-w-2xl mx-auto text-lg text-charcoalBlack/70">
-            Built exclusively for hospitality, faster, smarter, better matching.
+            Built exclusively for hospitality - faster, smarter & better
+            matching
           </p>
         </div>
 

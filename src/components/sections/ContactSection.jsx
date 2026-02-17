@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { ArrowRight, X } from "lucide-react";
 import Container from "../ui/Container";
 import SectionTitle from "../ui/SectionTitle";
@@ -114,6 +114,7 @@ export default function ContactSection() {
   const [roleOpen, setRoleOpen] = React.useState(false);
   const [successOpen, setSuccessOpen] = React.useState(false);
   const [submitting, setSubmitting] = React.useState(false);
+  const [isVisible, setIsVisible] = useState(false);
 
   const orgLabel = role === "hotel" ? "Hotel name" : "College name";
 
@@ -123,10 +124,30 @@ export default function ContactSection() {
     role === "student" ||
     role === "jobseeker";
 
+  useEffect(() => {
+    const el = document.getElementById("contact");
+    if (!el) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.18 },
+    );
+
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <section
       id="contact"
-      className="relative overflow-hidden bg-cover bg-center bg-no-repeat"
+      className={`relative overflow-hidden transition-all duration-[1200ms] ease-out ${
+        isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-32"
+      }`}
     >
       <div
         aria-hidden="true"
@@ -229,19 +250,19 @@ export default function ContactSection() {
 
                   <input
                     name="city"
+                    required
                     placeholder="City / Location"
                     className="w-full rounded-2xl border border-mutedOlive/25 bg-white px-4 py-3 font-body text-[14px] text-charcoalBlack outline-none focus:ring-4 focus:ring-emeraldGreen/15"
                   />
 
                   <button
                     type="button"
+                    required
                     onClick={() => setRoleOpen(true)}
-                    className="md:col-span-2 w-full rounded-2xl border border-mutedOlive/25 bg-white px-4 py-3 text-left font-body text-[14px] text-charcoalBlack outline-none focus:ring-4 focus:ring-emeraldGreen/15"
-                    aria-haspopup="dialog"
-                    aria-expanded={roleOpen}
+                    className="md:col-span-2 w-full rounded-2xl border border-mutedOlive/25 bg-white px-4 py-3 font-body text-[14px] text-charcoalBlack outline-none focus:ring-4 focus:ring-emeraldGreen/15 flex justify-center items-center gap-1"
                   >
-                    <span className="text-mutedOlive">I am here as:</span>{" "}
-                    {role ? roleLabel(role) : "Select"}
+                    <span className="text-mutedOlive">I am here as:</span>
+                    <span>{role ? roleLabel(role) : "Select"}</span>
                   </button>
 
                   {showOrgField ? (
@@ -256,7 +277,8 @@ export default function ContactSection() {
                   <textarea
                     name="comments"
                     rows={4}
-                    placeholder="Comments / Message (optional but recommended)"
+                    required
+                    placeholder="Comments / Message"
                     className="md:col-span-2 w-full rounded-2xl border border-mutedOlive/25 bg-white px-4 py-3 font-body text-[14px] text-charcoalBlack outline-none focus:ring-4 focus:ring-emeraldGreen/15"
                   />
 
