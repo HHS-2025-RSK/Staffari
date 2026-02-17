@@ -78,21 +78,29 @@ export default function Navbar() {
 
   useEffect(() => {
     const hero = document.querySelector("#hero-section");
+    const download = document.querySelector("#download");
 
-    if (!hero) return;
+    if (!hero || !download) return;
 
     const observer = new IntersectionObserver(
-      ([entry]) => {
-        setShowCta(!entry.isIntersecting);
+      (entries) => {
+        const isHeroVisible = entries.find(
+          (e) => e.target.id === "hero-section",
+        )?.isIntersecting;
+        const isDownloadVisible = entries.find(
+          (e) => e.target.id === "download",
+        )?.isIntersecting;
+
+        // Show CTA only when BOTH are not visible
+        setShowCta(!(isHeroVisible || isDownloadVisible));
       },
       {
-        root: null,
         threshold: 0.1,
-        rootMargin: "0px",
       },
     );
 
     observer.observe(hero);
+    observer.observe(download);
 
     return () => observer.disconnect();
   }, []);
