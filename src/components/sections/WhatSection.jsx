@@ -70,7 +70,7 @@ export default function WhatSection() {
         <div className="what-card-image-container animate-fade-in-left">
           <div className="what-card-image-overlay" />
           <img
-            src="/images/what2.png"
+            src="/images/what3.png"
             alt="Staffari bellhop in jungle setting"
             className="what-card-image"
             loading="lazy"
