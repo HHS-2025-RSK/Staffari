@@ -265,7 +265,7 @@ export default function DownloadSection({
   return (
     <section
       id="download"
-      className={`pb-20 lg:pb-32 transition-all duration-900 ease-out
+      className={`scroll-mt-20 pb-20 lg:pb-32 transition-all duration-900 ease-out
     ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-16"}`}
     >
       <Container>
