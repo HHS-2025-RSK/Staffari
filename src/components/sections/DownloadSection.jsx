@@ -108,7 +108,7 @@ export default function DownloadSection({
     <section id="download" className="py-20 lg:py-0">
       <Container>
         <div className="mb-14 text-center">
-          <h2 className="font-display text-[#402701] text-center text-5xl tracking-wide leading-relaxed sm:text-7xl leading-[1.1] uppercase">
+          <h2 className="font-display text-[#402701] text-center text-5xl lg:tracking-wide lg:leading-relaxed sm:text-7xl leading-[1.1] uppercase">
             Start Your Hunt
           </h2>
         </div>
@@ -116,10 +116,10 @@ export default function DownloadSection({
           <div className="grid md:grid-cols-[1.3fr_0.7fr] items-center gap-10 md:gap-14">
             {/* TEXT SIDE */}
             <div className="rounded-[28px] bg-deepJungleGreen px-6 sm:px-12 py-12 sm:py-16 text-white order-2 md:order-1">
-              <h2 className="font-display tracking-wide leading-relaxed mt-3 text-3xl sm:text-4xl font-bold leading-tight max-w-lg">
+              <h2 className="font-display lg:tracking-wide lg:leading-relaxed mt-3 text-3xl sm:text-4xl font-bold leading-tight max-w-lg">
                 <span className="block max-[860px]:block md:inline">
                   Hire Faster.
-                </span>{" "}
+                </span>{"       "}
                 <span className="block max-[860px]:block md:inline">
                   Get Hired Smarter.
                 </span>
