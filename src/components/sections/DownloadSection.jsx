@@ -222,6 +222,7 @@ export default function DownloadSection({
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
 
   const nextSlide = () => {
     setCurrentIndex((prev) => (prev + 1) % images.length);
@@ -231,6 +232,7 @@ export default function DownloadSection({
     setCurrentIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1));
   };
 
+  // Auto slide
   useEffect(() => {
     const interval = setInterval(() => {
       if (!isPaused) {
@@ -240,6 +242,26 @@ export default function DownloadSection({
     return () => clearInterval(interval);
   }, [isPaused]);
 
+  // Section entrance animation
+  useEffect(() => {
+    const section = document.getElementById("download");
+    if (!section) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.disconnect(); // trigger only once
+        }
+      },
+      { threshold: 0.3 },
+    );
+
+    observer.observe(section);
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <section id="download" className="py-20 lg:py-0">
       <Container>
@@ -248,15 +270,23 @@ export default function DownloadSection({
             Start Your Hunt
           </h2>
         </div>
+
         <div className="mx-auto px-6 sm:px-12 py-12 sm:py-0">
           <div className="grid md:grid-cols-[1.3fr_0.7fr] items-center gap-10 md:gap-14">
             {/* TEXT SIDE */}
-            <div className="rounded-[28px] bg-deepJungleGreen px-6 sm:px-12 py-12 sm:py-16 text-white order-2 md:order-1">
+            <div
+              className={`rounded-[28px] bg-deepJungleGreen px-6 sm:px-12 py-12 sm:py-16 text-white order-2 md:order-1
+              transition-all duration-[1200ms] ease-[cubic-bezier(0.16,1,0.3,1)]
+              ${
+                isVisible
+                  ? "opacity-100 translate-y-0"
+                  : "opacity-0 translate-y-12"
+              }`}
+            >
               <h2 className="font-display lg:tracking-wide lg:leading-relaxed mt-3 text-3xl sm:text-4xl font-bold leading-tight max-w-lg">
                 <span className="block max-[860px]:block md:inline">
                   Hire Faster.
-                </span>
-                {"       "}
+                </span>{" "}
                 <span className="block max-[860px]:block md:inline">
                   Get Hired Smarter.
                 </span>
@@ -293,15 +323,20 @@ export default function DownloadSection({
 
             {/* PHONE SIDE */}
             <div
-              className="relative flex justify-center order-1 md:order-2"
+              className={`relative flex justify-center order-1 md:order-2
+              transition-all duration-[1200ms] ease-[cubic-bezier(0.16,1,0.3,1)] delay-200
+              ${
+                isVisible
+                  ? "opacity-100 scale-100 translate-y-0"
+                  : "opacity-0 scale-90 translate-y-12"
+              }`}
               onMouseEnter={() => setIsPaused(true)}
               onMouseLeave={() => setIsPaused(false)}
             >
-              {/* Soft radial glow behind phone */}
               <div className="absolute w-64 h-64 sm:w-80 sm:h-80 bg-white/10 rounded-full blur-3xl -z-10" />
 
               <div className="relative w-[160px] sm:w-[200px] md:w-[220px] lg:w-[240px]">
-                {/* Left arrow */}
+                {/* Left Arrow */}
                 <button
                   onClick={prevSlide}
                   className="absolute -left-8 sm:-left-10 top-1/2 -translate-y-1/2 text-[#0f3d34]/60 hover:text-[#0f3d34] text-3xl sm:text-4xl transition-colors"
@@ -310,43 +345,23 @@ export default function DownloadSection({
                   ‹
                 </button>
 
-                {/* Realistic CSS Phone */}
-                <div
-                  className="
-                    relative mx-auto
-                    aspect-[9/19.5]
-                    ring-1 ring-white/5 overflow-hidden
-                  "
-                >
-                  {/* Dynamic Island / Notch */}
-                  {/* <div className="absolute top-[1.2%] left-1/2 -translate-x-1/2 w-10 sm:w-20 h-4 bg-black rounded-full z-20 shadow-inner flex items-center justify-center">
-                    <div className="w-4 h-4 bg-neutral-950 rounded-full shadow"></div>
-                  </div> */}
-
-                  {/* Screen content area with inner bezel padding */}
-                  <div className="relative w-full h-full pt-10 pb-12 px-3 sm:px-4">
-                    <div className="w-full h-full rounded-2xl sm:rounded-3xl overflow-hidden bg-black shadow-inner">
-                      {images.map((img, index) => (
-                        <img
-                          key={index}
-                          src={img}
-                          alt={`App preview ${index + 1}`}
-                          className={`absolute inset-0 w-full h-full object-cover transition-all duration-700 ease-in-out ${
-                            index === currentIndex
-                              ? "opacity-100 scale-100"
-                              : "opacity-0 scale-95"
-                          }`}
-                        />
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* Subtle side details (power button + volume rocker) */}
-                  {/* <div className="absolute right-[-2%] top-[28%] w-1.5 h-16 bg-gradient-to-b from-gray-700 via-gray-800 to-gray-900 rounded-l shadow"></div>
-                  <div className="absolute right-[-2%] top-[55%] w-1.5 h-10 bg-gradient-to-b from-gray-700 via-gray-800 to-gray-900 rounded-l shadow"></div> */}
+                {/* IMAGE ONLY (No phone frame edits) */}
+                <div className="relative mx-auto aspect-[9/19.5] overflow-hidden">
+                  {images.map((img, index) => (
+                    <img
+                      key={index}
+                      src={img}
+                      alt={`App preview ${index + 1}`}
+                      className={`absolute inset-0 w-full h-full object-contain transition-all duration-700 ease-in-out ${
+                        index === currentIndex
+                          ? "opacity-100 scale-100"
+                          : "opacity-0 scale-95"
+                      }`}
+                    />
+                  ))}
                 </div>
 
-                {/* Right arrow */}
+                {/* Right Arrow */}
                 <button
                   onClick={nextSlide}
                   className="absolute -right-8 sm:-right-10 top-1/2 -translate-y-1/2 text-[#0f3d34]/60 hover:text-[#0f3d34] text-3xl sm:text-4xl transition-colors"
@@ -355,7 +370,7 @@ export default function DownloadSection({
                   ›
                 </button>
 
-                {/* Dots indicator */}
+                {/* Dots */}
                 <div className="mt-6 flex justify-center gap-2.5">
                   {images.map((_, index) => (
                     <button
