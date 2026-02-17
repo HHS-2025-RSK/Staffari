@@ -40,7 +40,7 @@ export default function HiringProblemSection() {
 
       <Container>
         <h2
-          className="font-display mx-auto max-w-7xl text-[#402701] text-center text-5xl tracking-wide leading-relaxed sm:text-7xl leading-[1.1] uppercase"
+          className="font-display mx-auto max-w-7xl text-[#402701] text-center text-5xl lg:tracking-wide lg:leading-relaxed sm:text-7xl leading-[1.1] uppercase"
           // style={{
           //   opacity: 0,
           //   animation: isVisible

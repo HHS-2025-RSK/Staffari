@@ -134,14 +134,14 @@ export default function DownloadSection({
   }, [handleIntersection]);
 
   return (
-    <section id="download" ref={sectionRef} className="py-20 lg:py-0">
+    <section id="download" ref={sectionRef} className="pt-20 lg:py-0">
       <Container>
         <div className="text-center">
           <h2 className="font-display text-[#402701] text-center text-5xl lg:tracking-wide lg:leading-relaxed sm:text-7xl leading-[1.1] uppercase">
             Start Your Hunt
           </h2>
         </div>
-        <div className="mx-auto px-6 sm:px-12 py-12 sm:py-0">
+        <div className="mx-auto py-12 sm:py-0">
           <div className="grid md:grid-cols-[1.3fr_0.7fr] items-center gap-10 md:gap-14">
             {/* TEXT SIDE - Slides from LEFT */}
             <div
@@ -155,7 +155,7 @@ export default function DownloadSection({
                 }
               `}
             >
-              <h2 className="font-display lg:tracking-wide lg:leading-relaxed mt-3 text-3xl sm:text-4xl font-bold leading-tight max-w-lg">
+              <h2 className="font-display lg:tracking-wide lg:leading-relaxed mt-3 text-3xl sm:text-4xl font-bold leading-tight">
                 <span className="block max-[860px]:block md:inline">
                   Hire Faster.
                 </span>
@@ -176,7 +176,7 @@ export default function DownloadSection({
                 Download the App
               </div>
 
-              <div className="mt-8 flex gap-3 flex-wrap">
+              <div className="mx-auto mt-8 flex gap-3 flex-wrap align-middle justify-center">
                 <StoreButton
                   variant="light"
                   href={PLAYSTORE_URL}
