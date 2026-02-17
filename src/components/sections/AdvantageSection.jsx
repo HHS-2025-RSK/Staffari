@@ -101,7 +101,9 @@ export default function AdvantageSection() {
                 : "none",
             }}
           >
-            <span className="block sm:inline">Why Staffari </span>
+            <span className="block sm:inline">
+              Why <span className="text-[#0f3d34]">Staffari </span>
+            </span>
             {/* <span className="block sm:inline text-[#0f3d34]">Staffari </span> */}
             <span className="block sm:inline">Is Your </span>
             <span className="block sm:inline">Competitive </span>
