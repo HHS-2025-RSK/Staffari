@@ -79,7 +79,7 @@ export default function DownloadSection({
   const images = [
     "/images/wireframe4.png",
     "/images/wireframe5.png",
-    "/images/wireframe6.png",
+    "/images/wireframe3.png",
     "/images/wireframe1.png",
     "/images/wireframe2.png",
   ];
@@ -177,16 +177,14 @@ export default function DownloadSection({
                 <div
                   className="
                     relative mx-auto
-                    aspect-[9/19.5] rounded-[2.8rem] sm:rounded-[3.2rem] md:rounded-[3.5rem]
-                    bg-gradient-to-b from-gray-900 via-black to-gray-950
-                    shadow-[0_30px_70px_rgba(0,0,0,0.7),inset_0_2px_6px_rgba(255,255,255,0.1)]
-                    ring-1 ring-white/5 overflow-hidden border-4 border-black
+                    aspect-[9/19.5]
+                    ring-1 ring-white/5 overflow-hidden
                   "
                 >
                   {/* Dynamic Island / Notch */}
-                  <div className="absolute top-[1.2%] left-1/2 -translate-x-1/2 w-10 sm:w-20 h-4 bg-black rounded-full z-20 shadow-inner flex items-center justify-center">
+                  {/* <div className="absolute top-[1.2%] left-1/2 -translate-x-1/2 w-10 sm:w-20 h-4 bg-black rounded-full z-20 shadow-inner flex items-center justify-center">
                     <div className="w-4 h-4 bg-neutral-950 rounded-full shadow"></div>
-                  </div>
+                  </div> */}
 
                   {/* Screen content area with inner bezel padding */}
                   <div className="relative w-full h-full pt-10 pb-12 px-3 sm:px-4">
