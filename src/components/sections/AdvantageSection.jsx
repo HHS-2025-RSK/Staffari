@@ -1,10 +1,37 @@
-// AdvantageSection.tsx
-import React from "react";
+// AdvantageSection.jsx
+import React, { useEffect, useRef, useState } from "react";
 import { Hotel, GraduationCap } from "lucide-react";
 import Container from "../ui/Container";
 import PremiumCard from "../ui/PremiumCard";
 
+/**
+ * Visibility Hook
+ */
+function useIsVisible(ref) {
+  const [isIntersecting, setIntersecting] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) setIntersecting(true);
+      },
+      {
+        threshold: 0.2,
+        rootMargin: "0px 0px -50px 0px",
+      },
+    );
+
+    if (ref.current) observer.observe(ref.current);
+    return () => observer.disconnect();
+  }, [ref]);
+
+  return isIntersecting;
+}
+
 export default function AdvantageSection() {
+  const titleRef = useRef(null);
+  const isTitleVisible = useIsVisible(titleRef);
+
   const hotelContent = {
     heading: "Hotels",
     points: [
@@ -36,20 +63,43 @@ export default function AdvantageSection() {
       id="advantage"
       className="relative pt-16 pb-24 md:py-30 bg-[#fdf9f0] overflow-hidden"
     >
+      {/* Animation Keyframes */}
+      <style>{`
+        @keyframes superReveal {
+          0% { 
+            opacity: 0; 
+            transform: translateY(40px) scale(0.92); 
+            filter: blur(8px); 
+          }
+          100% { 
+            opacity: 1; 
+            transform: translateY(0) scale(1); 
+            filter: blur(0); 
+          }
+        }
+      `}</style>
+
       <Container className="relative z-10">
         <div className="mb-14 text-center">
           <h2
+            ref={titleRef}
             className="
-  font-display 
-  max-w-7xl 
-  text-[#402701] 
-  text-center 
-  text-5xl 
-  sm:text-7xl 
-  uppercase
-  tracking-wide
-  leading-[0.95]
-"
+              font-display 
+              max-w-7xl 
+              text-[#402701] 
+              text-center 
+              text-5xl 
+              sm:text-7xl 
+              uppercase
+              tracking-wide
+              leading-[0.95]
+            "
+            style={{
+              opacity: 0,
+              animation: isTitleVisible
+                ? "superReveal 1s ease-out 0.2s forwards"
+                : "none",
+            }}
           >
             Why <span style={{ color: "#0f3d34" }}>Staffari</span> Is Your
             <br />
