@@ -131,17 +131,17 @@ export default function ContactSection() {
 
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-          observer.disconnect();
-        }
+        setIsVisible(entry.isIntersecting);
       },
-      { threshold: 0.18 },
+      {
+        threshold: 0.2,
+      }
     );
 
     observer.observe(el);
     return () => observer.disconnect();
   }, []);
+
 
   useEffect(() => {
     const handler = (e) => {
@@ -152,18 +152,18 @@ export default function ContactSection() {
     return () => window.removeEventListener("footerVisibility", handler);
   }, []);
 
+
   return (
     <section
       id="contact"
-      className={`relative overflow-hidden transition-all duration-[800ms] ease-in-out ${
-  footerVisible
-    ? "opacity-0 -translate-y-16 md:opacity-100 md:translate-y-0"
-    : isVisible
-    ? "opacity-100 translate-y-0"
-    : "opacity-0 translate-y-32"
-}`}
-
+      className={`relative overflow-hidden transform transition-all duration-700 ease-in-out ${footerVisible
+          ? "opacity-0 translate-y-10 pointer-events-none"
+          : isVisible
+            ? "opacity-100 translate-y-0"
+            : "opacity-0 translate-y-20"
+        }`}
     >
+
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 z-[1]"
