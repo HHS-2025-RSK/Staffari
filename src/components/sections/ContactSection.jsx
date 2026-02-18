@@ -113,7 +113,7 @@ export default function ContactSection() {
   const [role, setRole] = React.useState("");
   const [roleOpen, setRoleOpen] = React.useState(false);
   const [successOpen, setSuccessOpen] = React.useState(false);
-  // const [submitting, setSubmitting] = React.useState(false);
+  const [submitting, setSubmitting] = React.useState(false);
   const [isVisible, setIsVisible] = useState(false);
   const [footerVisible, setFooterVisible] = useState(false);
 
@@ -247,54 +247,33 @@ export default function ContactSection() {
                       return;
                     }
 
+                    if (submitting) return;
+
+                    setSubmitting(true);
+
                     const formData = new FormData(e.currentTarget);
 
                     try {
                       await fetch("https://submit-form.com/jWfKQbdgK", {
                         method: "POST",
                         body: formData,
-                        mode: "no-cors", // 🔑 IMPORTANT
+                        mode: "no-cors",
                       });
 
-                      // ✅ If fetch didn't throw, submission worked
                       setSuccessOpen(true);
                       e.currentTarget.reset();
                       setRole("");
+
+                      // ⏱ Auto-close after 3 seconds
+                      setTimeout(() => {
+                        setSuccessOpen(false);
+                      }, 3000);
                     } catch (err) {
                       console.error("Form submission failed", err);
+                    } finally {
+                      setSubmitting(false);
                     }
                   }}
-
-                  // onSubmit={async (e) => {
-                  //   e.preventDefault();
-
-                  //   if (!role) {
-                  //     setRoleOpen(true);
-                  //     return;
-                  //   }
-
-                  //   setSubmitting(true);
-
-                  //   const data = new FormData(e.currentTarget);
-                  //   const payload = {
-                  //     fullName: data.get("fullName") || "",
-                  //     email: data.get("email") || "",
-                  //     phone: data.get("phone") || "",
-                  //     city: data.get("city") || "",
-                  //     role,
-                  //     orgName: data.get("orgName") || "",
-                  //     comments: data.get("comments") || "",
-                  //   };
-
-                  //   console.log("Contact:", payload);
-
-                  //   await new Promise((r) => setTimeout(r, 500));
-                  //   setSubmitting(false);
-
-                  //   e.currentTarget.reset();
-                  //   setRole("");
-                  //   setSuccessOpen(true);
-                  // }}
                 >
                   <input
                     name="fullName"
@@ -367,8 +346,21 @@ export default function ContactSection() {
                       {submitting ? "Submitting..." : "Submit"}{" "}
                       <ArrowRight className="h-4 w-4" />
                     </PrimaryButton> */}
-                    <PrimaryButton type="submit" className="md:w-[220px]">
-                      Submit <ArrowRight className="h-4 w-4" />
+                    <PrimaryButton
+                      type="submit"
+                      className="md:w-[220px] flex items-center justify-center gap-2"
+                      disabled={submitting}
+                    >
+                      {submitting ? (
+                        <>
+                          <span className="animate-spin h-4 w-4 rounded-full border-2 border-white border-t-transparent" />
+                          Submitting...
+                        </>
+                      ) : (
+                        <>
+                          Submit <ArrowRight className="h-4 w-4" />
+                        </>
+                      )}
                     </PrimaryButton>
                   </div>
                 </form>
