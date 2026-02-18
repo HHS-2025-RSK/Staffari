@@ -144,7 +144,7 @@ export default function FooterSection() {
             </div>
 
             <p className="mt-5 mb-3 sm:mt-8 sm:mb-4 text-sm text-[#402701]/80">
-              Want to connect with us?{" "}
+              Let’s connect at ----{" "}
               <a
                 href="mailto:hello@shelfiebooks.in"
                 className="text-[#412802] hover:underline font-medium"
@@ -153,7 +153,7 @@ export default function FooterSection() {
               </a>
             </p>
 
-            <p className="mt-5 mb-3 sm:mt-8 sm:mb-4 text-sm text-[#402701]/80">
+            <p className="mt-2 mb-3 sm:mt-4 sm:mb-4 text-sm text-[#402701]/80">
               A product built by{" "}
               <a
                 href="https://www.jacmagnus.com/"
