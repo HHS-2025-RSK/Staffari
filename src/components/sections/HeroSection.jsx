@@ -13,7 +13,7 @@ export default function HeroSection() {
     const section = document.getElementById("download");
     if (!section) return;
 
-    const NAVBAR_HEIGHT = 140; // h-16 (64px) + breathing space
+    const NAVBAR_HEIGHT = 140;
 
     const y =
       section.getBoundingClientRect().top + window.pageYOffset - NAVBAR_HEIGHT;
@@ -26,16 +26,12 @@ export default function HeroSection() {
     });
   };
 
-  // Intersection Observer callback for initial entry animation
   const handleIntersection = useCallback((entries) => {
     entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        setIsInView(true);
-      }
+      if (entry.isIntersecting) setIsInView(true);
     });
   }, []);
 
-  // Intersection Observer setup
   useEffect(() => {
     if (!sectionRef.current) return;
 
@@ -46,14 +42,9 @@ export default function HeroSection() {
 
     observerRef.current.observe(sectionRef.current);
 
-    return () => {
-      if (observerRef.current) {
-        observerRef.current.disconnect();
-      }
-    };
+    return () => observerRef.current?.disconnect();
   }, [handleIntersection]);
 
-  // Scroll-based progress for sliding OUT image + content
   useEffect(() => {
     const handleScroll = () => {
       if (!sectionRef.current) return;
@@ -68,38 +59,64 @@ export default function HeroSection() {
       );
       const total = rect.height || viewportHeight || 1;
 
-      const progress = Math.min(Math.max(scrolled / total, 0), 1); // clamp 0–1
+      const progress = Math.min(Math.max(scrolled / total, 0), 1);
       setScrollProgress(progress);
     };
 
     handleScroll();
     window.addEventListener("scroll", handleScroll, { passive: true });
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // DESKTOP offsets
+  // ===== Desktop behavior (unchanged) =====
   const imageOffsetX = -scrollProgress * 100; // left
   const contentOffsetX = scrollProgress * 100; // right
   const fadeOut = 1 - scrollProgress; // 1 -> 0
 
-  // MOBILE image offset (slide fully left and disappear)
-  const mobileImageX = -scrollProgress * 100; // 0 -> -100
+  // ===== Mobile behavior (overlap + fade out image after content comes up) =====
+  const clamp01 = (v) => Math.min(Math.max(v, 0), 1);
+
+  // Content reveal curve on mobile
+  const mobileRevealStart = 0.12;
+  const mobileRevealSpan = 0.45;
+  const mobileReveal = clamp01(
+    (scrollProgress - mobileRevealStart) / mobileRevealSpan,
+  );
+
+  // Content slides up & becomes visible
+  const mobileContentTranslateY = (1 - mobileReveal) * 90; // px
+  const mobileContentOpacity = clamp01(mobileReveal * 4);
+
+  // Stop "sticky" after a point so it doesn't stay pinned too long
+  const mobilePinEnd = 0.42; // tweak 0.35–0.55
+  const mobilePinned = scrollProgress < mobilePinEnd;
+
+  // Fade image out as content takes over
+  const mobileFadeStart = 0.15;
+  const mobileFadeEnd = 0.32;
+  const mobileImageOpacity =
+    1 -
+    clamp01(
+      (scrollProgress - mobileFadeStart) / (mobileFadeEnd - mobileFadeStart),
+    );
+
+  // Optional tiny parallax (kept subtle)
+  const mobileImageParallaxX = -mobileReveal * 6; // %
 
   return (
     <section
       id="hero-section"
       ref={sectionRef}
-      className="relative bg-[#fdf9f0] min-h-screen overflow-hidden font-body"
+      className="relative bg-[#fdf9f0] min-h-[140vh] lg:min-h-screen overflow-visible lg:overflow-hidden font-body"
     >
-      {/* MOBILE PANDA IMAGE (slides left and disappears) */}
+      {/* MOBILE IMAGE: overlaps early, then fades out */}
       <div
-        className="block lg:hidden w-full h-[85vh] overflow-hidden"
+        className="block lg:hidden w-full h-[85vh] overflow-hidden pointer-events-none z-0"
         style={{
-          // optional: tie opacity to scroll if you want fade as well
-          // opacity: fadeOut,
+          position: mobilePinned ? "sticky" : "relative",
+          top: mobilePinned ? 0 : undefined,
+          opacity: mobileImageOpacity,
+          visibility: mobileImageOpacity < 0.02 ? "hidden" : "visible",
           transition: "opacity 0.1s linear",
         }}
       >
@@ -115,8 +132,7 @@ export default function HeroSection() {
             alt="Jungle adventure frame"
             className="w-full h-full object-cover"
             style={{
-              // zoom a bit and slide left off-screen
-              transform: `scale(1.2) translateX(${mobileImageX}%)`,
+              transform: `scale(1.2) translateX(${mobileImageParallaxX}%)`,
               transformOrigin: "center center",
               transition: "transform 0.1s linear",
             }}
@@ -150,40 +166,49 @@ export default function HeroSection() {
         </div>
       </div>
 
-      {/* CONTENT - Text + Button */}
-      <Container className="relative z-10 w-full py-12 lg:py-16">
-        <div className="flex flex-col lg:flex-row items-center justify-end py-12 lg:py-0">
-          {/* MOBILE CONTENT: comes from below with normal scroll */}
-          <div className="block lg:hidden w-full text-center">
-            <div
-              className={`
-                space-y-6
-                transform transition-all duration-1000 ease-out
-                ${isInView ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"}
-              `}
-            >
-              <h1 className="font-display text-7xl sm:text-8xl font-bold tracking-tight text-deepJungleGreen leading-[1.1]">
-                <span className="block">Find.</span>
-                <span className="block text-[#3b652b]">Connect.</span>
-                <span className="block text-[#7da855]">Thrive.</span>
-              </h1>
+      {/* CONTENT */}
+      <div className="mx-auto w-full px-4 relative z-10 w-full pt-12 lg:pt-16">
+        <div className="flex flex-col lg:flex-row items-center justify-end pt-12 lg:py-0">
+          {/* MOBILE CONTENT: overlaps image and settles */}
+          <div
+            className="block lg:hidden w-full text-center relative z-10 -mt-[28vh]"
+            style={{
+              transform: `translateY(${mobileContentTranslateY}px)`,
+              opacity: mobileContentOpacity,
+              transition: "transform 0.1s linear, opacity 0.1s linear",
+            }}
+          >
+            <div className="bg-[#fdf9f0] pt-10 rounded-t-[2.5rem]">
+              <div
+                className={`
+                  space-y-6
+                  transform transition-all duration-1000 ease-out
+                  ${isInView ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"}
+                `}
+              >
+                <h1 className="font-display text-7xl sm:text-8xl font-bold tracking-tight text-deepJungleGreen leading-[1.1]">
+                  <span className="block">Find.</span>
+                  <span className="block text-[#3b652b]">Connect.</span>
+                  <span className="block text-[#7da855]">Thrive.</span>
+                </h1>
 
-              <p className="font-body font-bold text-xl text-black max-w-md mx-auto text-center">
-                A single ecosystem for hospitality hiring and jobs.
-                <span className="block mt-2">
-                  Built to power smarter recruitment and meaningful hospitality
-                  careers.
-                </span>
-              </p>
+                <p className="font-body font-bold text-xl text-black max-w-md mx-auto text-center">
+                  A single ecosystem for hospitality hiring and jobs.
+                  <span className="block mt-2">
+                    Built to power smarter recruitment and meaningful
+                    hospitality careers.
+                  </span>
+                </p>
 
-              <div className="pt-4 flex justify-center">
-                <PrimaryButton
-                  onClick={scrollToDownload}
-                  className="text-lg py-3 px-8 rounded-full shadow-lg transition-all duration-300 hover:scale-105 group"
-                >
-                  Start Your Hunt
-                  <ArrowRight className="ml-3 h-6 w-6 group-hover:translate-x-1 transition-transform" />
-                </PrimaryButton>
+                <div className="pt-4 flex justify-center">
+                  <PrimaryButton
+                    onClick={scrollToDownload}
+                    className="text-lg py-3 px-8 rounded-full shadow-lg transition-all duration-300 hover:scale-105 group"
+                  >
+                    Start Your Hunt
+                    <ArrowRight className="ml-3 h-6 w-6 group-hover:translate-x-1 transition-transform" />
+                  </PrimaryButton>
+                </div>
               </div>
             </div>
           </div>
@@ -230,7 +255,7 @@ export default function HeroSection() {
             </div>
           </div>
         </div>
-      </Container>
+      </div>
     </section>
   );
 }
