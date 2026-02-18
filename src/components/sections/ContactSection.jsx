@@ -113,7 +113,7 @@ export default function ContactSection() {
   const [role, setRole] = React.useState("");
   const [roleOpen, setRoleOpen] = React.useState(false);
   const [successOpen, setSuccessOpen] = React.useState(false);
-  const [submitting, setSubmitting] = React.useState(false);
+  // const [submitting, setSubmitting] = React.useState(false);
   const [isVisible, setIsVisible] = useState(false);
   const [footerVisible, setFooterVisible] = useState(false);
 
@@ -236,6 +236,8 @@ export default function ContactSection() {
                 />
 
                 <form
+                  action="https://submit-form.com/jWfKQbdgK"
+                  method="POST"
                   className="lg:mt-6 grid gap-3 md:grid-cols-2 lg:mx-8"
                   onSubmit={async (e) => {
                     e.preventDefault();
@@ -245,28 +247,54 @@ export default function ContactSection() {
                       return;
                     }
 
-                    setSubmitting(true);
+                    const formData = new FormData(e.currentTarget);
 
-                    const data = new FormData(e.currentTarget);
-                    const payload = {
-                      fullName: data.get("fullName") || "",
-                      email: data.get("email") || "",
-                      phone: data.get("phone") || "",
-                      city: data.get("city") || "",
-                      role,
-                      orgName: data.get("orgName") || "",
-                      comments: data.get("comments") || "",
-                    };
+                    try {
+                      await fetch("https://submit-form.com/jWfKQbdgK", {
+                        method: "POST",
+                        body: formData,
+                        mode: "no-cors", // 🔑 IMPORTANT
+                      });
 
-                    console.log("Contact:", payload);
-
-                    await new Promise((r) => setTimeout(r, 500));
-                    setSubmitting(false);
-
-                    e.currentTarget.reset();
-                    setRole("");
-                    setSuccessOpen(true);
+                      // ✅ If fetch didn't throw, submission worked
+                      setSuccessOpen(true);
+                      e.currentTarget.reset();
+                      setRole("");
+                    } catch (err) {
+                      console.error("Form submission failed", err);
+                    }
                   }}
+
+                  // onSubmit={async (e) => {
+                  //   e.preventDefault();
+
+                  //   if (!role) {
+                  //     setRoleOpen(true);
+                  //     return;
+                  //   }
+
+                  //   setSubmitting(true);
+
+                  //   const data = new FormData(e.currentTarget);
+                  //   const payload = {
+                  //     fullName: data.get("fullName") || "",
+                  //     email: data.get("email") || "",
+                  //     phone: data.get("phone") || "",
+                  //     city: data.get("city") || "",
+                  //     role,
+                  //     orgName: data.get("orgName") || "",
+                  //     comments: data.get("comments") || "",
+                  //   };
+
+                  //   console.log("Contact:", payload);
+
+                  //   await new Promise((r) => setTimeout(r, 500));
+                  //   setSubmitting(false);
+
+                  //   e.currentTarget.reset();
+                  //   setRole("");
+                  //   setSuccessOpen(true);
+                  // }}
                 >
                   <input
                     name="fullName"
@@ -300,7 +328,7 @@ export default function ContactSection() {
 
                   <button
                     type="button"
-                    required
+                    // required
                     onClick={() => setRoleOpen(true)}
                     className="md:col-span-2 w-full rounded-2xl border border-mutedOlive/25 bg-white px-4 py-3 font-body text-[14px] text-charcoalBlack outline-none focus:ring-4 focus:ring-emeraldGreen/15 flex justify-center items-center gap-1"
                   >
@@ -309,6 +337,7 @@ export default function ContactSection() {
                       {role ? roleLabel(role) : "Select"}
                     </span>
                   </button>
+                  <input type="hidden" name="role" value={role} required />
 
                   {showOrgField ? (
                     <input
@@ -321,7 +350,7 @@ export default function ContactSection() {
 
                   <textarea
                     name="comments"
-                    rows={4}
+                    rows={3}
                     required
                     placeholder="Comments / Message"
                     className="md:col-span-2 w-full rounded-2xl border border-mutedOlive/25 bg-white px-4 py-3 font-body text-[14px] text-charcoalBlack outline-none focus:ring-4 focus:ring-emeraldGreen/15"
@@ -331,12 +360,15 @@ export default function ContactSection() {
                     {/* <p className="font-body text-[13px] text-white lg:text-charcoalBlack lg:ml-20">
                       We’ll only use your details to respond to your message.
                     </p> */}
-                    <PrimaryButton
+                    {/* <PrimaryButton
                       className="md:w-[220px]"
                       disabled={submitting}
                     >
                       {submitting ? "Submitting..." : "Submit"}{" "}
                       <ArrowRight className="h-4 w-4" />
+                    </PrimaryButton> */}
+                    <PrimaryButton type="submit" className="md:w-[220px]">
+                      Submit <ArrowRight className="h-4 w-4" />
                     </PrimaryButton>
                   </div>
                 </form>
