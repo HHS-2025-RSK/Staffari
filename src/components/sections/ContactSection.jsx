@@ -181,11 +181,41 @@ export default function ContactSection() {
             {/* Content Wrapper */}
             <div className="mx-auto w-full max-w-6xl flex items-center justify-center lg:pointer-events-none lg:absolute lg:-top-18 lg:inset-0 px-6 pb-10 lg:px-0 lg:pb-0">
               <div
-                className="pointer-events-auto w-full rounded-3xl px-8 lg:px-28 py-8 shadow-xl backdrop-blur-sm lg:w-[90%] lg:bg-transparent lg:shadow-none lg:backdrop-blur-none lg:rounded-none bg-cover bg-center bg-no-repeat overflow-hidden"
+                className="
+    pointer-events-auto
+    w-full
+    rounded-3xl
+    px-8
+    py-8
+    shadow-xl
+    backdrop-blur-sm
+    bg-cover
+    bg-center
+    bg-no-repeat
+    overflow-hidden
+
+    /* 🔑 MOBILE SECTION FEEL */
+    min-h-[90vh]
+    max-h-[90vh]
+    flex
+    flex-col
+    justify-center
+
+    /* Allow scroll INSIDE card if needed */
+    overflow-y-auto
+
+    /* Desktop untouched */
+    lg:min-h-auto
+    lg:max-h-none
+    lg:justify-start
+    lg:px-28
+    lg:w-[90%]
+    lg:bg-transparent
+    lg:shadow-none
+    lg:backdrop-blur-none
+    lg:rounded-none
+  "
                 style={{
-                  // Applied M_CARD_BG_URL for mobile.
-                  // We use a CSS variable or conditional logic if you want to disable it on desktop,
-                  // but typically keeping it as the base and letting desktop styles override works best.
                   backgroundImage: `url(${M_CARD_BG_URL})`,
                 }}
               >
