@@ -185,7 +185,7 @@ export default function ContactSection() {
     pointer-events-auto
     w-full
     rounded-3xl
-    px-8
+    px-6
     py-8
     shadow-xl
     backdrop-blur-sm
@@ -202,7 +202,7 @@ export default function ContactSection() {
     justify-center
 
     /* Allow scroll INSIDE card if needed */
-    overflow-y-auto
+    overflow-y-hidden
 
     /* Desktop untouched */
     lg:min-h-auto
@@ -236,7 +236,7 @@ export default function ContactSection() {
                 />
 
                 <form
-                  className="mt-6 grid gap-3 md:grid-cols-2 lg:mx-8"
+                  className="lg:mt-6 grid gap-3 md:grid-cols-2 lg:mx-8"
                   onSubmit={async (e) => {
                     e.preventDefault();
 
@@ -305,7 +305,9 @@ export default function ContactSection() {
                     className="md:col-span-2 w-full rounded-2xl border border-mutedOlive/25 bg-white px-4 py-3 font-body text-[14px] text-charcoalBlack outline-none focus:ring-4 focus:ring-emeraldGreen/15 flex justify-center items-center gap-1"
                   >
                     <span className="text-mutedOlive">I am here as:</span>
-                    <span>{role ? roleLabel(role) : "Select"}</span>
+                    <span className="font-bold">
+                      {role ? roleLabel(role) : "Select"}
+                    </span>
                   </button>
 
                   {showOrgField ? (
