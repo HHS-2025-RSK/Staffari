@@ -107,7 +107,7 @@ export default function HeroSection() {
     <section
       id="hero-section"
       ref={sectionRef}
-      className="relative bg-[#fdf9f0] min-h-[130vh] lg:min-h-screen overflow-visible lg:overflow-hidden font-body"
+      className="relative bg-[#fdf9f0] min-h-screen lg:min-h-screen overflow-visible lg:overflow-hidden font-body"
     >
       {/* MOBILE IMAGE: overlaps early, then fades out */}
       <div

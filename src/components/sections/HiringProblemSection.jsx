@@ -37,7 +37,7 @@ export default function HiringProblemSection() {
   return (
     <section
       id="problem"
-      className="bg-beige overflow-hidden pb-20"
+      className="bg-beige overflow-hidden pb-20 mt-20 md:mt-0 lg:mt-0"
       ref={titleRef}
     >
       <style>{`

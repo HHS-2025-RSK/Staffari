@@ -1,5 +1,11 @@
 import React, { useEffect, useRef } from "react";
-import { ArrowRight, Instagram, Facebook, Linkedin } from "lucide-react";
+import {
+  ArrowRight,
+  Instagram,
+  Facebook,
+  Linkedin,
+  X as XIcon,
+} from "lucide-react";
 import { motion } from "framer-motion";
 
 export default function FooterSection() {
@@ -62,6 +68,25 @@ export default function FooterSection() {
       window.removeEventListener("resize", emitVisibility);
     };
   }, []);
+
+  const SOCIAL_LINKS = [
+    {
+      icon: Instagram,
+      link: "https://www.instagram.com/staffari_official/",
+    },
+    {
+      icon: Facebook,
+      link: "https://www.facebook.com/profile.php?id=61585470624376",
+    },
+    {
+      icon: Linkedin,
+      link: "https://www.linkedin.com/in/staffari-official-40aa8239a/",
+    },
+    {
+      // icon: XIcon, // ← Changed to X
+      link: "https://x.com/_Staffari",
+    },
+  ];
 
   return (
     <footer
@@ -132,15 +157,40 @@ export default function FooterSection() {
             </p>
 
             <div className="flex items-center justify-center lg:justify-start gap-5">
-              {[Instagram, Facebook, Linkedin].map((Icon, i) => (
-                <motion.a
-                  key={i}
-                  whileTap={{ scale: 0.95 }}
-                  className="w-12 h-12 flex items-center justify-center rounded-full bg-[#52110f] text-white shadow"
-                >
-                  <Icon size={20} />
-                </motion.a>
-              ))}
+              {SOCIAL_LINKS.map((social, i) => {
+                const isX = social.link.includes("x.com");
+
+                return (
+                  <motion.a
+                    key={i}
+                    href={social.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    whileTap={{ scale: 0.95 }}
+                    className="w-12 h-12 flex items-center justify-center rounded-full bg-[#52110f] text-white shadow cursor-pointer hover:bg-[#6a1a18] transition"
+                    aria-label="Social media link"
+                  >
+                    {isX ? (
+                      // Official-ish 𝕏 logo (black on your red bg will be white)
+                      <svg
+                        width="20"
+                        height="20"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L5.99 21.75H2.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"
+                          fill="currentColor"
+                        />
+                      </svg>
+                    ) : (
+                      // For others use <Icon size={20} />
+                      social.icon && <social.icon size={20} />
+                    )}
+                  </motion.a>
+                );
+              })}
             </div>
 
             <p className="mt-5 mb-3 sm:mt-8 sm:mb-4 text-sm text-[#402701]/80">
