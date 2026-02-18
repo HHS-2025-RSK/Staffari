@@ -115,6 +115,7 @@ export default function ContactSection() {
   const [successOpen, setSuccessOpen] = React.useState(false);
   const [submitting, setSubmitting] = React.useState(false);
   const [isVisible, setIsVisible] = useState(false);
+  const [footerVisible, setFooterVisible] = useState(false);
 
   const orgLabel = role === "hotel" ? "Hotel name" : "College name";
 
@@ -142,12 +143,26 @@ export default function ContactSection() {
     return () => observer.disconnect();
   }, []);
 
+  useEffect(() => {
+    const handler = (e) => {
+      setFooterVisible(e.detail);
+    };
+
+    window.addEventListener("footerVisibility", handler);
+    return () => window.removeEventListener("footerVisibility", handler);
+  }, []);
+
   return (
     <section
       id="contact"
-      className={`relative overflow-hidden transition-all duration-[1200ms] ease-out ${
-        isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-32"
-      }`}
+      className={`relative overflow-hidden transition-all duration-[800ms] ease-in-out ${
+  footerVisible
+    ? "opacity-0 -translate-y-16 md:opacity-100 md:translate-y-0"
+    : isVisible
+    ? "opacity-100 translate-y-0"
+    : "opacity-0 translate-y-32"
+}`}
+
     >
       <div
         aria-hidden="true"
