@@ -41,7 +41,7 @@ export default function FooterSection() {
 
         window.dispatchEvent(
           new CustomEvent("footerEnter", {
-            detail: ratio >= 0.1,
+            detail: ratio >= 0.2,
           }),
         );
 
