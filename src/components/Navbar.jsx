@@ -77,37 +77,40 @@ export default function Navbar() {
   const [showCta, setShowCta] = useState(false);
   const [hideNavbar, setHideNavbar] = useState(false);
 
+  // 🔹 Hero + Download observer (ONLY for CTA)
   useEffect(() => {
     const hero = document.querySelector("#hero-section");
     const download = document.querySelector("#download");
-    const footer = document.querySelector("footer"); // or #footer if you have an id
 
-    if (!hero || !download || !footer) return;
+    if (!hero || !download) return;
 
     const observer = new IntersectionObserver(
       (entries) => {
         const heroEntry = entries.find((e) => e.target.id === "hero-section");
         const downloadEntry = entries.find((e) => e.target.id === "download");
-        const footerEntry = entries.find((e) => e.target === footer);
 
         const isHeroVisible = heroEntry?.isIntersecting;
         const isDownloadVisible = downloadEntry?.isIntersecting;
-        const isFooterVisible = footerEntry?.isIntersecting;
 
-        // 🔹 Hide CTA when hero or download visible
         setShowCta(!(isHeroVisible || isDownloadVisible));
-
-        // 🔹 Hide entire navbar when footer is visible
-        setHideNavbar(isFooterVisible);
       },
       { threshold: 0.1 },
     );
 
     observer.observe(hero);
     observer.observe(download);
-    observer.observe(footer);
 
     return () => observer.disconnect();
+  }, []);
+
+  // 🔥 Navbar visibility (Footer ONLY)
+  useEffect(() => {
+    const handler = (e) => {
+      setHideNavbar(e.detail); // true at 10%
+    };
+
+    window.addEventListener("footerEnter", handler);
+    return () => window.removeEventListener("footerEnter", handler);
   }, []);
 
   return (

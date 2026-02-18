@@ -135,35 +135,33 @@ export default function ContactSection() {
       },
       {
         threshold: 0.2,
-      }
+      },
     );
 
     observer.observe(el);
     return () => observer.disconnect();
   }, []);
 
-
   useEffect(() => {
     const handler = (e) => {
-      setFooterVisible(e.detail);
+      setFooterVisible(e.detail); // true at 80%
     };
 
-    window.addEventListener("footerVisibility", handler);
-    return () => window.removeEventListener("footerVisibility", handler);
+    window.addEventListener("footerDominant", handler);
+    return () => window.removeEventListener("footerDominant", handler);
   }, []);
-
 
   return (
     <section
       id="contact"
-      className={`relative overflow-hidden transform transition-all duration-700 ease-in-out ${footerVisible
+      className={`relative overflow-hidden transform transition-all duration-700 ease-in-out ${
+        footerVisible
           ? "opacity-0 translate-y-10 pointer-events-none"
           : isVisible
             ? "opacity-100 translate-y-0"
             : "opacity-0 translate-y-20"
-        }`}
+      }`}
     >
-
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 z-[1]"

@@ -9,33 +9,77 @@ export default function FooterSection() {
     const el = footerRef.current;
     if (!el) return;
 
+    const emitVisibility = () => {
+      const rect = el.getBoundingClientRect();
+      const viewportHeight = window.innerHeight;
+
+      const visibleHeight =
+        Math.min(rect.bottom, viewportHeight) - Math.max(rect.top, 0);
+
+      const ratio = Math.max(0, visibleHeight / rect.height);
+
+      // 🔹 Navbar: hide early (10%)
+      window.dispatchEvent(
+        new CustomEvent("footerEnter", {
+          detail: ratio >= 0.1,
+        }),
+      );
+
+      // 🔹 Contact: hide late (80%)
+      window.dispatchEvent(
+        new CustomEvent("footerDominant", {
+          detail: ratio >= 0.8,
+        }),
+      );
+    };
+
+    emitVisibility();
+
     const observer = new IntersectionObserver(
       ([entry]) => {
+        const ratio = entry.intersectionRatio;
+
         window.dispatchEvent(
-          new CustomEvent("footerVisibility", {
-            detail: entry.isIntersecting,
+          new CustomEvent("footerEnter", {
+            detail: ratio >= 0.1,
+          }),
+        );
+
+        window.dispatchEvent(
+          new CustomEvent("footerDominant", {
+            detail: ratio >= 0.8,
           }),
         );
       },
-      { threshold: 0.2 },
+      { threshold: [0, 0.2, 0.8, 1] },
     );
 
     observer.observe(el);
-    return () => observer.disconnect();
+    window.addEventListener("resize", emitVisibility);
+
+    return () => {
+      observer.disconnect();
+      window.removeEventListener("resize", emitVisibility);
+    };
   }, []);
 
   return (
     <footer
       ref={footerRef}
       id="newsletter"
-      className="relative overflow-hidden border-t-4 border-[#402701] bg-[#fdf9f0] rounded-t-3xl"
+      className="
+    relative
+    overflow-hidden
+    border-t-4 border-[#402701]
+    bg-[#fdf9f0]
+    rounded-t-3xl
+
+    min-h-[90vh]     /* 📱 mobile = 90% screen height */
+    sm:min-h-[40vh]    /* tablets+ = normal height */
+  "
     >
       <div className="bg-[#fdf9f0] relative z-10 max-w-7xl mx-auto px-4 md:px-12 pt-10 pb-6 sm:pt-14 sm:pb-10 md:pt-10 md:pb-6">
-        {/* MOBILE FIRST LAYOUT */}
-        <div
-          className="flex flex-col lg:grid lg:grid-cols-2 gap-6 sm:gap-10 md:gap-12
-"
-        >
+        <div className="flex flex-col lg:grid lg:grid-cols-2 gap-6 sm:gap-10 md:gap-12">
           {/* Brand Section */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
