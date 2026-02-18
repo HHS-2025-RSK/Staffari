@@ -1,9 +1,8 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import { ArrowRight, Instagram, Facebook, Linkedin } from "lucide-react";
 import { motion } from "framer-motion";
 
 export default function FooterSection() {
-  const [isVisible, setIsVisible] = useState(false);
   const footerRef = useRef(null);
 
   useEffect(() => {
@@ -12,16 +11,13 @@ export default function FooterSection() {
 
     const observer = new IntersectionObserver(
       ([entry]) => {
-        setIsVisible(entry.isIntersecting);
-
-        // Dispatch custom event for ContactSection
         window.dispatchEvent(
           new CustomEvent("footerVisibility", {
             detail: entry.isIntersecting,
-          })
+          }),
         );
       },
-      { threshold: 0.2 }
+      { threshold: 0.2 },
     );
 
     observer.observe(el);
@@ -35,10 +31,11 @@ export default function FooterSection() {
       className="relative overflow-hidden border-t-4 border-[#402701] bg-[#fdf9f0] rounded-t-3xl"
     >
       <div className="bg-[#fdf9f0] relative z-10 max-w-7xl mx-auto px-4 md:px-12 pt-10 pb-6 sm:pt-14 sm:pb-10 md:pt-10 md:pb-6">
-
         {/* MOBILE FIRST LAYOUT */}
-        <div className="flex flex-col lg:grid lg:grid-cols-2 gap-6 sm:gap-10 md:gap-12
-">
+        <div
+          className="flex flex-col lg:grid lg:grid-cols-2 gap-6 sm:gap-10 md:gap-12
+"
+        >
           {/* Brand Section */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
