@@ -149,7 +149,7 @@ export default function FooterSection() {
                 href="mailto:hello@shelfiebooks.in"
                 className="text-[#412802] hover:underline font-medium"
               >
-                hello@shelfiebooks.in
+                connect@staffari.in
               </a>
             </p>
 
