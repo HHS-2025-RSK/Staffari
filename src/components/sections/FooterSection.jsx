@@ -93,24 +93,23 @@ export default function FooterSection() {
       ref={footerRef}
       id="newsletter"
       className="
-    relative
-    overflow-hidden
-    border-t-4 border-[#402701]
-    bg-[#fdf9f0]
-    rounded-t-3xl
-
-    min-h-[90vh]     /* 📱 mobile = 90% screen height */
-    sm:min-h-[40vh]    /* tablets+ = normal height */
-  "
+  relative
+  h-[90vh]             
+  overflow-y-hidden     
+  overflow-x-hidden
+  border-t-4 border-[#402701]
+  bg-[#fdf9f0]
+  rounded-t-3xl
+"
     >
-      <div className="bg-[#fdf9f0] relative z-10 max-w-7xl mx-auto px-4 md:px-12 pt-10 pb-6 sm:pt-14 sm:pb-10 md:pt-10 md:pb-6">
-        <div className="flex flex-col lg:grid lg:grid-cols-2 gap-6 sm:gap-10 md:gap-12">
+      <div className="bg-[#fdf9f0] relative z-10 max-w-7xl mx-auto px-4 md:px-12 pt-6 pb-4">
+        <div className="flex flex-col lg:grid gap-5">
           {/* Brand Section */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="space-y-4 text-center lg:text-left"
+            className="text-center lg:text-center"
           >
             <h1 className="font-display text-5xl md:text-8xl font-extrabold tracking-tight text-[#0f3d34]">
               STAFFARI
@@ -125,7 +124,7 @@ export default function FooterSection() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="order-2 lg:order-none w-full bg-[#fdf9f0] rounded-2xl p-6 md:p-8 border border-[#402701]/20 shadow-lg text-center lg:text-left"
+            className="order-2 lg:mt-10 lg:order-none w-full max-w-xl mx-auto bg-[#fdf9f0] rounded-2xl p-6 md:p-8 border border-[#402701]/20 shadow-lg text-center lg:text-left"
           >
             <p className="text-xs font-semibold tracking-widest uppercase text-[#402701]/80 mb-4">
               Subscribe to our newsletter
@@ -151,12 +150,12 @@ export default function FooterSection() {
           <div></div>
 
           {/* Social */}
-          <div className="order-3 lg:order-none w-full text-center lg:text-left mt-6">
+          <div className="order-3 lg:order-none w-full text-center lg:text-center">
             <p className="text-xs font-semibold tracking-widest uppercase text-[#402701]/80 mb-4">
               Social Media
             </p>
 
-            <div className="flex items-center justify-center lg:justify-start gap-5">
+            <div className="flex items-center justify-center lg:justify-center gap-5">
               {SOCIAL_LINKS.map((social, i) => {
                 const isX = social.link.includes("x.com");
 
