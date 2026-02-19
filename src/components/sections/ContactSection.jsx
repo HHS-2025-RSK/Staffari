@@ -91,14 +91,14 @@ function Modal({ open, title, onClose, children }) {
         style={{ maxHeight: "90vh", overflow: "auto" }}
       >
         <div className="flex items-start justify-between gap-4">
-          <div className="font-display text-xl font-bold text-charcoalBlack">
+          <div className="font-display text-xl font-bold text-charcoalBlack flex-1 text-center pl-14">
             {title}
           </div>
           <button
             type="button"
             data-autofocus
             onClick={onClose}
-            className="rounded-xl border border-mutedOlive/25 bg-white px-3 py-2 text-charcoalBlack hover:bg-beige"
+            className="rounded-xl border border-mutedOlive/25 bg-white px-3 py-2 text-charcoalBlack hover:bg-beige shrink-0"
           >
             <X className="h-5 w-5" />
           </button>
