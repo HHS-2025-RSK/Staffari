@@ -176,82 +176,84 @@ export default function Navbar() {
           </span>
         </a> */}
         {/* CTA Button Section */}
-        <nav className="hidden items-center gap-6 md:flex">
-          <a
-            className="font-body text-[14px] font-semibold text-mutedOlive hover:text-deepJungleGreen"
-            href="#problem"
-          >
-            The Problem
-          </a>
-          <a
-            className="font-body text-[14px] font-semibold text-mutedOlive hover:text-deepJungleGreen"
-            href="#what"
-          >
-            What is Staffari
-          </a>
-          {/* <a
+        <div className="ml-auto flex items-center gap-6">
+          <nav className="hidden items-center gap-6 md:flex">
+            <a
+              className="font-body text-[14px] font-semibold text-mutedOlive hover:text-deepJungleGreen"
+              href="#problem"
+            >
+              The Problem
+            </a>
+            <a
+              className="font-body text-[14px] font-semibold text-mutedOlive hover:text-deepJungleGreen"
+              href="#what"
+            >
+              What is Staffari
+            </a>
+            {/* <a
             className="font-body text-[14px] font-semibold text-mutedOlive hover:text-deepJungleGreen"
             href="#helps"
           >
             How Staffari Helps
           </a> */}
-          <a
-            className="font-body text-[14px] font-semibold text-mutedOlive hover:text-deepJungleGreen"
-            href="#advantage"
-          >
-            Advantage
-          </a>
-          <a
-            className="font-body text-[14px] font-semibold text-mutedOlive hover:text-deepJungleGreen"
-            href="#download"
-          >
-            Download
-          </a>
-          <a
-            className="font-body text-[14px] font-semibold text-mutedOlive hover:text-deepJungleGreen"
-            href="#newsletter"
-          >
-            Newsletter
-          </a>
-          {/* <a
+            <a
+              className="font-body text-[14px] font-semibold text-mutedOlive hover:text-deepJungleGreen"
+              href="#advantage"
+            >
+              Advantage
+            </a>
+            <a
+              className="font-body text-[14px] font-semibold text-mutedOlive hover:text-deepJungleGreen"
+              href="#download"
+            >
+              Download
+            </a>
+            <a
+              className="font-body text-[14px] font-semibold text-mutedOlive hover:text-deepJungleGreen"
+              href="#newsletter"
+            >
+              Newsletter
+            </a>
+            {/* <a
             className="font-body text-[14px] font-semibold text-mutedOlive hover:text-deepJungleGreen"
             href="#faq"
           >
             FAQ
           </a> */}
-        </nav>
-        <div className="flex items-center gap-3">
-          <div
-            className={`
+          </nav>
+          <div className="flex items-center gap-3">
+            <div
+              className={`
               transition-all duration-300 ease-in-out
               ${showCta ? "opacity-100 translate-y-0 pointer-events-auto" : "opacity-0 -translate-y-4 pointer-events-none"}
             `}
-          >
-            <PrimaryButton
-              as="button"
-              onClick={() => {
-                const section = document.getElementById("download");
-                if (!section) return;
-
-                const yOffset = -140;
-                const y =
-                  section.getBoundingClientRect().top +
-                  window.pageYOffset +
-                  yOffset;
-
-                window.history.pushState(null, "", "#download");
-                window.scrollTo({ top: y, behavior: "smooth" });
-              }}
-              href="#download"
-              // UPDATED CLASSNAME:
-              // 1. whitespace-nowrap: Forces text to be one line.
-              // 2. px-3 py-1.5 text-xs: Makes button smaller/shorter on mobile.
-              // 3. sm:... : Restores normal size on tablets/desktops.
-              className="font-display flex items-center gap-1.5 whitespace-nowrap px-3 py-1.5 text-xs font-medium sm:gap-2 sm:px-4 sm:py-2 sm:text-sm"
             >
-              Start Your Hunt
-              <ArrowRight className="h-3 w-3 sm:h-4 sm:w-4" />
-            </PrimaryButton>
+              <PrimaryButton
+                as="button"
+                onClick={() => {
+                  const section = document.getElementById("download");
+                  if (!section) return;
+
+                  const yOffset = -140;
+                  const y =
+                    section.getBoundingClientRect().top +
+                    window.pageYOffset +
+                    yOffset;
+
+                  window.history.pushState(null, "", "#download");
+                  window.scrollTo({ top: y, behavior: "smooth" });
+                }}
+                href="#download"
+                // UPDATED CLASSNAME:
+                // 1. whitespace-nowrap: Forces text to be one line.
+                // 2. px-3 py-1.5 text-xs: Makes button smaller/shorter on mobile.
+                // 3. sm:... : Restores normal size on tablets/desktops.
+                className="font-display flex items-center gap-1.5 whitespace-nowrap px-3 py-1.5 text-xs font-medium sm:gap-2 sm:px-4 sm:py-2 sm:text-sm"
+              >
+                Start Your Hunt
+                <ArrowRight className="h-3 w-3 sm:h-4 sm:w-4" />
+              </PrimaryButton>
+            </div>
           </div>
         </div>
       </Container>
