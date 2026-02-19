@@ -209,6 +209,7 @@ export default function ContactSection() {
     lg:max-h-none
     lg:justify-start
     lg:px-28
+    lg:py-auto
     lg:w-[90%]
     lg:bg-transparent
     lg:shadow-none
