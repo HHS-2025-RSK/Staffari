@@ -235,7 +235,7 @@ export default function HeroSection() {
                 <span className="block text-[#7da855]">Thrive.</span>
               </h1>
 
-              <p className="text-center font-body font-bold text-xl md:text-2xl text-black max-w-lg mx-0">
+              <p className="font-body font-bold text-xl md:text-2xl text-black max-w-lg mx-0">
                 A single ecosystem for hospitality hiring and jobs.
                 <span className="block mt-2">
                   Built to power smarter recruitment and meaningful hospitality
