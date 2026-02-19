@@ -30,10 +30,16 @@ export default function Home() {
 
   const problemBullets = useMemo(
     () => [
-      "Slow recruitment agencies",
-      "High hiring costs",
-      "Unqualified applicants",
-      "Operational downtime",
+      // "Slow recruitment agencies",
+      // "High hiring costs",
+      // "Unqualified applicants",
+      // "Operational downtime",
+      "Industry-Certified Skill Tests",
+      "1:1 Hiring Chat",
+      "Fast Track Job Posting",
+      "AI-Powered Shortlisting",
+      "Verified Talent Pool",
+      "Faster Hiring Cycle",
     ],
     [],
   );

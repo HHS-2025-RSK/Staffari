@@ -50,8 +50,7 @@ export default function ProblemSection({ problemBullets }) {
               <div className="problem-bullet-wrapper">
                 <BulletListPanel items={problemBullets} />
               </div>
-
-              <p className="problem-tap-hint">Tap outside to go back</p>
+              {/* <p className="problem-tap-hint">Tap outside to go back</p> */}
             </div>
           </div>
         </div>
