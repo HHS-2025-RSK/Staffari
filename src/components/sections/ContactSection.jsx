@@ -117,7 +117,7 @@ export default function ContactSection() {
   const [isVisible, setIsVisible] = useState(false);
   const [footerVisible, setFooterVisible] = useState(false);
 
-  const orgLabel = role === "hotel" ? "Hotel name" : "College name";
+  const orgLabel = role === "hotel *" ? "Hotel name *" : "College name *";
 
   const showOrgField =
     role === "hotel" ||
@@ -279,7 +279,7 @@ export default function ContactSection() {
                   <input
                     name="fullName"
                     required
-                    placeholder="Full Name"
+                    placeholder="Full Name *"
                     className="w-full rounded-2xl border border-mutedOlive/25 bg-white px-4 py-3 font-body text-[14px] text-charcoalBlack outline-none focus:ring-4 focus:ring-emeraldGreen/15"
                   />
 
@@ -287,7 +287,7 @@ export default function ContactSection() {
                     name="email"
                     type="email"
                     required
-                    placeholder="Email Address"
+                    placeholder="Email Address *"
                     className="w-full rounded-2xl border border-mutedOlive/25 bg-white px-4 py-3 font-body text-[14px] text-charcoalBlack outline-none focus:ring-4 focus:ring-emeraldGreen/15"
                   />
 
@@ -295,14 +295,14 @@ export default function ContactSection() {
                     name="phone"
                     type="tel"
                     required
-                    placeholder="Phone Number"
+                    placeholder="Phone Number *"
                     className="w-full rounded-2xl border border-mutedOlive/25 bg-white px-4 py-3 font-body text-[14px] text-charcoalBlack outline-none focus:ring-4 focus:ring-emeraldGreen/15"
                   />
 
                   <input
                     name="city"
                     required
-                    placeholder="City / Location"
+                    placeholder="City / Location *"
                     className="w-full rounded-2xl border border-mutedOlive/25 bg-white px-4 py-3 font-body text-[14px] text-charcoalBlack outline-none focus:ring-4 focus:ring-emeraldGreen/15"
                   />
 
@@ -314,7 +314,7 @@ export default function ContactSection() {
                   >
                     <span className="text-mutedOlive">I am here as:</span>
                     <span className="font-bold">
-                      {role ? roleLabel(role) : "Select"}
+                      {role ? roleLabel(role) : "Select *"}
                     </span>
                   </button>
                   <input type="hidden" name="role" value={role} required />
@@ -332,7 +332,7 @@ export default function ContactSection() {
                     name="comments"
                     rows={3}
                     required
-                    placeholder="Comments / Message"
+                    placeholder="Comments / Message *"
                     className="md:col-span-2 w-full rounded-2xl border border-mutedOlive/25 bg-white px-4 py-3 font-body text-[14px] text-charcoalBlack outline-none focus:ring-4 focus:ring-emeraldGreen/15"
                   />
 
