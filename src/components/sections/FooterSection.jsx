@@ -93,8 +93,7 @@ export default function FooterSection() {
       ref={footerRef}
       id="newsletter"
       className="
-  relative
-  h-[90vh]             
+  relative             
   overflow-y-hidden     
   overflow-x-hidden
   border-t-4 border-[#402701]
