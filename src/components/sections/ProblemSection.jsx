@@ -47,7 +47,7 @@ export default function ProblemSection({ problemBullets }) {
 
             {/* Back */}
             <div className="problem-card-back">
-              <h2 className="mx-auto font-bold -mt-2 mb-2 text-[22px] text-[#0f3d34]">
+              <h2 className="font-display mx-auto font-bold -mt-2 mb-2 text-[22px] text-[#0f3d34]">
                 Everything Staffari can do:
               </h2>
               <div className="problem-bullet-wrapper">

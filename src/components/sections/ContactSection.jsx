@@ -310,7 +310,7 @@ export default function ContactSection() {
                     type="button"
                     // required
                     onClick={() => setRoleOpen(true)}
-                    className="md:col-span-2 w-full rounded-2xl border border-mutedOlive/25 bg-white px-4 py-3 font-body text-[14px] text-charcoalBlack outline-none focus:ring-4 focus:ring-emeraldGreen/15 flex justify-center items-center gap-1"
+                    className="md:col-span-2 w-full rounded-2xl border border-mutedOlive/25 bg-white px-4 py-3 font-body text-[14px] text-charcoalBlack outline-none focus:ring-4 focus:ring-emeraldGreen/15 flex gap-1"
                   >
                     <span className="text-mutedOlive">I am here as:</span>
                     <span className="font-bold">
