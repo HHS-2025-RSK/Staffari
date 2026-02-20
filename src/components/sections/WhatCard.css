@@ -1,46 +1,53 @@
-.what-card {
-  width: 100%;
-  max-width: 80rem;
-  border-radius: 1.5rem;
-  border: 1px solid rgba(107, 114, 128, 0.1);
-  background-color: #fdf9f0;
-  box-shadow:
-    0 4px 6px -1px rgba(0, 0, 0, 0.1),
-    0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  overflow: hidden;
-  transition: all 500ms ease;
-  margin: 0 auto;
+/* ProblemSection.css */
 
-  height: auto;
-  min-height: clamp(16rem, 22vw, 20rem); /* clamp is fine */
+.what-section {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  min-width: clamp(160px, 72vw, 520px);
+}
+
+.what-wrapper {
+  width: 100%;
+  max-width: 65rem; /* ~max-w-5xl */
+  margin: 0 auto;
+}
+
+/* Card container */
+.what-card {
+  position: relative;
+  width: 100%;
+  min-height: 350px;
+  overflow: hidden;
+  border-radius: 1.5rem;
+  border: 1px solid rgba(136, 149, 96, 0.2); /* mutedOlive/20 – tweak as needed */
+  background-color: #fdf9f0;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08); /* similar to shadow-soft */
+  transition: box-shadow 0.3s ease;
+  perspective: 1200px;
 }
 
 .what-card:hover {
-  box-shadow:
-    0 20px 25px -5px rgba(0, 0, 0, 0.1),
-    0 10px 10px -5px rgba(0, 0, 0, 0.04);
-  transform: translateY(-4px);
+  box-shadow: 0 20px 45px rgba(15, 23, 42, 0.16);
 }
-
-.what-card-inner {
+.what-card-layout {
   display: flex;
-  height: 100%;
-  min-width: 0;
-
-  /* ✅ default: <=767px => 2 rows */
   flex-direction: column;
-
-  /* you don't need wrap for this behavior; it can cause odd breaks */
-  flex-wrap: nowrap;
+  height: 100%;
 }
 
-/* Image block */
+.what-card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
 .what-card-image-container {
   position: relative;
   overflow: hidden;
   width: 100%;
-
-  flex: 0 0 auto;
+  height: 12rem;
 }
 
 .what-card-image-overlay {
@@ -50,108 +57,406 @@
     to bottom right,
     rgba(19, 78, 74, 0.2),
     transparent
-  );
+  ); /* from-teal-900/20 */
   mix-blend-mode: multiply;
   z-index: 10;
   pointer-events: none;
 }
 
-.what-card-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-  transition: transform 700ms ease;
-}
-
-.what-card-image-container:hover .what-card-image {
-  transform: scale(1.04);
-}
-
 .what-card-content {
   width: 100%;
-  padding: clamp(1.8rem, 2.2vw, 2rem);
+  padding: 1.5rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  min-width: 0;
-  flex: 1 1 auto;
+}
+
+/* Flip inner */
+.what-card-inner {
+  position: absolute;
+  inset: 0; /* makes it exactly card-sized */
+  height: 100%;
+  width: 100%;
+  transition: transform 0.7s ease-out;
+  transform-style: preserve-3d;
+}
+
+/* Hover flip only on devices that support hover */
+@media (hover: hover) and (pointer: fine) {
+  .what-card:hover .what-card-inner {
+    transform: rotateY(180deg);
+  }
+}
+
+/* Sides */
+.what-card-front {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 0.875rem; /* text-sm */
+  line-height: 1.5;
+}
+
+.what-card-back {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 1rem 1rem;
+  font-size: 0.875rem; /* text-sm */
+  line-height: 1.5;
+  height: 100%;
+  min-height: 0;
+}
+
+/* Back side rotates */
+.what-card-back {
+  transform: rotateY(180deg);
+  justify-content: flex-start;
+}
+
+/* Front spacing (replaces pt-[320px] etc.) */
+.what-title-wrapper {
+  padding-top: 0;
+}
+
+/* Side note block */
+.what-side-note-wrapper {
+  margin-top: 1rem;
+}
+
+/* Icon sizes responsive */
+.what-side-note-icon {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+/* Bullet wrapper on back side */
+.what-bullet-wrapper {
+  flex: 1;
+  vertical-align: middle;
+  display: flex;
+}
+
+/* Tap hint text */
+.what-tap-hint {
+  margin-top: 1rem;
+  text-align: center;
+  font-size: 0.75rem;
+  color: rgba(15, 23, 42, 0.5); /* text-charcoalBlack/50 approx */
+}
+
+/* Hide hint on hover-capable devices (mirrors [@media(hover:hover)_and_(pointer:fine)]:hidden) */
+@media (hover: hover) and (pointer: fine) {
+  .what-tap-hint {
+    display: none;
+  }
+}
+
+/* Extra responsiveness: tweak min-height by breakpoint */
+
+@media (min-width: 340px) {
+  .what-card {
+    min-height: 880px;
+  }
+
+  .what-title-wrapper {
+    padding-top: 0px;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .what-side-note-wrapper {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .what-card-image-container {
+    height: 100%;
+  }
+}
+
+@media (min-width: 355px) {
+  .what-card {
+    min-height: 730px;
+  }
+
+  .what-title-wrapper {
+    padding-top: 0px;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .what-side-note-wrapper {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .what-card-image-container {
+    height: 100%;
+  }
+}
+
+@media (min-width: 400px) {
+  .what-card {
+    min-height: 700px;
+  }
+
+  .what-title-wrapper {
+    padding-top: 0px;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .what-side-note-wrapper {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  .what-card-image-container {
+    height: 100%;
+  }
+}
+
+@media (min-width: 515px) {
+  .what-card {
+    min-height: 670px;
+  }
+
+  .what-title-wrapper {
+    padding-top: 0px;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .what-side-note-wrapper {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  .what-card-image-container {
+    height: 100%;
+  }
+}
+
+@media (min-width: 561px) {
+  .what-card {
+    min-height: 650px;
+  }
+
+  .what-title-wrapper {
+    padding-top: 0px;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .what-side-note-wrapper {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .what-card-image-container {
+    height: 100%;
+  }
+}
+
+@media (min-width: 595px) {
+  .what-card {
+    min-height: 610px;
+  }
+
+  .what-title-wrapper {
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .what-side-note-wrapper {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .what-card-image-container {
+    height: 100%;
+  }
+}
+
+@media (min-width: 640px) {
+  .what-card {
+    min-height: 610px;
+  }
+  .what-side-note-icon {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+
+  .what-title-wrapper {
+    padding-top: 0px;
+  }
+
+  .what-card-front,
+  .what-card-back {
+    font-size: 1rem; /* sm:text-base */
+  }
+
+  .what-card-image-container {
+    height: 100%;
+  }
 }
 
 @media (min-width: 768px) {
   .what-card {
-    height: 18rem; /* let it stretch with content */
-  }
-  .what-card-image-container {
-    width: 40%;
-    height: 22rem; /* let it stretch with the card */
-    flex: 0 0 40%;
-    aspect-ratio: auto; /* disable aspect-ratio so it can match content height */
+    min-height: 510px;
   }
 
-  .what-card-inner {
+  .what-title-wrapper {
+    padding-top: 0px;
+  }
+
+  .what-card-front,
+  .what-card-back {
+    font-size: 0.9375rem; /* md:text-[15px] */
+  }
+  .what-card-image-container {
+    width: 70%; /* md:w-2/5 was better fit than 1/5 */
+    height: 100%;
+  }
+  .what-card-layout {
     flex-direction: row;
   }
 }
 
-@media (max-width: 767px) {
-  .what-card-image-container {
-    height: 22rem;
-  }
-
-  .what-card-inner {
-    flex-direction: column;
-  }
-}
-
-/* ✅ >=768px: image becomes left column and fills card height */
-@media (min-width: 768px) {
+@media (min-width: 776px) {
   .what-card {
-    height: 18rem; /* let it stretch with content */
-  }
-  .what-card-image-container {
-    width: 40%;
-    height: 22rem; /* let it stretch with the card */
-    flex: 0 0 40%;
-    aspect-ratio: auto; /* disable aspect-ratio so it can match content height */
+    min-height: 470px;
   }
 
-  .what-card-inner {
-    flex-direction: row;
+  .what-title-wrapper {
+    padding-top: 0px;
+  }
+
+  .what-card-front,
+  .what-card-back {
+    font-size: 0.9375rem; /* md:text-[15px] */
   }
 }
 
-/* keep your existing max-width tweak if you want */
+@media (min-width: 781px) {
+  .what-card {
+    min-height: 470px;
+  }
+
+  .what-title-wrapper {
+    padding-top: 0px;
+  }
+
+  .what-card-front,
+  .what-card-back {
+    font-size: 0.9375rem; /* md:text-[15px] */
+  }
+}
+
+@media (min-width: 935px) {
+  .what-card {
+    min-height: 350px;
+  }
+
+  .what-title-wrapper {
+    padding-top: 0px;
+  }
+
+  .what-card-front,
+  .what-card-back {
+    font-size: 0.9375rem; /* md:text-[15px] */
+    vertical-align: middle;
+  }
+}
+
 @media (min-width: 1024px) {
   .what-card {
-    max-width: 65rem;
+    min-height: 350px;
+  }
+
+  .what-title-wrapper {
+    padding-top: 0px;
+  }
+
+  .what-card-front,
+  .what-card-back {
+    font-size: 1rem;
+    vertical-align: middle;
   }
 }
 
-/* animations unchanged */
+@media (min-width: 1061px) {
+  .what-card {
+    min-height: 310px;
+  }
+
+  .what-title-wrapper {
+    padding-top: 0px;
+  }
+
+  .what-card-front,
+  .what-card-back {
+    font-size: 1rem;
+    vertical-align: middle;
+  }
+
+  /* .what-bullet-wrapper {
+    margin-top: -1.5rem;
+  } */
+}
+
+@media (min-width: 1197px) {
+  .what-card {
+    min-height: 290px;
+  }
+
+  .what-title-wrapper {
+    padding-top: 0;
+  }
+
+  .what-card-front,
+  .what-card-back {
+    font-size: 1rem;
+    vertical-align: middle;
+  }
+
+  /* .what-bullet-wrapper {
+    margin-top: -1.8rem;
+  } */
+}
+
 @keyframes fadeInLeft {
   from {
     opacity: 0;
-    transform: translateX(-2.5rem);
+    transform: translateX(-2.5rem); /* ≈ -40px */
   }
   to {
     opacity: 1;
     transform: translateX(0);
   }
 }
+
 @keyframes fadeInRight {
   from {
     opacity: 0;
-    transform: translateX(1.875rem);
+    transform: translateX(1.875rem); /* ≈ 30px */
   }
   to {
     opacity: 1;
     transform: translateX(0);
   }
 }
+
 .animate-fade-in-left {
   animation: fadeInLeft 0.9s ease-out forwards;
 }
+
 .animate-fade-in-right {
   animation: fadeInRight 0.9s ease-out forwards 0.15s;
 }
