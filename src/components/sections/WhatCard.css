@@ -1,31 +1,18 @@
-/* WhatCard.css */
-
-/* Card shell */
 .what-card {
   width: 100%;
   max-width: 80rem;
-  margin: 0 auto;
-
-  position: relative;
-  overflow: hidden;
-
   border-radius: 1.5rem;
   border: 1px solid rgba(107, 114, 128, 0.1);
   background-color: #fdf9f0;
-
   box-shadow:
     0 4px 6px -1px rgba(0, 0, 0, 0.1),
     0 2px 4px -1px rgba(0, 0, 0, 0.06);
-
-  transition:
-    box-shadow 500ms ease,
-    transform 500ms ease;
+  overflow: hidden;
+  transition: all 500ms ease;
+  margin: 0 auto;
 
   height: auto;
-  min-height: clamp(16rem, 22vw, 20rem);
-
-  /* 3D stage */
-  perspective: 1200px;
+  min-height: clamp(16rem, 22vw, 20rem); /* clamp is fine */
 }
 
 .what-card:hover {
@@ -35,56 +22,16 @@
   transform: translateY(-4px);
 }
 
-/* The flipping object */
 .what-card-inner {
-  position: relative;
-  width: 100%;
-  height: 100%;
-
-  transition: transform 0.7s ease-out;
-
-  /* Keep children in 3D instead of flattening */
-  transform-style: preserve-3d;
-}
-
-/* Flip on hover only when hover exists (desktop/trackpad) */
-@media (hover: hover) and (pointer: fine) {
-  .what-card:hover .what-card-inner {
-    transform: rotateY(180deg);
-  }
-}
-
-/* Faces (front/back) */
-.what-card-front,
-.what-card-back {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-
-  /* Hide mirrored backside when rotated away */
-  backface-visibility: hidden;
-}
-
-/* FRONT: your existing layout behavior */
-.what-card-front {
   display: flex;
   height: 100%;
   min-width: 0;
 
-  /* default: mobile => stacked */
+  /* ✅ default: <=767px => 2 rows */
   flex-direction: column;
-}
 
-/* BACK */
-.what-card-back {
-  transform: rotateY(180deg);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  min-width: 0;
-
-  padding: clamp(1.4rem, 2.2vw, 2rem);
+  /* you don't need wrap for this behavior; it can cause odd breaks */
+  flex-wrap: nowrap;
 }
 
 /* Image block */
@@ -92,6 +39,7 @@
   position: relative;
   overflow: hidden;
   width: 100%;
+
   flex: 0 0 auto;
 }
 
@@ -120,63 +68,29 @@
   transform: scale(1.04);
 }
 
-/* Content */
 .what-card-content {
   width: 100%;
   padding: clamp(1.8rem, 2.2vw, 2rem);
-
   display: flex;
   flex-direction: column;
   justify-content: center;
-
   min-width: 0;
   flex: 1 1 auto;
 }
 
-/* Back-side list styling (optional, for your back content) */
-.what-back-list {
-  margin: 0;
-  padding-left: 1.1rem;
-  line-height: 1.8;
-  font-weight: 600;
-}
-
-/* Hint text (optional) */
-.what-tap-hint {
-  margin-top: 1rem;
-  text-align: center;
-  font-size: 0.75rem;
-  color: rgba(15, 23, 42, 0.5);
-}
-
-.what-bullet-wrapper {
-  flex: 1;
-  vertical-align: middle;
-  display: flex;
-}
-
-/* Hide hint on hover-capable devices */
-@media (hover: hover) and (pointer: fine) {
-  .what-tap-hint {
-    display: none;
-  }
-}
-
-/* Responsive behavior (front face) */
 @media (min-width: 768px) {
   .what-card {
-    height: 18rem;
+    height: 18rem; /* let it stretch with content */
   }
-
-  .what-card-front {
-    flex-direction: row;
-  }
-
   .what-card-image-container {
     width: 40%;
-    height: 22rem;
+    height: 22rem; /* let it stretch with the card */
     flex: 0 0 40%;
-    aspect-ratio: auto;
+    aspect-ratio: auto; /* disable aspect-ratio so it can match content height */
+  }
+
+  .what-card-inner {
+    flex-direction: row;
   }
 }
 
@@ -185,19 +99,36 @@
     height: 22rem;
   }
 
-  .what-card-front {
+  .what-card-inner {
     flex-direction: column;
   }
 }
 
-/* keep your existing max-width tweak */
+/* ✅ >=768px: image becomes left column and fills card height */
+@media (min-width: 768px) {
+  .what-card {
+    height: 18rem; /* let it stretch with content */
+  }
+  .what-card-image-container {
+    width: 40%;
+    height: 22rem; /* let it stretch with the card */
+    flex: 0 0 40%;
+    aspect-ratio: auto; /* disable aspect-ratio so it can match content height */
+  }
+
+  .what-card-inner {
+    flex-direction: row;
+  }
+}
+
+/* keep your existing max-width tweak if you want */
 @media (min-width: 1024px) {
   .what-card {
     max-width: 65rem;
   }
 }
 
-/* animations */
+/* animations unchanged */
 @keyframes fadeInLeft {
   from {
     opacity: 0;
@@ -208,7 +139,6 @@
     transform: translateX(0);
   }
 }
-
 @keyframes fadeInRight {
   from {
     opacity: 0;
@@ -219,11 +149,9 @@
     transform: translateX(0);
   }
 }
-
 .animate-fade-in-left {
   animation: fadeInLeft 0.9s ease-out forwards;
 }
-
 .animate-fade-in-right {
   animation: fadeInRight 0.9s ease-out forwards 0.15s;
 }
