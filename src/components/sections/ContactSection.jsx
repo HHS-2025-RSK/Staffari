@@ -7,7 +7,7 @@ import ContactTitle from "../ui/ContactTitle";
 import NewsletterSection from "./NewsletterSection";
 
 const BG_URL = "/images/contactus/image.png";
-const CARD_BG_URL = "/images/common/woodplate1.png";
+const CARD_BG_URL = "/images/common/woodplate2.png";
 const M_CARD_BG_URL = "/images/common/woodplate.png";
 const SECTION_BG = "/images/common/bg.png";
 
