@@ -128,9 +128,9 @@ import { ShieldCheck } from "lucide-react";
 import SectionTitle from "../ui/SectionTitle";
 import BulletListPanel from "../ui/BulletListPanel";
 import SideNote from "../ui/SideNote";
-import "./whatCard.css";
+import "./WhatCard.css";
 
-export default function ProblemSection({ whatBullets }) {
+export default function WhatSection({ whatBullets }) {
   return (
     <section id="what" className="what-section">
       <div className="what-wrapper">
