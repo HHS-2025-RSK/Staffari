@@ -117,7 +117,7 @@ export default function HiringProblemSection() {
 
           <span className="block">
             <span className="text-[#0f3d34] font-bold">Staffari</span> brings it
-            all together in one unified ecosystem.
+            all together in one unified ecosystem
           </span>
         </p>
       </Container>

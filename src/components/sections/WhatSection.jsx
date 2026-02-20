@@ -61,46 +61,60 @@ import React from "react";
 import SectionTitle from "../ui/SectionTitle";
 import { ShieldCheck } from "lucide-react";
 import "./WhatCard.css";
+import BulletListPanel from "../ui/BulletListPanel";
 
-export default function WhatSection() {
+export default function WhatSection({ whatBullets }) {
   return (
     <div className="what-card border-4 border-[#402701]">
       <div className="what-card-inner">
-        {/* Left: Image */}
-        <div className="what-card-image-container animate-fade-in-left">
-          <div className="what-card-image-overlay" />
-          <img
-            src="/images/what3.png"
-            alt="Staffari bellhop in jungle setting"
-            className="what-card-image"
-            loading="lazy"
-          />
-        </div>
+        {/* FRONT */}
+        <div className="what-card-front">
+          <div className="what-card-image-container animate-fade-in-left">
+            <div className="what-card-image-overlay" />
+            <img
+              src="/images/what3.png"
+              alt="Staffari bellhop in jungle setting"
+              className="what-card-image"
+              loading="lazy"
+            />
+          </div>
 
-        {/* Right: Text content */}
-        <div className="what-card-content animate-fade-in-right">
-          <SectionTitle
-            title="Hospitality hiring, simplified"
-            desc="Staffari is a hiring platform designed specifically for the hospitality industry."
-          />
-          {/* Matching structured info box (like other sections) */}
-          <div className="mt-6">
-            <div className="flex items-start gap-3 rounded-2xl border border-[#889560]/30 bg-[#f1f1e8] px-5 py-4">
-              <div className="mt-1 text-deepJungleGreen">
-                <ShieldCheck className="h-5 w-5" />
-              </div>
+          <div className="what-card-content animate-fade-in-right">
+            <SectionTitle
+              title="Hospitality hiring, simplified"
+              desc="Staffari is a hiring platform designed specifically for the hospitality industry."
+            />
 
-              <div>
-                <h2 className="font-body text-[18px] font-bold text-deepJungleGreen">
-                  Purpose-built for hospitality
-                </h2>
-                <p className="mt-2 font-body text-[15px] leading-7 font-semibold">
-                  We help hotels, restaurants, and hospitality businesses
-                  connect with relevant, ready-to-work talent through a
-                  streamlined, tech-enabled process.
-                </p>
+            <div className="mt-6">
+              <div className="flex items-start gap-3 rounded-2xl border border-[#889560]/30 bg-[#f1f1e8] px-5 py-4">
+                <div className="mt-1 text-deepJungleGreen">
+                  <ShieldCheck className="h-5 w-5" />
+                </div>
+
+                <div>
+                  <h2 className="font-body text-[18px] font-bold text-deepJungleGreen">
+                    Purpose-built for hospitality
+                  </h2>
+                  <p className="mt-2 font-body text-[15px] leading-7 font-semibold">
+                    We help hotels, restaurants, and hospitality businesses
+                    connect with relevant, ready-to-work talent through a
+                    streamlined, tech-enabled process.
+                  </p>
+                </div>
               </div>
             </div>
+
+            <p className="what-tap-hint">Hover to flip • Tap to flip</p>
+          </div>
+        </div>
+
+        {/* BACK */}
+        <div className="what-card-back">
+          <h2 className="font-display mx-auto font-bold -mt-2 mb-2 text-[22px] text-[#0f3d34]">
+            Everything Staffari can do:
+          </h2>
+          <div className="what-bullet-wrapper">
+            <BulletListPanel items={whatBullets} />
           </div>
         </div>
       </div>

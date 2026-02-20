@@ -28,16 +28,18 @@ export default function Home() {
   // const metaDescription =
   //   "Hiring shouldn’t slow hospitality down. Staffari cuts recruitment friction and costs by connecting you directly with ready-to-work hospitality talent.";
 
+  const whatBullets = useMemo(() => [
+    "AI-Powered Shortlisting",
+    "Industry-Certified Skill Tests",
+    "Verified Talent Pool",
+  ]);
+
   const problemBullets = useMemo(
     () => [
-      // "Slow recruitment agencies",
-      // "High hiring costs",
-      // "Unqualified applicants",
-      // "Operational downtime",
-      "Industry-Certified Skill Tests",
+      // "Industry-Certified Skill Tests",
       "1:1 Hiring Chat",
       "Fast Track Job Posting",
-      "AI-Powered Shortlisting",
+      // "AI-Powered Shortlisting",
       "Verified Talent Pool",
       "Faster Hiring Cycle",
     ],
@@ -105,7 +107,7 @@ export default function Home() {
         <HiringProblemSection />
         <ArcSteps>
           <ArcStep id="what">
-            <WhatSection />
+            <WhatSection whatBullets={whatBullets} />
           </ArcStep>
 
           <ArcStep id="problem">

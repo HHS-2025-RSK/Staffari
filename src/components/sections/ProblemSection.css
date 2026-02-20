@@ -109,6 +109,8 @@
   padding: 1rem 1rem;
   font-size: 0.875rem; /* text-sm */
   line-height: 1.5;
+  height: 100%;
+  min-height: 0;
 }
 
 /* Back side rotates */
@@ -137,6 +139,7 @@
 .problem-bullet-wrapper {
   flex: 1;
   vertical-align: middle;
+  display: flex;
 }
 
 /* Tap hint text */
