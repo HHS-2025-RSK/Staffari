@@ -80,7 +80,7 @@ export default function FooterSection() {
     },
     {
       icon: Linkedin,
-      link: "https://www.linkedin.com/in/staffari-official-40aa8239a/",
+      link: "https://www.linkedin.com/company/staffariofficial/posts/",
     },
     {
       // icon: XIcon, // ← Changed to X
