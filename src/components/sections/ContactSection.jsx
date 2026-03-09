@@ -154,13 +154,12 @@ export default function ContactSection() {
   return (
     <section
       id="contact"
-      className={`relative overflow-hidden transform transition-all duration-700 ease-in-out ${
-        footerVisible
+      className={`relative overflow-hidden transform transition-all duration-700 ease-in-out ${footerVisible
           ? "opacity-0 translate-y-10 pointer-events-none"
           : isVisible
             ? "opacity-100 translate-y-0"
             : "opacity-0 translate-y-20"
-      }`}
+        }`}
     >
       <div
         aria-hidden="true"
@@ -209,7 +208,8 @@ export default function ContactSection() {
     lg:max-h-none
     lg:justify-start
     lg:px-28
-    lg:py-auto
+    lg:pt-28
+    lg:pb-12
     lg:w-[90%]
     lg:bg-transparent
     lg:shadow-none
